@@ -31,7 +31,7 @@ Page({
       key: "userInfo",
       data: JSON.stringify(res.detail.userInfo)
     })
-    wx.navigateTo({
+    wx.switchTab({
       url: '../index/index',
     })
   }

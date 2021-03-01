@@ -1,1 +1,7 @@
-Start
+<i-tabs current="{{ current }}" bindchange="handleChange">
+  <i-tab key="tab1" title="视频"></i-tab>
+  <i-tab key="tab2" title="新闻"></i-tab>
+  <i-tab key="tab3" title="刷题"></i-tab>
+</i-tabs>
+<i-load-more wx:if="{{load}}" />
+<i-load-more wx:else tip="暂无数据" loading="{{ false }}" />

@@ -1,4 +1,4 @@
-// pages/auth/auth.js
+const { $Message } = require('../../dist/base/index');
 Page({
 
   /**
@@ -14,53 +14,25 @@ Page({
   onLoad: function (options) {
 
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  getUserInfo: function (res) {
+    console.log(res)
+    if (res.detail.errMsg == 'getUserInfo:fail auth deny') {
+      $Message({
+        content: '用户取消',
+        type: 'warning'
+      });
+      return;
+    }
+    $Message({
+      content: '授权成功',
+      type: 'warning'
+    });
+    wx.setStorage({
+      key: "userInfo",
+      data: JSON.stringify(res.detail.userInfo)
+    })
+    wx.navigateTo({
+      url: '../index/index',
+    })
   }
 })

@@ -1,2 +1,5 @@
-<!--pages/auth/auth.wxml-->
-<text>pages/auth/auth.wxml</text>
+<view class="img">
+  <image src="../../images/logo.png"></image>
+</view>
+<i-button type="primary" open-type='getUserInfo' bind:getuserinfo="getUserInfo">授权</i-button>
+<i-message id="message" />

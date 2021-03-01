@@ -1,1 +1,13 @@
 /* pages/auth/auth.wxss */
+.img {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+  margin: 160rpx auto;
+}
+
+.img image {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+}

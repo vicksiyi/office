@@ -1,0 +1,44 @@
+<template name="video">
+  <view class="video">
+    <block wx:for="{{data.video}}">
+      <view class="item" style="background: url('{{item.url}}');background-size:contain;">
+        <view class="tag">{{item.tag}}</view>
+        <view class="list">
+          <view class="left">{{item.msg}}</view>
+          <view class="right">{{item.time}}</view>
+        </view>
+      </view>
+    </block>
+  </view>
+  <i-load-more tip="这是我底线" loading="{{ false }}" />
+</template>
+
+<template name="news">
+  <view class="news">
+    <block wx:for="{{data.news}}">
+      <view class="item">
+        <view class="img">
+          <image src="{{item.url}}"></image>
+        </view>
+        <view class="right">
+          <view class="title">{{item.title}}</view>
+          <view class="msg">{{item.good}}赞~{{item.msg}}条评论~{{item.look}}展望</view>
+        </view>
+      </view>
+      <view class="line"></view>
+    </block>
+  </view>
+  <i-load-more tip="这是我底线" loading="{{ false }}" />
+</template>
+
+<template name="eaxm">
+  <view class="eaxm">
+    单选题
+  </view>
+  <view class="eaxm">
+    判断题
+  </view>
+  <view class="eaxm">
+    随机抽取
+  </view>
+</template>

@@ -1,0 +1,5 @@
+@import '../../template/home.wxss';
+
+.content{
+  overflow: scroll;
+}

@@ -1,2 +1,8 @@
-<!--pages/news/news.wxml-->
-<text>pages/news/news.wxml</text>
+<import src="../../wxParse/wxParse.wxml"/> 
+<view class="title-list">
+  <span>{{title}}</span>
+  <view class="msg">{{from}} {{time}}</view>
+</view>
+<view class="wxParse">
+    <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
+</view>

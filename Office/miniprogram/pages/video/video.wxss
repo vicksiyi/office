@@ -1,0 +1,223 @@
+/* pages/video/video.wxss */
+page {
+  background: #fff;
+}
+
+.video {
+  width: 100%;
+  height: 400rpx;
+}
+
+.video video {
+  width: 100%;
+  height: 400rpx;
+}
+
+.detail-title {
+  padding: 20rpx;
+  font-size: 30rpx;
+  box-shadow: 1px 1px 10px #e9eaec;
+}
+
+.detail-title span {
+  padding: 20rpx;
+}
+
+.detail-title .msg {
+  font-size: 25rpx;
+  color: #666;
+}
+
+.click-action {
+  display: flex;
+  flex-direction: row;
+  height: 60rpx;
+  margin-top: 20rpx;
+  width: 100%;
+}
+
+.click-action .item {
+  font-size: 20rpx;
+  display: flex;
+  flex-wrap: wrap;
+  line-height: 60rpx;
+  margin-left: 30rpx;
+  color: #495060;
+}
+
+.click-action .item image {
+  width: 50rpx;
+  height: 50rpx;
+  margin-right: 10rpx;
+}
+
+.complaint {
+  color: #495060;
+  position: absolute;
+  right: 30rpx;
+  color: #495060;
+  font-size: 28rpx;
+  line-height: 60rpx;
+}
+
+page>.msg {
+  width: 90%;
+  padding: 30rpx;
+  font-size: 25rpx;
+  color: #666;
+  margin: auto;
+}
+
+.tag {
+  margin: 20rpx;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tag .item {
+  margin-left: 10rpx;
+}
+
+.send {
+  width: 700rpx;
+  margin: 20rpx auto;
+}
+
+.send image {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+}
+
+.send .item {
+  width: 620rpx;
+  height: 70rpx;
+  float: right;
+  margin-left: 10rpx;
+}
+
+.send input {
+  width: 460rpx;
+  height: 70rpx;
+  border: 1rpx solid #e9eaec;
+  float: left;
+  color: #80848f;
+}
+
+.send button {
+  /* width: 100rpx; */
+  height: 70rpx;
+  background: #2d8cf0;
+  color: #fff;
+  float: right;
+}
+
+input.input {
+  color: #dddee1;
+  font-size: 20rpx;
+  padding: 20rpx;
+}
+
+.line {
+  width: 100%;
+  height: 2rpx;
+  background: #e9eaec;
+}
+
+.content>.msg {
+  background: #fff;
+  width: 100%;
+  padding: 20rpx;
+  display: flex;
+  flex-direction: row;
+}
+
+.content>.msg>.img image {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+}
+
+.content>.msg>.content {
+  width: 670rpx;
+  margin-left: 10rpx;
+}
+
+.content>.msg .content span {
+  color: #1c2438;
+  font-size: 30rpx;
+  font-weight: 500;
+}
+
+.content>.msg .content-msg {
+  font-size: 27rpx;
+  color: #495060;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+
+.content>.msg .content .action-list {
+  display: flex;
+  flex-direction: row;
+  color: #80848f;
+  font-size: 24rpx;
+}
+
+.content>.msg .content .action-list view:first-child {
+  margin-left: 0;
+}
+
+.content>.msg .content .action-list view {
+  margin-left: 15rpx;
+}
+
+.content>.msg .content .action-list .img image {
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.msg-nav {
+  font-size: 28rpx;
+  color: #80848f;
+}
+
+.send-msg {
+  font-size: 28rpx;
+}
+
+.hover-msg {
+  color: #2d8cf0;
+}
+
+.content>.child-msg {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 10rpx;
+}
+
+.content>.child-msg .img image {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 50%;
+}
+
+.content>.child-msg .msg {
+  width: 620rpx;
+  margin-left: 10rpx;
+}
+
+.content>.child-msg .msg span {
+  font-size: 28rpx;
+  font-weight: 500;
+  color: #1c2438;
+}
+
+.content>.child-msg .msg .content {
+  font-size: 26rpx;
+  color: #80848f;
+}
+
+.content>.child-msg .msg .time {
+  font-size: 26rpx;
+  color: #dddee1;
+}

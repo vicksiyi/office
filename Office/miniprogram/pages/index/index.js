@@ -95,5 +95,10 @@ Page({
     this.setData({
       current: detail.key
     });
+  },
+  nav:function(e){
+    wx.navigateTo({
+      url: '../video/video?id=',
+    })
   }
 })

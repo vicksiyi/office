@@ -1,5 +1,7 @@
 {
   "pages": [
+    "pages/news/news",
+    "pages/video/video",
     "pages/index/index",
     "pages/auth/auth",
     "pages/me/me"

@@ -1,0 +1,187 @@
+<view class="video">
+  <video
+    src="https://vd2.bdstatic.com/mda-mc5ezfpydcjixj74/sc/mda-mc5ezfpydcjixj74.mp4?v_from_s=hkapp-haokan-hnb&auth_key=1615017110-0-0-56d09aa1e084914985a34a1b8c9e85a9&bcevod_channel=searchbox_feed&pd=1&pt=3&abtest="></video>
+</view>
+<!-- 信息 -->
+<view class="detail-title">
+  <span>新 概 念 教 学</span>
+  <view class="msg">110.0万播放 ·
+    718弹幕
+    2021-02-25 11:45:11</view>
+</view>
+<!-- 点赞转发分享 -->
+<view class="click-action">
+  <view class="item">
+    <image src="../../images/video/good0.png"></image>
+    6.4万
+  </view>
+  <view class="item">
+    <image src="../../images/video/collection0.png"></image>
+    6.4万
+  </view>
+  <view class="item">
+    <image src="../../images/video/share.png"></image>
+    6.4万
+  </view>
+  <span class="complaint">稿件投诉</span>
+</view>
+<!-- 描述 -->
+<view class="msg">
+  这样我们就实现了文本框的展开/收起效果，当收起的时候显示省略号并隐藏，当展开的时候展示全部文字。
+</view>
+<!-- 标签 -->
+<view class="tag">
+  <block wx:for="{{tag}}">
+    <view class="item">
+      <i-tag class="i-tags" name="{{item}}" wx:if="{{index%3 == 0}}" color="green">
+        {{item}}
+      </i-tag>
+      <i-tag class="i-tags" name="{{item}}" wx:if="{{index%3 == 1}}" color="blue">
+        {{item}}
+      </i-tag>
+      <i-tag class="i-tags" name="{{item}}" wx:if="{{index%3 == 2}}" color="yellow">
+        {{item}}
+      </i-tag>
+    </view>
+  </block>
+</view>
+
+<!-- 评论 -->
+<view class="send">
+  <image src="https://i0.hdslb.com/bfs/face/120b2b8da1cc57a68532da087e594a53c433cde4.jpg@52w_52h.webp"></image>
+  <view class="item">
+    <input type="text" placeholder="发条友善的评论" placeholder-class="input" />
+    <button size="mini">评论</button>
+  </view>
+</view>
+<view class="line"></view>
+<!-- 评论区 -->
+<view class="content">
+  <view class="select">
+    <i-tabs current="{{ current }}" bindchange="handleChange">
+      <i-tab key="tab1" title="按热度排序"></i-tab>
+      <i-tab key="tab2" title="按时间排序"></i-tab>
+    </i-tabs>
+  </view>
+  <view class="msg">
+    <view class="img">
+      <image src="https://i2.hdslb.com/bfs/face/fe28eff09605fda73ccc2c80ba4a47e723cf3d63.png@162w_162h.webp"></image>
+    </view>
+    <view class="content">
+      <span>白小姐的布偶猫</span>
+      <view class="content-msg">
+        好好笑啊三行四列的行列式戳中我笑点了哈哈哈哈哈哈哈哈
+      </view>
+      <view class="action-list">
+        <view>来自IOS</view>
+        <view>2021-03-05 20:51</view>
+        <view class="img">
+          <image src="../../images/video/gal0.png"></image>
+        </view>
+        <view class="img">
+          <image src="../../images/video/br0.png"></image>
+        </view>
+        <view class="send-msg" hover-class="hover-msg">回复</view>
+      </view>
+      <view class="child-msg">
+        <view class="img">
+          <image src="https://i2.hdslb.com/bfs/face/1be1eeca08bed8a45c8d83d3a2dd92aeaf3b5e9d.jpg@52w_52h.webp"></image>
+        </view>
+        <view class="msg">
+          <span>笑皮猪</span>
+          <view class="content">
+            元宵节快乐！也祝汤老师健康幸福！祝汤老师的学生们都能阳光快乐的生活、实现自己的理想、找到自己的价值
+          </view>
+          <view class="time">2021-02-26 16:21</view>
+        </view>
+      </view>
+      <view class="child-msg">
+        <view class="img">
+          <image src="https://i1.hdslb.com/bfs/face/ff492bc130e9c3e0a13fac1065b3e4b50335e3e9.jpg@52w_52h.webp"></image>
+        </view>
+        <view class="msg">
+          <span>Kcy丨</span>
+          <view class="content">
+            捉！（虽然没考高数）
+          </view>
+          <view class="time">2021-02-26 16:21</view>
+        </view>
+      </view>
+      <view class="child-msg">
+        <view class="img">
+          <image src="https://i2.hdslb.com/bfs/face/b82e902fef6891de35cebdc374d83ab22cdd7b2f.gif"></image>
+        </view>
+        <view class="msg">
+          <span>-nines97-</span>
+          <view class="content">
+            punchline
+          </view>
+          <view class="time">2021-02-26 16:21</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="line"></view>
+  <view class="msg">
+    <view class="img">
+      <image src="https://i1.hdslb.com/bfs/face/3ae273a03744f6a650b0698ecd119fc16f2c4fb3.jpg@96w_96h_1c.webp"></image>
+    </view>
+    <view class="content">
+      <span>宝藏小可爱</span>
+      <view class="content-msg">
+        我说这个口音怎么这么熟悉 果然是南京的老师[吃瓜]
+      </view>
+      <view class="action-list">
+        <view>来自安卓</view>
+        <view>2021-03-05 20:51</view>
+        <view class="img">
+          <image src="../../images/video/gal0.png"></image>
+        </view>
+        <view class="img">
+          <image src="../../images/video/br0.png"></image>
+        </view>
+        <view></view>
+        <view class="send-msg" hover-class="hover-msg">回复</view>
+      </view>
+    </view>
+  </view>
+  <view class="line"></view>
+  <view class="msg">
+    <view class="img">
+      <image src="https://i1.hdslb.com/bfs/face/71aa90710c755aa3887300550b79c3687a8bdc4f.jpg@96w_96h_1c.webp"></image>
+    </view>
+    <view class="content">
+      <span>山与大哥</span>
+      <view class="content-msg">
+        我这就去学习 求求了你这叫懂吗
+        我们当年读大学
+        不是这么读的
+
+        α1懂吗？
+        β1懂吗？
+        一个学生问我：老师
+        懂吗？懂吗？
+        我一看，行列式
+        三行四列
+        把我吓死啦
+
+        好多孩子不服
+        说这个都不懂
+        说这个行列式
+        他不三不四
+      </view>
+      <view class="action-list">
+        <view>来自IOS</view>
+        <view>2021-03-05 20:51</view>
+        <view class="img">
+          <image src="../../images/video/gal0.png"></image>
+        </view>
+        <view class="img">
+          <image src="../../images/video/br0.png"></image>
+        </view>
+        <view></view>
+        <view class="send-msg" hover-class="hover-msg">回复</view>
+      </view>
+    </view>
+  </view>
+</view>

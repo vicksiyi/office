@@ -8,7 +8,7 @@
   height: 340rpx;
   border-radius: 20rpx;
   margin: 16rpx;
-  z-index: -1;
+  /* z-index: -1; */
 }
 
 .video .item .tag {

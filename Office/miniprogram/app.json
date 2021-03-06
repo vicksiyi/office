@@ -1,10 +1,13 @@
 {
   "pages": [
-    "pages/news/news",
     "pages/video/video",
+    "pages/news/news",
+    "pages/radio/radio",
     "pages/index/index",
     "pages/auth/auth",
-    "pages/me/me"
+    "pages/me/me",
+    "pages/multiSelect/multiSelect",
+    "pages/random/random"
   ],
   "window": {
     "backgroundColor": "#2d8cf0",

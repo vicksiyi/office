@@ -33,12 +33,12 @@
 
 <template name="eaxm">
   <view class="eaxm">
-    单选题
+    <navigator url="../radio/radio">判断题</navigator>
   </view>
   <view class="eaxm">
-    判断题
+    <navigator url="../radio/radio">选择题</navigator>
   </view>
   <view class="eaxm">
-    随机抽取
+    <navigator url="../radio/radio">随机抽取</navigator>
   </view>
 </template>

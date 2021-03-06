@@ -1,0 +1,57 @@
+swiper {
+  width: 100%;
+  height: 600rpx;
+}
+
+.all {
+  display: inline-block;
+  width: 100%;
+}
+
+.select {
+  width: 650rpx;
+  margin: 50rpx;
+}
+
+.select span {
+  font-size: 40rpx;
+  color: #1c2438;
+  white-space: pre-wrap;
+}
+
+page {
+  background: #fff;
+}
+
+button {
+  background: #2d8cf0;
+  color: #fff;
+}
+
+.all .radio {
+  width: 650rpx;
+  margin: 20rpx auto;
+}
+
+.all .radio .item {
+  margin-top: 20rpx;
+}
+
+.view-radio {
+  width: 720rpx;
+  margin-left: 15rpx;
+  display: flex;
+  flex-wrap: wrap;
+  position: absolute;
+  bottom: 0;
+}
+
+.view-radio .item {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 60rpx;
+  margin: 20rpx;
+  color: #fff;
+}

@@ -1,0 +1,31 @@
+<swiper current="{{num}}" bindchange="swiperChange">
+  <block wx:for="{{title}}">
+    <swiper-item>
+      <view class="all">
+        <view class="select">
+          <span>{{index+1}}、{{item.title}}</span>
+        </view>
+        <view class="radio">
+          <radio-group data-index="{{index}}" bindchange="radioChange">
+            <label wx:for="{{select}}" wx:for-index="idx">
+              <view class="item">
+                <radio color="#2d8cf0" value="{{idx}}" />{{item}}</view>
+            </label>
+          </radio-group>
+        </view>
+        <button wx:if="{{index == 19}}" bindtap="submit">提交</button>
+        <button wx:else bindtap="next">下一题</button>
+      </view>
+    </swiper-item>
+  </block>
+</swiper>
+
+<view class="view-radio">
+  <block wx:for="{{selected}}">
+    <view class="item" bindtap="selectNum" data-Id="{{index}}" wx:if="{{index==num}}" style="background:#2d8cf0;">
+      {{index+1}}</view>
+    <view class="item" bindtap="selectNum" data-Id="{{index}}" wx:else
+      style="background:{{item == -1?'#dddee1':'#19be6b'}};">{{index+1}}
+    </view>
+  </block>
+</view>

@@ -1,4 +1,4 @@
-// pages/random/random.js
+// pages/setting/setting.js
 Page({
 
   /**

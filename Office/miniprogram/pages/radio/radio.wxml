@@ -29,3 +29,4 @@
     </view>
   </block>
 </view>
+<i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>

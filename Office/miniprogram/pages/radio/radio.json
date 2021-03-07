@@ -2,7 +2,8 @@
   "usingComponents": {
     "i-radio-group": "../../dist/radio-group/index",
     "i-radio": "../../dist/radio/index",
-    "i-button": "../../dist/button/index"
+    "i-button": "../../dist/button/index",
+    "i-spin": "../../dist/spin/index"
   },
   "navigationBarTitleText": "判断题"
 }

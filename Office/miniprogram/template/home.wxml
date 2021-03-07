@@ -36,9 +36,6 @@
     <navigator url="../radio/radio">判断题</navigator>
   </view>
   <view class="eaxm">
-    <navigator url="../radio/radio">选择题</navigator>
-  </view>
-  <view class="eaxm">
-    <navigator url="../radio/radio">随机抽取</navigator>
+    <navigator url="../multiSelect/multiSelect">选择题</navigator>
   </view>
 </template>

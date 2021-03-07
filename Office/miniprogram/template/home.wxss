@@ -68,12 +68,18 @@
   margin: auto;
 }
 
-.news .item .img image {
+/* .news .item .img {
   width: 200rpx;
   height: 200rpx;
+} */
+
+.news .item .img image {
+  width: 190rpx;
+  height: 190rpx;
 }
 
 .news .item .right {
+  width: 520rpx;
   padding: 0 20rpx 0 20rpx;
   font-size: 30rpx;
   color: #495060;

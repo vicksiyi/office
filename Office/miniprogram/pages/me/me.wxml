@@ -1,2 +1,21 @@
-<!--pages/me/me.wxml-->
-<text>pages/me/me.wxml</text>
+<view class="card">
+  <view class="img">
+    <open-data type="userAvatarUrl"></open-data>
+  </view>
+  <view class="name">
+    Hi;<open-data type="userNickName"></open-data>
+  </view>
+</view>
+
+<view class="card-list">
+  <block wx:for="{{cardList}}">
+    <view bindtap="nav" data-Id="{{index}}" class="item">
+      <view class="img">
+        <image src="{{item.logo}}"></image>
+      </view>
+      <view class="title">
+        {{item.title}}
+      </view>
+    </view>
+  </block>
+</view>

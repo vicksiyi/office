@@ -1,11 +1,40 @@
-// pages/me/me.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    cardList: [
+      {
+        'title': '个人信息',
+        'logo': '../../images/me/person.png',
+        'nav': '../information/information'
+      },
+      {
+        'title': '我的关注',
+        'logo': '../../images/me/focus.png',
+        'nav': '../focus/focus'
+      },
+      {
+        'title': '我的收藏',
+        'logo': '../../images/me/collection.png',
+        'nav': '../collection/collection'
+      },
+      {
+        'title': '我的视频',
+        'logo': '../../images/me/video.png',
+        'nav': '../myvideo/myvideo'
+      },
+      {
+        'title': '反馈/客服',
+        'logo': '../../images/me/customerService.png',
+        'nav': '../customerService/customerService'
+      }, {
+        'title': '设置',
+        'logo': '../../images/me/setting.png',
+        'nav': '../setting/setting'
+      }
+    ]
   },
 
   /**
@@ -14,53 +43,10 @@ Page({
   onLoad: function (options) {
 
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  nav: function (res) {
+    console.log(this.data.cardList[res.currentTarget.dataset.id].nav)
+    wx.navigateTo({
+      url: `${this.data.cardList[res.currentTarget.dataset.id].nav}`
+    })
   }
 })

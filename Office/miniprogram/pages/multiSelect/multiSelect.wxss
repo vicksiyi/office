@@ -1,1 +1,91 @@
-/* pages/multiSelect/multiSelect.wxss */
+swiper {
+  width: 100%;
+}
+
+.all {
+  display: inline-block;
+  width: 100%;
+}
+
+.select {
+  width: 650rpx;
+  margin: 50rpx;
+}
+
+.select span {
+  font-size: 40rpx;
+  color: #1c2438;
+  white-space: pre-wrap;
+}
+
+page {
+  background: #fff;
+}
+
+button {
+  background: #2d8cf0;
+  color: #fff;
+}
+
+.all .radio {
+  width: 650rpx;
+  margin: 20rpx auto;
+}
+
+.all .radio .item {
+  margin-top: 20rpx;
+}
+
+.view-radio {
+  width: 600rpx;
+  margin-left: 15rpx;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 300rpx auto;
+  background: #fff;
+  border-radius: 20rpx;
+  animation: mymove 0.5s;
+}
+
+@keyframes mymove {
+  from {
+    width: 0rpx;
+  }
+
+  to {
+    width: 600rpx;
+  }
+}
+
+.view-radio .item {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 60rpx;
+  margin: 20rpx;
+  color: #fff;
+}
+
+.bg-frame {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(17, 17, 17, 0.6);
+}
+
+.click {
+  width: 80rpx;
+  height: 80rpx;
+  position: fixed;
+  bottom: 100rpx;
+  right: 40rpx;
+  border: 1rpx solid #e9eaec;
+  border-radius: 50%;
+}
+
+.click image {
+  width: 60rpx;
+  height: 60rpx;
+  margin: 10rpx;
+}

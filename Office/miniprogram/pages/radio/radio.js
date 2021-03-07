@@ -10,7 +10,8 @@ Page({
     current: '',
     position: 'left',
     selected: [],
-    num: 0
+    num: 0,
+    spinShow: true
   },
 
   /**
@@ -23,13 +24,17 @@ Page({
       selected: selected_temp
     })
     const db = wx.cloud.database()
-    db.collection('radio').get({
-      success: function (res) {
+    db.collection('radio')
+      .aggregate()
+      .sample({
+        size: 20
+      })
+      .end().then(res => {
         _this.setData({
-          title: res.data
+          title: res.list,
+          spinShow: false
         })
-      }
-    })
+      })
   },
   radioChange: function (e) {
     let selected = `selected[${e.currentTarget.dataset.index}]`

@@ -1,3 +1,4 @@
+@import "/wxParse/wxParse.wxss";
 .title-list{
   padding: 20rpx;
 }

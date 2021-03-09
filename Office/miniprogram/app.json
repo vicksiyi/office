@@ -1,18 +1,22 @@
 {
   "pages": [
-    "pages/me/me",
     "pages/index/index",
+    "pages/answerLog/answerLog",
+    "pages/me/me",
+    "pages/setting/setting",
+    "pages/customerService/customerService",
+    "pages/myvideo/myvideo",
+    "pages/detail/detail",
+    "pages/collection/collection",
+    "pages/focus/focus",
+    "pages/information/information",
+    "pages/phone/phone",
+    "pages/email/email",
+    "pages/auth/auth",
+    "pages/video/video",
     "pages/radio/radio",
     "pages/multiSelect/multiSelect",
-    "pages/video/video",
-    "pages/news/news",
-    "pages/information/information",
-    "pages/focus/focus",
-    "pages/collection/collection",
-    "pages/myvideo/myvideo",
-    "pages/customerService/customerService",
-    "pages/setting/setting",
-    "pages/auth/auth"
+    "pages/news/news"
   ],
   "window": {
     "backgroundColor": "#2d8cf0",

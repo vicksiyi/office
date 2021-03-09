@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "i-panel": "../../dist/panel/index"
+  },
+  "navigationBarTitleText": "反馈"
 }

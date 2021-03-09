@@ -16,15 +16,17 @@
 <template name="news">
   <view class="news">
     <block wx:for="{{data.news}}">
-      <view class="item">
-        <view class="img">
-          <image src="{{item.url}}"></image>
+      <navigator url="../../pages/news/news">
+        <view class="item">
+          <view class="img">
+            <image src="{{item.url}}"></image>
+          </view>
+          <view class="right">
+            <view class="title">{{item.title}}</view>
+            <view class="msg">{{item.good}}赞~{{item.msg}}条评论~{{item.look}}展望</view>
+          </view>
         </view>
-        <view class="right">
-          <view class="title">{{item.title}}</view>
-          <view class="msg">{{item.good}}赞~{{item.msg}}条评论~{{item.look}}展望</view>
-        </view>
-      </view>
+      </navigator>
       <view class="line"></view>
     </block>
   </view>

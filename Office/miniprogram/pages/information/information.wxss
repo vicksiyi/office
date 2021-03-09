@@ -1,1 +1,33 @@
-/* pages/information/information.wxss */
+.avatar {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 30rpx auto;
+}
+
+.avatar .font {
+  color: #fff;
+  width: 100%;
+  height: 50rpx;
+  background: #fff;
+  margin-top: 110rpx;
+  background-image: linear-gradient(#80848f, #bbbec4);
+  text-align: center;
+  font-family: serif;
+}
+
+.btn {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 40rpx;
+}
+
+/* .btn .item{
+  width: 300rpx;
+  border-radius: 20rpx;
+} */
+button {
+  background: #2d8cf0;
+  color: #fff;
+}

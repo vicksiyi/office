@@ -1,9 +1,22 @@
+<view class="header">
+  <view class="detail">
+    <view class="img">
+      <image src="https://i1.hdslb.com/bfs/face/e78bb0e514126e06a35b16ca382b4efe0b214af9.jpg@56w_57h_1c_100q.webp">
+      </image>
+    </view>
+    <view class="title">
+      <view class="name">陈庭威</view>
+      <view class="role">热血青年 | 热血小伙子</view>
+    </view>
+  </view>
+  <view class="line"></view>
+  <view class="describe">
+    本人性格热情开朗，待人友好，为人诚实谦虚。本人性格热情开朗，待人友好，为人诚实谦虚。本人性格热情开朗，待人友好，为人诚实谦虚。本人性格热情开朗，待人友好，为人诚实谦虚。本人性格热情开朗，待人友好，为人诚实谦虚。本人性格热情开朗，待人友好，为人诚实谦虚。本人性格热情开朗，待人友好，为人诚实谦虚。本人性格热情开朗，待人友好，为人诚实谦虚。
+  </view>
+</view>
 <!-- 正文 -->
-<view class="content">
+<view class="content" style="height:{{contentHeight - 15}}px;">
   <view class="item">
-    <view class="close" bindtap="delete">
-      <image src="../../images/close.png"></image>
-    </view>
     <view class="img">
       <image src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3485581334,1966507772&fm=11&gp=0.jpg">
       </image>
@@ -11,9 +24,6 @@
     <view class="title">Office全套教程</view>
   </view>
   <view class="item">
-    <view class="close">
-      <image src="../../images/close.png"></image>
-    </view>
     <view class="img">
       <image src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3485581334,1966507772&fm=11&gp=0.jpg">
       </image>
@@ -21,9 +31,6 @@
     <view class="title">Office全套教程</view>
   </view>
   <view class="item">
-    <view class="close">
-      <image src="../../images/close.png"></image>
-    </view>
     <view class="img">
       <image src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3485581334,1966507772&fm=11&gp=0.jpg">
       </image>
@@ -31,9 +38,6 @@
     <view class="title">Office全套教程</view>
   </view>
   <view class="item">
-    <view class="close">
-      <image src="../../images/close.png"></image>
-    </view>
     <view class="img">
       <image src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3485581334,1966507772&fm=11&gp=0.jpg">
       </image>
@@ -41,9 +45,6 @@
     <view class="title">Office全套教程</view>
   </view>
   <view class="item">
-    <view class="close">
-      <image src="../../images/close.png"></image>
-    </view>
     <view class="img">
       <image src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3485581334,1966507772&fm=11&gp=0.jpg">
       </image>
@@ -51,9 +52,6 @@
     <view class="title">Office全套教程</view>
   </view>
   <view class="item">
-    <view class="close">
-      <image src="../../images/close.png"></image>
-    </view>
     <view class="img">
       <image src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3485581334,1966507772&fm=11&gp=0.jpg">
       </image>
@@ -61,9 +59,6 @@
     <view class="title">Office全套教程</view>
   </view>
   <view class="item">
-    <view class="close">
-      <image src="../../images/close.png"></image>
-    </view>
     <view class="img">
       <image src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3485581334,1966507772&fm=11&gp=0.jpg">
       </image>
@@ -71,9 +66,6 @@
     <view class="title">Office全套教程</view>
   </view>
   <view class="item">
-    <view class="close">
-      <image src="../../images/close.png"></image>
-    </view>
     <view class="img">
       <image src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3485581334,1966507772&fm=11&gp=0.jpg">
       </image>
@@ -81,9 +73,6 @@
     <view class="title">Office全套教程</view>
   </view>
   <view class="item">
-    <view class="close">
-      <image src="../../images/close.png"></image>
-    </view>
     <view class="img">
       <image src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3485581334,1966507772&fm=11&gp=0.jpg">
       </image>
@@ -91,9 +80,6 @@
     <view class="title">Office全套教程</view>
   </view>
   <view class="item">
-    <view class="close">
-      <image src="../../images/close.png"></image>
-    </view>
     <view class="img">
       <image src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3485581334,1966507772&fm=11&gp=0.jpg">
       </image>
@@ -101,29 +87,6 @@
     <view class="title">Office全套教程</view>
   </view>
   <view class="item">
-    <view class="close">
-      <image src="../../images/close.png"></image>
-    </view>
-    <view class="img">
-      <image src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3485581334,1966507772&fm=11&gp=0.jpg">
-      </image>
-    </view>
-    <view class="title">Office全套教程</view>
-  </view>
-  <view class="item">
-    <view class="close">
-      <image src="../../images/close.png"></image>
-    </view>
-    <view class="img">
-      <image src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3485581334,1966507772&fm=11&gp=0.jpg">
-      </image>
-    </view>
-    <view class="title">Office全套教程</view>
-  </view>
-  <view class="item">
-    <view class="close">
-      <image src="../../images/close.png"></image>
-    </view>
     <view class="img">
       <image src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3485581334,1966507772&fm=11&gp=0.jpg">
       </image>
@@ -131,8 +94,3 @@
     <view class="title">Office全套教程</view>
   </view>
 </view>
-<i-modal title="删除确认" visible="{{ visible5 }}" actions="{{ actions5 }}" bind:click="handleClick5">
-    <view>删除后无法恢复哦</view>
-</i-modal>
-
-<i-message id="message" />

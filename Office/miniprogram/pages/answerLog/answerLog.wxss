@@ -1,0 +1,27 @@
+.answer .item {
+  width: 700rpx;
+  box-shadow: 1rpx 5rpx 10rpx #e9eaec;
+  height: 100rpx;
+  display: flex;
+  flex-direction: row;
+  line-height: 100rpx;
+  margin: 20rpx auto;
+}
+
+.answer .item .tag {
+  margin-left: 20rpx;
+}
+
+.answer .item .num {
+  width: 200rpx;
+  margin-left: 30rpx;
+  color: #ff9900;
+  font-weight: 700;
+  font-size: 40rpx;
+}
+
+.answer .item .time {
+  font-size: 30rpx;
+  color: #495060;
+  margin-left: 30rpx;
+}

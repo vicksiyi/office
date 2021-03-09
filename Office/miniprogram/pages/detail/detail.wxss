@@ -1,0 +1,96 @@
+.header {
+  /* height: 400rpx; */
+  width: 100%;
+  background: #2d8cf0;
+}
+
+.header .detail {
+  display: flex;
+  flex-direction: row;
+  width: 600rpx;
+  margin: auto;
+  padding-top: 30rpx;
+}
+
+.header .detail .img image {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+}
+
+.header .detail .title {
+  width: 420rpx;
+  margin-left: 20rpx;
+  color: #fff;
+}
+
+.header .detail .title .name {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 38rpx;
+  line-height: 100rpx;
+  height: 100rpx;
+}
+
+.header .detail .title .role {
+  padding-top: 20rpx;
+  height: 60rpx;
+  font-size: 26rpx;
+}
+
+.header .line {
+  width: 600rpx;
+  height: 1rpx;
+  background: #f8f8f9;
+  margin: auto;
+}
+
+.header .describe {
+  max-height: 140rpx;
+  width: 600rpx;
+  margin: 20rpx auto;
+  font-size: 25rpx;
+  color: #fff;
+  overflow: scroll;
+  text-indent: 2em;
+  padding-bottom: 30rpx;
+}
+
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  overflow: scroll;
+}
+
+.content .item {
+  width: 300rpx;
+  height: 240rpx;
+  background: #fff;
+  margin: 50rpx 0 0 50rpx;
+  border-radius: 10rpx;
+}
+
+.content .item .img {
+  width: 280rpx;
+  height: 160rpx;
+  margin: 10rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+
+.content .item .img image {
+  width: 280rpx;
+  height: 160rpx;
+}
+
+.content .item .title {
+  font-size: 28rpx;
+  color: #495060;
+  height: 60rpx;
+  line-height: 60rpx;
+  padding-left: 10rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

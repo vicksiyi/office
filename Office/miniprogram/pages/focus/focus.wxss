@@ -1,1 +1,34 @@
-/* pages/focus/focus.wxss */
+.focus .item {
+  display: flex;
+  flex-direction: row;
+  width: 700rpx;
+  margin: 20rpx auto;
+  box-shadow: 1rpx 1rpx 10rpx #dddee1;
+}
+
+.focus .item .img image {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 20rpx;
+  margin: 10rpx;
+}
+
+.focus .item .name {
+  width: 400rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  padding-left: 20rpx;
+  font-family: cursive;
+  font-size: 36rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 500;
+  color: #495060;
+}
+
+.focus .item .btn {
+  /* line-height: 100rpx; */
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+}

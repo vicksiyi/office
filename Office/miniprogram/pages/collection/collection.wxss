@@ -1,1 +1,50 @@
-/* pages/collection/collection.wxss */
+.content {
+  display: flex;
+  flex-wrap: wrap;
+  overflow: scroll;
+}
+
+.content .close image {
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.content .item {
+  width: 300rpx;
+  height: 240rpx;
+  background: #fff;
+  margin: 50rpx 0 0 50rpx;
+  border-radius: 10rpx;
+  overflow: visible;
+  position: relative;
+}
+
+.content .close {
+  position: absolute;
+  top: -20rpx;
+  right: -12rpx;
+}
+
+.content .item .img {
+  width: 280rpx;
+  height: 160rpx;
+  margin: 10rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+}
+
+.content .item .img image {
+  width: 280rpx;
+  height: 160rpx;
+}
+
+.content .item .title {
+  font-size: 28rpx;
+  color: #495060;
+  height: 60rpx;
+  line-height: 60rpx;
+  padding-left: 10rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

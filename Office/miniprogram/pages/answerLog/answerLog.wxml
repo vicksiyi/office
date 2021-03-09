@@ -1,0 +1,41 @@
+<view class="answer">
+  <view class="item">
+    <view class="tag">
+      <i-tag class="i-tags" name="标签一" color="blue">
+        单选
+      </i-tag>
+    </view>
+    <view class="num">
+      99
+    </view>
+    <view class="time">
+      2020-03-09 11:11:00
+    </view>
+  </view>
+  <view class="item">
+    <view class="tag">
+      <i-tag class="i-tags" name="标签一" color="blue">
+        单选
+      </i-tag>
+    </view>
+    <view class="num">
+      99
+    </view>
+    <view class="time">
+      2020-03-09 11:11:00
+    </view>
+  </view>
+  <view class="item">
+    <view class="tag">
+      <i-tag class="i-tags" name="标签一" color="green">
+        判断
+      </i-tag>
+    </view>
+    <view class="num">
+      64
+    </view>
+    <view class="time">
+      2020-03-09 11:11:00
+    </view>
+  </view>
+</view>

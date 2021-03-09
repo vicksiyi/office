@@ -1,0 +1,16 @@
+<view class="frame">
+  <view class="title">手机验证</view>
+  <i-panel title="表单">
+    <i-input value="{{ value1 }}" title="手机号" placeholder="手机" />
+    <view class="btn">
+      <view class="inp">
+        <i-input value="{{ value12 }}" placeholder="验证码" />
+      </view>
+      <view class="btn-mini">
+        <button style="background:{{disabled ? '#bbbec4':'#2d8cf0'}};color:#fff;" disabled="{{disabled}}" bindtap="send"
+          size="mini">{{time == 60? '发送':time}}</button>
+      </view>
+    </view>
+    <button bindtap="submit" style="background:#2d8cf0;color:#fff;margin-top:30rpx;">确定验证</button>
+  </i-panel>
+</view>

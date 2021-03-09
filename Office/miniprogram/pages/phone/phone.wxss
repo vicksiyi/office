@@ -1,0 +1,27 @@
+.frame {
+  width: 500rpx;
+  padding: 20rpx;
+  background: #fff;
+  margin: 240rpx auto;
+  font-family: cursive;
+}
+
+.frame>.title {
+  font-size: 50rpx;
+  text-align: center;
+}
+
+.frame .btn {
+  display: flex;
+  flex-direction: row;
+  height: 90rpx;
+}
+
+.frame .btn .btn-mini {
+  margin-top: 16rpx;
+  font-size: 25rpx;
+}
+
+page {
+  background: #f8f8f9;
+}

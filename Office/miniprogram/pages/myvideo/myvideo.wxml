@@ -1,2 +1,138 @@
-<!--pages/myvideo/myvideo.wxml-->
-<text>pages/myvideo/myvideo.wxml</text>
+<!-- 正文 -->
+<view class="content">
+  <view class="item">
+    <view class="close" bindtap="delete">
+      <image src="../../images/close.png"></image>
+    </view>
+    <view class="img">
+      <image src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3485581334,1966507772&fm=11&gp=0.jpg">
+      </image>
+    </view>
+    <view class="title">Office全套教程</view>
+  </view>
+  <view class="item">
+    <view class="close">
+      <image src="../../images/close.png"></image>
+    </view>
+    <view class="img">
+      <image src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3485581334,1966507772&fm=11&gp=0.jpg">
+      </image>
+    </view>
+    <view class="title">Office全套教程</view>
+  </view>
+  <view class="item">
+    <view class="close">
+      <image src="../../images/close.png"></image>
+    </view>
+    <view class="img">
+      <image src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3485581334,1966507772&fm=11&gp=0.jpg">
+      </image>
+    </view>
+    <view class="title">Office全套教程</view>
+  </view>
+  <view class="item">
+    <view class="close">
+      <image src="../../images/close.png"></image>
+    </view>
+    <view class="img">
+      <image src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3485581334,1966507772&fm=11&gp=0.jpg">
+      </image>
+    </view>
+    <view class="title">Office全套教程</view>
+  </view>
+  <view class="item">
+    <view class="close">
+      <image src="../../images/close.png"></image>
+    </view>
+    <view class="img">
+      <image src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3485581334,1966507772&fm=11&gp=0.jpg">
+      </image>
+    </view>
+    <view class="title">Office全套教程</view>
+  </view>
+  <view class="item">
+    <view class="close">
+      <image src="../../images/close.png"></image>
+    </view>
+    <view class="img">
+      <image src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3485581334,1966507772&fm=11&gp=0.jpg">
+      </image>
+    </view>
+    <view class="title">Office全套教程</view>
+  </view>
+  <view class="item">
+    <view class="close">
+      <image src="../../images/close.png"></image>
+    </view>
+    <view class="img">
+      <image src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3485581334,1966507772&fm=11&gp=0.jpg">
+      </image>
+    </view>
+    <view class="title">Office全套教程</view>
+  </view>
+  <view class="item">
+    <view class="close">
+      <image src="../../images/close.png"></image>
+    </view>
+    <view class="img">
+      <image src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3485581334,1966507772&fm=11&gp=0.jpg">
+      </image>
+    </view>
+    <view class="title">Office全套教程</view>
+  </view>
+  <view class="item">
+    <view class="close">
+      <image src="../../images/close.png"></image>
+    </view>
+    <view class="img">
+      <image src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3485581334,1966507772&fm=11&gp=0.jpg">
+      </image>
+    </view>
+    <view class="title">Office全套教程</view>
+  </view>
+  <view class="item">
+    <view class="close">
+      <image src="../../images/close.png"></image>
+    </view>
+    <view class="img">
+      <image src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3485581334,1966507772&fm=11&gp=0.jpg">
+      </image>
+    </view>
+    <view class="title">Office全套教程</view>
+  </view>
+  <view class="item">
+    <view class="close">
+      <image src="../../images/close.png"></image>
+    </view>
+    <view class="img">
+      <image src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3485581334,1966507772&fm=11&gp=0.jpg">
+      </image>
+    </view>
+    <view class="title">Office全套教程</view>
+  </view>
+  <view class="item">
+    <view class="close">
+      <image src="../../images/close.png"></image>
+    </view>
+    <view class="img">
+      <image src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3485581334,1966507772&fm=11&gp=0.jpg">
+      </image>
+    </view>
+    <view class="title">Office全套教程</view>
+  </view>
+  <view class="item">
+    <view class="close">
+      <image src="../../images/close.png"></image>
+    </view>
+    <view class="img">
+      <image src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3485581334,1966507772&fm=11&gp=0.jpg">
+      </image>
+    </view>
+    <view class="title">Office全套教程</view>
+  </view>
+</view>
+<i-modal title="删除确认" visible="{{ visible5 }}" actions="{{ actions5 }}" bind:click="handleClick5">
+    <view>删除后无法恢复哦</view>
+</i-modal>
+
+<i-message id="message" />

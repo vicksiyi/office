@@ -1,7 +1,7 @@
 .card {
   width: 600rpx;
   /* background: #2d8cf0; */
-  margin: 100rpx auto;
+  margin: 10rpx auto;
   /* border-radius: 20rpx; */
   /* box-shadow: 1rpx 5rpx 20rpx #495060; */
 }

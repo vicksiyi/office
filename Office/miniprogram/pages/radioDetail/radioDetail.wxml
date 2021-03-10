@@ -1,0 +1,53 @@
+<view class="tips" wx:if="{{isTips}}">
+  <i-notice-bar icon="systemprompt" bind:close="closeBar" loop closable>
+    双击题目可以添加到专题集
+  </i-notice-bar>
+</view>
+<view class="detail">
+  <view class="item" bindtap="doubleClick">
+    <view class="item-row">
+      <view class="title">题目</view>
+      <view class="msg">
+        ，会出现构建基块框架。在文档中单击构件基块库中已有的文档部件，会出现构建基块框架。在文档中单击构件基块库中已有的文档部件，会出现构建基块框架。在文档中单击构件基块库中已有的文档部件，会出现构建基块框架。</view>
+    </view>
+    <view class="item-row">
+      <view class="title">所选答案</view>
+      <view class="msg" style="color:#ed3f14;">错误</view>
+    </view>
+    <view class="item-row">
+      <view class="title">正确答案</view>
+      <view class="msg">正确</view>
+    </view>
+  </view>
+  <view class="item">
+    <view class="item-row">
+      <view class="title">题目</view>
+      <view class="msg">
+        ，会出现构建基块框架。在文档中单击构件基块库中已有的文档部件，会出现构建基块框架。在文档中单击构件基块库中已有的文档部件，会出现构建基块框架。在文档中单击构件基块库中已有的文档部件，会出现构建基块框架。</view>
+    </view>
+    <view class="item-row">
+      <view class="title">所选答案</view>
+      <view class="msg" style="color:#19be6b;">正确</view>
+    </view>
+    <view class="item-row">
+      <view class="title">正确答案</view>
+      <view class="msg">正确</view>
+    </view>
+  </view>
+  <view class="item">
+    <view class="item-row">
+      <view class="title">题目</view>
+      <view class="msg">
+        ，会出现构建基块框架。在文档中单击构件基块库中已有的文档部件，会出现构建基块框架。在文档中单击构件基块库中已有的文档部件，会出现构建基块框架。在文档中单击构件基块库中已有的文档部件，会出现构建基块框架。</view>
+    </view>
+    <view class="item-row">
+      <view class="title">所选答案</view>
+      <view class="msg">错误</view>
+    </view>
+    <view class="item-row">
+      <view class="title">正确答案</view>
+      <view class="msg">正确</view>
+    </view>
+  </view>
+</view>
+<i-message id="message" />

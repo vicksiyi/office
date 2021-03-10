@@ -25,9 +25,16 @@ Page({
   onLoad: function (options) {
 
   },
-  inputText: function (e) { //监听输入，实时改变已输入字数
-    let value = e.detail.value;//获取textarea的内容，
-    let len = value.length;//获取textarea的内容长度
+  inputText: function (e) {
+    let _this = this;
+    let value = e.detail.value;
+    let len = value.length;
+    if (len > this.data.maxNumber) {
+      _this.setData({
+        'number': this.data.maxNumber
+      })
+      return;
+    }
     this.setData({
       'number': len
     })

@@ -26,6 +26,11 @@ Page({
         'nav': '../myvideo/myvideo'
       },
       {
+        'title': '错题集',
+        'logo': '../../images/me/errorCollection.png',
+        'nav': '../errorCollection/errorCollection'
+      },
+      {
         'title': '反馈/客服',
         'logo': '../../images/me/customerService.png',
         'nav': '../customerService/customerService'

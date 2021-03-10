@@ -1,12 +1,14 @@
 <view class="focus">
-  <view class="item">
-    <view class="img" bindtap="nav">
-      <image src="https://i1.hdslb.com/bfs/face/e78bb0e514126e06a35b16ca382b4efe0b214af9.jpg@56w_57h_1c_100q.webp">
-      </image>
+  <block wx:for="{{focus}}">
+    <view class="item">
+      <view class="img" bindtap="nav">
+        <image src="https://i1.hdslb.com/bfs/face/e78bb0e514126e06a35b16ca382b4efe0b214af9.jpg@56w_57h_1c_100q.webp">
+        </image>
+      </view>
+      <view class="name" bindtap="nav">小微小微小微小微小微小微小微小微</view>
+      <view class="btn" bindtap="clearFocus" data-Id="{{index}}">
+        <button style="background:#ff9900;color:#fff;" size="mini">关注{{item}}</button>
+      </view>
     </view>
-    <view class="name" bindtap="nav">小微小微小微小微小微小微小微小微</view>
-    <view class="btn" bindtap="clearFocus">
-      <button style="background:#ff9900;color:#fff;" size="mini">关注</button>
-    </view>
-  </view>
+  </block>
 </view>

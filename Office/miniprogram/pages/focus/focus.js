@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    focus: [1, 2, 3, 4, 5, 6, 7, 8, 9, 0]
   },
 
   /**
@@ -14,13 +14,18 @@ Page({
   onLoad: function (options) {
 
   },
-  nav:function(e){
+  nav: function (e) {
     console.log('跳转')
     wx.navigateTo({
       url: '../../pages/detail/detail',
     })
   },
-  clearFocus:function(e){
-    console.log('取消关注')
+  clearFocus: function (e) {
+    console.log(e.currentTarget.dataset.id)
+    let focus = this.data.focus;
+    focus.splice(e.currentTarget.dataset.id, 1)
+    this.setData({
+      focus: focus
+    })
   }
 })

@@ -221,3 +221,9 @@ input.input {
   font-size: 26rpx;
   color: #dddee1;
 }
+
+.sharebtn{
+  width: 25rpx;
+  height: 25rpx;
+  position: absolute;
+}

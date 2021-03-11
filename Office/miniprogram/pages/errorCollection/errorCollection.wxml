@@ -1,2 +1,54 @@
-<!--pages/errorCollection/errorCollection.wxml-->
-<text>pages/errorCollection/errorCollection.wxml</text>
+<view class="tips" wx:if="{{isTips}}">
+  <i-notice-bar icon="systemprompt" bind:close="closeBar" loop closable>
+    双击题目可以添加到专题集
+  </i-notice-bar>
+</view>
+<view class="detail">
+  <view class="item" bindtap="doubleClick">
+    <view class="item-row">
+      <view class="title">题目</view>
+      <view class="msg msg-title">
+        某Word文档中有一个5行×4列的表格，如果要将另外一个文本文件中的5行文字拷贝到该表格中，并且使其正好成为该表格一列的内容，最优的操作方法是：</view>
+    </view>
+    <view class="item-row">
+      <view class="title">A</view>
+      <view class="msg msg-title">A)在文本文件中选中这5行文字，复制到剪贴板；然后回到 Word 文档中，将光标置于指定列的第一个单元格，将剪贴板内容粘贴过来。</view>
+    </view>
+    <view class="item-row">
+      <view class="title">B</view>
+      <view class="msg msg-title">B)将文本文件中的5行文字，一行一行地复制、粘贴到 Word 文档表格对应列的5个单元格中。</view>
+    </view>
+    <view class="item-row">
+      <view class="title">C</view>
+      <view class="msg msg-title">C)在文本文件中选中这 5 行文字，复制到剪贴板，然后回到 Word 文档中，选中对应列的 5 个单元格，将剪贴板内容粘贴过来。</view>
+    </view>
+    <view class="item-row">
+      <view class="title">D</view>
+      <view class="msg msg-title">D)在文本文件中选中这 5 行文字，复制到剪贴板，然后回到 Word 文档中，选中该表格，将剪贴板内容粘贴过来。</view>
+    </view>
+    <view class="item-row">
+      <view class="title">所选答案</view>
+      <view class="msg" style="color:#ed3f14;">C</view>
+    </view>
+    <view class="item-row">
+      <view class="title">正确答案</view>
+      <view class="msg">D</view>
+    </view>
+  </view>
+  <view class="item" bindtap="doubleClick">
+    <view class="item-row">
+      <view class="title">题目</view>
+      <view class="msg msg-title">
+        某Word文档中有一个5行×4列的表格，如果要将另外一个文本文件中的5行文字拷贝到该表格中，并且使其正好成为该表格一列的内容，最优的操作方法是：</view>
+    </view>
+    <view class="item-row">
+      <view class="title">所选答案</view>
+      <view class="msg" style="color:#ed3f14;">正确</view>
+    </view>
+    <view class="item-row">
+      <view class="title">正确答案</view>
+      <view class="msg">错误</view>
+    </view>
+  </view>
+</view>
+<i-message id="message" />

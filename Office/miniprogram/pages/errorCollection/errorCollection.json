@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "i-message": "../../dist/message/index",
+    "i-notice-bar": "../../dist/notice-bar/index"
+  },
+  "navigationBarTitleText": "错题集"
 }

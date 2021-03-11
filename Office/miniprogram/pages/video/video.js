@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    tag: ['RAP', '鬼畜调教', '鬼畜', '搞笑','RAP', '鬼畜调教', '鬼畜', '搞笑','RAP', '鬼畜调教', '鬼畜', '搞笑'],
+    tag: ['RAP', '鬼畜调教', '鬼畜', '搞笑', 'RAP', '鬼畜调教', '鬼畜', '搞笑', 'RAP', '鬼畜调教', '鬼畜', '搞笑'],
     current: 'tab1',
   },
 
@@ -17,9 +17,14 @@ Page({
       title: '视频名称',
     })
   },
-  handleChange ({ detail }) {
-      this.setData({
-          current: detail.key
-      });
+  handleChange({ detail }) {
+    this.setData({
+      current: detail.key
+    });
+  },
+  complaint: function () {
+    wx.navigateTo({
+      url: '../../pages/complaint/complaint?id=1',
+    })
   }
 })

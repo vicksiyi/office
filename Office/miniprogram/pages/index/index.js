@@ -90,6 +90,10 @@ Page({
         })
       },
     })
+    wx.showShareMenu({
+      withShareTicket: true,
+      menus: ['shareAppMessage', 'shareTimeline']
+    })
   },
   handleChange({ detail }) {
     this.setData({

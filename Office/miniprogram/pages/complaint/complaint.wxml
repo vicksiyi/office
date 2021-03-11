@@ -1,0 +1,31 @@
+<view class="title">你觉得这个稿件有什么问题?</view>
+<view class="line"></view>
+<view class="select">
+  <radio-group data-index="{{index}}" bindchange="radioChange">
+    <label wx:for="{{select}}" wx:for-index="idx">
+      <view class="item">
+        <radio color="#2d8cf0" value="{{idx}}" />{{item}}</view>
+    </label>
+  </radio-group>
+</view>
+<i-panel title="为了帮助管理人员更快处理，请提供相应描述">
+  <view class="text-box">
+    <textarea name="review" style="color:#495060;" maxlength="{{maxNumber}}" class="textArea" value="{{reviewText}}"
+      bindinput='inputText'></textarea>
+    <span class="wordwrap">{{number}}/{{maxNumber}}</span>
+  </view>
+</i-panel>
+<i-panel title="上传图片   {{num}}/9">
+  <view class="img-list">
+    <block wx:for="{{image}}">
+      <view class="item">
+        <image src="{{item}}"></image>
+      </view>
+    </block>
+    <view wx:if="{{showItem}}" class="item">
+      <image src="../../images/addImage.png"></image>
+    </view>
+  </view>
+</i-panel>
+<view class="text">支持JPG/PNG等格式，最多上传9张</view>
+<button style="background:#2d8cf0;color:#fff;margin-top:20rpx;margin-bottom:20rpx;">提交</button>

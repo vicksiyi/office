@@ -6,7 +6,6 @@
 <view class="detail-title">
   <span>新 概 念 教 学</span>
   <view class="msg">110.0万播放 ·
-    718弹幕
     2021-02-25 11:45:11</view>
 </view>
 <!-- 点赞转发分享 -->
@@ -20,10 +19,11 @@
     6.4万
   </view>
   <view class="item">
+    <button class="sharebtn" style="height:50rpx;width:50rpx;" open-type="share"></button>
     <image src="../../images/video/share.png"></image>
     6.4万
   </view>
-  <span class="complaint">稿件投诉</span>
+  <span class="complaint" bindtap="complaint">稿件投诉</span>
 </view>
 <!-- 描述 -->
 <view class="msg">

@@ -1,13 +1,15 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/complaint/complaint",
+    "pages/customerService/customerService",
+    "pages/errorCollection/errorCollection",
     "pages/setting/setting",
     "pages/multiSelectDetail/multiSelectDetail",
     "pages/radioDetail/radioDetail",
     "pages/focus/focus",
     "pages/answerLog/answerLog",
     "pages/me/me",
-    "pages/customerService/customerService",
     "pages/myvideo/myvideo",
     "pages/detail/detail",
     "pages/collection/collection",
@@ -17,7 +19,6 @@
     "pages/auth/auth",
     "pages/video/video",
     "pages/radio/radio",
-    "pages/errorCollection/errorCollection",
     "pages/multiSelect/multiSelect",
     "pages/news/news"
   ],

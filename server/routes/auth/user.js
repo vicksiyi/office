@@ -3,7 +3,6 @@ const router = express.Router();
 const request = require('request');
 const jwt = require('jsonwebtoken');
 const keys = require('../../config/keys');
-const passport = require('passport');
 const User = require('../../models/User');
 const WXBizDataCrypt = require('../../utils/WXBizDataCrypt')
 

@@ -11,6 +11,11 @@ Page({
         'nav': '../information/information'
       },
       {
+        'title': '上传视频',
+        'logo': '../../images/me/upload.png',
+        'nav': '../upload/upload'
+      },
+      {
         'title': '我的关注',
         'logo': '../../images/me/focus.png',
         'nav': '../focus/focus'

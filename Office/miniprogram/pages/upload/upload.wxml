@@ -1,0 +1,54 @@
+<i-panel title="视频信息">
+  <i-input title="视频名称" bind:change="titleChange" placeholder="名称" />
+  <i-input title="视频类型" bind:change="classChange" placeholder="类型" />
+</i-panel>
+<i-panel title="视频描述">
+  <view class="text-box">
+    <textarea name="review" maxlength="{{maxNumber}}" class="textArea" value="{{reviewText}}" bindinput='inputText'
+      placeholder="请输入描述"></textarea>
+    <span class="wordwrap">{{number}}/{{maxNumber}}</span>
+  </view>
+</i-panel>
+<i-panel title="上传封面">
+  <view class="img" style="width:{{uploadImage?'340':'200'}}rpx;height:{{uploadImage?'340':'200'}}rpx;">
+    <image wx:if="{{uploadImage}}"
+      style="width:{{uploadImage?'340':'200'}}rpx;height:{{uploadImage?'340':'200'}}rpx;background-size:contain;"
+      src="{{uploadImage?uploadImage:'../../images/video/upload.png'}}"></image>
+    <image wx:else bindtap="uploadImage"
+      style="width:{{uploadImage?'340':'200'}}rpx;height:{{uploadImage?'340':'200'}}rpx;background-size:contain;"
+      src="{{uploadImage?uploadImage:'../../images/video/upload.png'}}"></image>
+  </view>
+</i-panel>
+<i-panel title="上传视频">
+  <view class="video">
+    <video wx:if="{{uploadVideo}}" src="{{uploadVideo}}"></video>
+    <image bindtap="uploadVideo" wx:else src="../../images/video/upload.png"></image>
+  </view>
+</i-panel>
+<i-panel title="视频标签">
+  <view class="add-tag">
+    <view class="input">
+      <i-input value="{{inputValue}}" bind:change="inputChange" placeholder="类型" />
+    </view>
+    <view class="btn">
+      <button size="mini" bindtap="addTag" style="background:#2d8cf0;color:#fff;">添加</button>
+    </view>
+  </view>
+  <view class="tag-list">
+    <block wx:for="{{tag}}">
+      <view class="item">
+        <i-tag class="i-tags" name="{{item}}" wx:if="{{index%3 == 0}}" color="green">
+          {{item}}
+        </i-tag>
+        <i-tag class="i-tags" name="{{item}}" wx:if="{{index%3 == 1}}" color="blue">
+          {{item}}
+        </i-tag>
+        <i-tag class="i-tags" name="{{item}}" wx:if="{{index%3 == 2}}" color="yellow">
+          {{item}}
+        </i-tag>
+      </view>
+    </block>
+  </view>
+</i-panel>
+<i-message id="message" />
+<button bindtap="send" style="background:#2d8cf0;color:#fff;margin-top:20rpx;margin-bottom:20rpx;">上传视频</button>

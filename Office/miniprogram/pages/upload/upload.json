@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "i-input": "../../dist/input/index",
+    "i-panel": "../../dist/panel/index",
+    "i-tag": "../../dist/tag/index",
+    "i-message": "../../dist/message/index"
+  },
+  "navigationBarTitleText": "上传视频"
+}

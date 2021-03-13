@@ -2,6 +2,7 @@
   "pages": [
     "pages/auth/auth",
     "pages/index/index",
+    "pages/upload/upload",
     "pages/complaint/complaint",
     "pages/customerService/customerService",
     "pages/errorCollection/errorCollection",

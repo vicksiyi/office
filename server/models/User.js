@@ -3,17 +3,13 @@ const Schema = mongoose.Schema;
 
 // 小程序用户
 const UserSchema = new Schema({
-    nickName: {         // 微信名字
+    nickName: {         // 昵称(默认微信昵称)
         type: String,
-        required: false
-    },
-    name_true: {    // 真实名字
-        type: String,
-        required: false
+        required: true
     },
     avatarUrl: {
         type: String,
-        required: false
+        required: true
     },
     phone: {        // 手机号码
         type: String,
@@ -27,17 +23,9 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
-    password: {     // 用户登录密码
-        type: String,
-        required: false
-    },
-    price: {        // 爱心量
-        type: Number,
-        required: false
-    },
-    address: {        // 地点
-        type: String,
-        required: false
+    msg:{
+        type:String,
+        require: false
     },
     time: {         // 加入时间
         type: Date,
@@ -45,4 +33,4 @@ const UserSchema = new Schema({
     }
 })
 
-module.exports = User = mongoose.model('users', UserSchema);
+module.exports = User = mongoose.model('user', UserSchema);

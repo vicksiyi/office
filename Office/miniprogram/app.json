@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/auth/auth",
     "pages/index/index",
     "pages/complaint/complaint",
     "pages/customerService/customerService",
@@ -16,7 +17,6 @@
     "pages/information/information",
     "pages/phone/phone",
     "pages/email/email",
-    "pages/auth/auth",
     "pages/video/video",
     "pages/radio/radio",
     "pages/multiSelect/multiSelect",

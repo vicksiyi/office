@@ -6,6 +6,7 @@ const passport = require('passport');
 
 //引入users
 const mini = require('./routes/api/mini');
+const user = require('./routes/auth/user');
 
 // DB config
 const db = require('./config/keys').mongoURI;
@@ -25,11 +26,12 @@ mongoose.connect(db)
 
 // passport初始化
 app.use(passport.initialize());
-require('./config/adminPassport')(passport);
+require('./config/userPassport')(passport);
 
 
 //使用routes
 app.use('/api/mini', mini);
+app.use('/auth/user', user);
 
 app.listen(5000, () => {
     console.log('the port running');

@@ -7,6 +7,7 @@ const passport = require('passport');
 //引入users
 const mini = require('./routes/api/mini');
 const user = require('./routes/auth/user');
+const video = require('./routes/send/video');
 
 // DB config
 const db = require('./config/keys').mongoURI;
@@ -32,6 +33,7 @@ require('./config/userPassport')(passport);
 //使用routes
 app.use('/api/mini', mini);
 app.use('/auth/user', user);
+app.use('/send/video', video);
 
 app.listen(5000, () => {
     console.log('the port running');

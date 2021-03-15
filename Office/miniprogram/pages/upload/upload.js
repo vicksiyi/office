@@ -1,6 +1,7 @@
 const { $Message } = require('../../dist/base/index');
 const base64 = require('../../utils/base64');
 const getUser = require('../../utils/getUser');
+const app = getApp();
 Page({
 
   /**
@@ -10,11 +11,13 @@ Page({
     maxNumber: 400,//可输入最大字数
     number: 0,//已输入字数
     uploadImage: '',
-    tag: ['Office', 'Word'],
+    tag: [],
     inputValue: '',
     uploadVideo: '',
     duration: '',
-    msg: ''
+    msg: '',
+    title: '',
+    classVideo: ''
   },
 
   /**
@@ -171,17 +174,54 @@ Page({
       }
     })
   },
-  send: function () {
+  send: async function () {
     let title = this.data.title;
     let uploadVideo = this.data.uploadVideo;
     let uploadImage = this.data.uploadImage;
     let classVideo = this.data.classVideo;
+    let time = this.data.duration;
     let msg = this.data.msg;
     let tag = this.data.tag;
-    console.log({
-      title, uploadImage, uploadVideo,
-      classVideo,
-      msg, tag
+    wx.showLoading({
+      title: '发布中...',
+      mask: true
+    })
+    if (!title || !uploadVideo || !uploadImage || !classVideo || !msg || !tag) {
+      $Message({
+        content: '还有字段没填写完',
+        type: 'warning'
+      })
+      return;
+    }
+    var temp = ''
+    tag.forEach((value, key) => {
+      temp += (key != tag.length - 1) ? value + ';' : value;
+    })
+    tag = temp;
+    let token = await getUser.getUserToken()
+    wx.request({
+      url: `http://${app.ip}:5000/send/video/upload`,
+      method: 'POST',
+      data: { title, title, uploadVideo, uploadImage, classVideo, msg, tag, time },
+      header: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Authorization': token
+      },
+      success: function (res) {
+        if (res.data.msg == 'Success') {
+          $Message({
+            content: '上传成功',
+            type: 'success'
+          })
+          let setTimeTemp = setTimeout(() => {
+            wx.navigateBack({
+              delta: 1,
+            })
+            clearTimeout(setTimeTemp)
+            wx.hideLoading();
+          }, 1000)
+        }
+      }
     })
   },
   classChange: function (res) {

@@ -1,11 +1,11 @@
 <template name="video">
   <view class="video">
     <block wx:for="{{data.video}}">
-      <view class="item" bindtap="nav" style="background: url('{{item.url}}');background-size:contain;">
-        <view class="tag">{{item.tag}}</view>
+      <view class="item" bindtap="nav" style="background: url('{{item.imageUrl}}');background-size:contain;">
+        <view class="tag">{{item.videoClass}}</view>
         <view class="list">
-          <view class="left"> {{item.msg}}</view>
-          <view class="right">{{item.time}}</view>
+          <view class="left"> {{item.title}}</view>
+          <view class="right">{{item.videoTime}}</view>
         </view>
       </view>
     </block>

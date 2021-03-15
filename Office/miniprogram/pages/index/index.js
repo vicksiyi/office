@@ -1,5 +1,6 @@
 //index.js
 const app = getApp()
+const getUser = require('../../utils/getUser');
 
 Page({
 
@@ -11,69 +12,7 @@ Page({
     load: false,
     height: 0,
     data: {
-      "video": [
-        {
-          "url": "https://emoji.cdn.bcebos.com/yunque/hejirukou.jpg",
-          "tag": "Office",
-          "msg": "考研失败并不代表你输了人生【天降】",
-          "time": "21:35"
-        },
-        {
-          "url": "https://emoji.cdn.bcebos.com/yunque/hejirukou.jpg",
-          "tag": "Office",
-          "msg": "考研失败并不代表你输了人生【天降】",
-          "time": "21:35"
-        },
-        {
-          "url": "https://emoji.cdn.bcebos.com/yunque/hejirukou.jpg",
-          "tag": "Office",
-          "msg": "考研失败并不代表你输了人生【天降】",
-          "time": "21:35"
-        },
-        {
-          "url": "https://emoji.cdn.bcebos.com/yunque/hejirukou.jpg",
-          "tag": "Office",
-          "msg": "考研失败并不代表你输了人生【天降】",
-          "time": "21:35"
-        }
-      ],
-      "news": [
-        {
-          "url": "https://p9.pstatp.com/list/240x240/tos-cn-i-0022/85cf0ef52f3642fa83675282bfc05bba",
-          "title": "2013年，郭晶晶生了大儿子，霍家奖励1亿现金、2亿豪宅2017年，郭晶晶生了二女儿，霍家奖励10亿现金",
-          "good": "100",
-          "msg": "99",
-          "look": "100"
-        },
-        {
-          "url": "https://p9.pstatp.com/list/240x240/tos-cn-i-0022/85cf0ef52f3642fa83675282bfc05bba",
-          "title": "2013年，郭晶晶生了大儿子，霍家奖励1亿现金、2亿豪宅2017年，郭晶晶生了二女儿，霍家奖励10亿现金",
-          "good": "100",
-          "msg": "99",
-          "look": "100"
-        },
-        {
-          "url": "https://p9.pstatp.com/list/240x240/tos-cn-i-0022/85cf0ef52f3642fa83675282bfc05bba",
-          "title": "2013年，郭晶晶生了大儿子，霍家奖励1亿现金、2亿豪宅2017年，郭晶晶生了二女儿，霍家奖励10亿现金",
-          "good": "100",
-          "msg": "99",
-          "look": "100"
-        },
-        {
-          "url": "https://p9.pstatp.com/list/240x240/tos-cn-i-0022/85cf0ef52f3642fa83675282bfc05bba",
-          "title": "2013年，郭晶晶生了大儿子，霍家奖励1亿现金、2亿豪宅2017年，郭晶晶生了二女儿，霍家奖励10亿现金",
-          "good": "100",
-          "msg": "99",
-          "look": "100"
-        },
-        {
-          "url": "https://p9.pstatp.com/list/240x240/tos-cn-i-0022/85cf0ef52f3642fa83675282bfc05bba",
-          "title": "2013年，郭晶晶生了大儿子，霍家奖励1亿现金、2亿豪宅2017年，郭晶晶生了二女儿，霍家奖励10亿现金",
-          "good": "100",
-          "msg": "99",
-          "look": "100"
-        }
-      ],
+      "video": [],
       "eaxm": []
     }
   },
@@ -81,8 +20,11 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: async function (options) {
     let _this = this
+    this.setData({
+      load: true
+    })
     wx.getSystemInfo({
       success: (result) => {
         _this.setData({
@@ -94,13 +36,55 @@ Page({
       withShareTicket: true,
       menus: ['shareAppMessage', 'shareTimeline']
     })
+    let token = await getUser.getUserToken()
+    try {
+      wx.request({
+        url: `http://${app.ip}:5000/send/video/getVideo/0`,
+        method: 'GET',
+        header: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Authorization': token
+        },
+        success: async function (res) {
+          let temp = 'data.video'
+          // res.data.forEach(async (value, key) => {
+          //   value.imageUrl = await getUser.getTempUrl(value.imageUrl);
+          //   value.imageUrl = value.imageUrl[0].tempFileURL
+          // })
+          if (res.data == "Unauthorized") {
+            wx.removeStorage({
+              key: 'Token',
+            })
+            wx.redirectTo({
+              url: '../../pages/auth/auth',
+            })
+          }
+          for (let i = 0; i < res.data.length; ++i) { // cloud转temp
+            res.data[i].imageUrl = await getUser.getTempUrl(res.data[i].imageUrl);
+            res.data[i].imageUrl = res.data[i].imageUrl[0].tempFileURL
+            // console.log(res.data[i].imageUrl)
+          }
+          _this.setData({
+            [temp]: res.data,
+            load: false
+          })
+        },
+        fail: function (err) {
+          console.log(err)
+        }
+      })
+    } catch {
+      wx.switchTab({
+        url: '../../pages/auth/auth',
+      })
+    }
   },
   handleChange({ detail }) {
     this.setData({
       current: detail.key
     });
   },
-  nav:function(e){
+  nav: function (e) {
     wx.navigateTo({
       url: '../video/video?id=',
     })

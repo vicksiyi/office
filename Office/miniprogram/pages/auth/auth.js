@@ -71,6 +71,9 @@ Page({
                       type: 'error'
                     });
                   }
+                },
+                fail:function(err){
+                  console.log(err)
                 }
               })
             }

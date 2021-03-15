@@ -39,7 +39,6 @@ router.post('/login', async (req, res) => {
         console.log(Item)
         // 更新用户信息
         User.findOneAndUpdate({ openId: data.openid }, { $set: Item }, { new: true }).then(user => {
-            console.log(user)
             if (!user) {
                 new User(Item).save().then(user => {
                     res.json({

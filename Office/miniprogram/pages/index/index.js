@@ -41,18 +41,28 @@ Page({
     let data = await this.getVideo(this.data.start);
     let temp = 'data.video'
     _this.setData({
-      [temp]: data,
-      load: false
+      [temp]: data
     })
   },
-  handleChange({ detail }) {
+  async handleChange({ detail }) {
+    let _this = this;
+    _this.setData({
+      start: 0
+    })
+    if (detail.key == 'video') {
+      let data = await this.getVideo(0);
+      let temp = 'data.video'
+      _this.setData({
+        [temp]: data
+      })
+    }
     this.setData({
       current: detail.key
     });
   },
   nav: function (e) {
     wx.navigateTo({
-      url: '../video/video?id=',
+      url: `../video/video?_id=${e.currentTarget.dataset.id}`,
     })
   },
   getVideo: async function (start) {

@@ -81,4 +81,21 @@ router.get('/delVideo/:id', passport.authenticate('jwt', { session: false }), (r
         })
     })
 })
+
+// $routes GET /send/video/getOneVideo
+// @desc 获取当个视频
+// @access private
+router.get('/getOneVideo/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
+    console.log(req.params.id)
+    Video.findOne({ _id: req.params.id }).then(profile => {
+        res.json({
+            type: 'Success',
+            profile
+        })
+    }).catch(err => {
+        res.json({
+            type: 'error'
+        })
+    })
+})
 module.exports = router;

@@ -1,4 +1,4 @@
-<import src="../../template/home.wxml" />
+<!-- <import src="../../template/home.wxml" /> -->
 <i-tabs current="{{ current }}" bindchange="handleChange">
   <i-tab key="video" title="视频"></i-tab>
   <i-tab key="news" title="新闻"></i-tab>
@@ -9,7 +9,7 @@
     <scroll-view scroll-y="true" style="height:{{height}}px;" bindscrolltolower="tolower">
       <view class="video">
         <block wx:for="{{data.video}}">
-          <view class="item" bindtap="nav" style="background: url('{{item.imageUrl}}');background-size:contain;">
+          <view class="item" data-Id="{{item._id}}" bindtap="nav" style="background: url('{{item.imageUrl}}');background-size:contain;">
             <view class="tag">{{item.videoClass}}</view>
             <view class="list">
               <view class="left"> {{item.title}}</view>

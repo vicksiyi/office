@@ -186,7 +186,7 @@ Page({
       title: '发布中...',
       mask: true
     })
-    if (!title || !uploadVideo || !uploadImage || !classVideo || !msg || !tag) {
+    if (!title || !uploadVideo || !uploadImage || !classVideo || !msg || !tag.length) {
       $Message({
         content: '还有字段没填写完',
         type: 'warning'

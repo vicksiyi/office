@@ -2,6 +2,7 @@
   "usingComponents": {
     "i-tag": "../../dist/tag/index",
     "i-tabs": "../../dist/tabs/index",
-    "i-tab": "../../dist/tab/index"
+    "i-tab": "../../dist/tab/index",
+    "i-message": "../../dist/message/index"
   }
 }

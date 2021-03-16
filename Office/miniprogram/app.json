@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/myvideo/myvideo",
     "pages/auth/auth",
     "pages/index/index",
     "pages/upload/upload",
@@ -12,7 +13,6 @@
     "pages/focus/focus",
     "pages/answerLog/answerLog",
     "pages/me/me",
-    "pages/myvideo/myvideo",
     "pages/detail/detail",
     "pages/collection/collection",
     "pages/information/information",

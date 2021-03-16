@@ -35,16 +35,50 @@ router.post('/upload', passport.authenticate('jwt', { session: false }), (req, r
 // @access private
 router.get('/getVideo/:start', passport.authenticate('jwt', { session: false }), (req, res) => {
     console.log(req.params.start)
-    Video.find().skip(req.params.start * 10).limit(10).then(find => {
+    Video.find().sort({ time: -1 }).skip(req.params.start * 10).limit(10).then(find => {
         if (!find) {
             return res.json({
                 msg: 'Null'
             });
         }
-        console.log(find)
         res.json(find);
     }).catch(err => {
         res.json(err);
+    })
+})
+
+// $routes GET /send/video/myVideo
+// @desc 获取我的视频
+// @access private
+router.get('/myVideo/:start', passport.authenticate('jwt', { session: false }), (req, res) => {
+    console.log(req.params.start, req.user.openId)
+    Video.find({
+        userOpenId: req.user.openId
+    }).sort({ time: -1 }).skip(req.params.start * 10).limit(10).then(find => {
+        if (!find) {
+            return res.json({
+                msg: 'Null'
+            });
+        }
+        res.json(find);
+    }).catch(err => {
+        res.json(err);
+    })
+})
+
+// $routes GET /send/video/delVideo
+// @desc 删除视频
+// @access private
+router.get('/delVideo/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
+    console.log(req.params.id)
+    Video.findOneAndRemove({ _id: req.params.id }).then(profile => {
+        res.json({
+            type: 'Success'
+        })
+    }).catch(err => {
+        res.json({
+            type: 'error'
+        })
     })
 })
 module.exports = router;

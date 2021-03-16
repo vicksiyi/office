@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 // 小程序用户
 const VideoSchema = new Schema({
-    title: {         // 昵称(默认微信昵称)
+    title: {
         type: String,
         required: true
     },
@@ -11,15 +11,15 @@ const VideoSchema = new Schema({
         type: String,
         required: true
     },
-    imageUrl: {        // 手机号码
+    imageUrl: {
         type: String,
         required: true
     },
-    videoClass: {        // 常用邮箱
+    videoClass: {
         type: String,
         required: true
     },
-    videoMsg: {        // openId
+    videoMsg: {
         type: String,
         required: true
     },
@@ -31,7 +31,11 @@ const VideoSchema = new Schema({
         type: String,
         require: true
     },
-    time: {         // 加入时间
+    userOpenId: {
+        type: String,
+        require: true
+    },
+    time: {
         type: Date,
         default: Date.now
     }

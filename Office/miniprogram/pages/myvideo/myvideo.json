@@ -1,7 +1,8 @@
 {
   "usingComponents": {
     "i-modal": "../../dist/modal/index",
-    "i-message": "../../dist/message/index"
+    "i-message": "../../dist/message/index",
+    "i-spin": "../../dist/spin/index"
   },
   "navigationBarTitleText": "我的视频"
 }

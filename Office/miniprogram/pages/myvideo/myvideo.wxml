@@ -1,17 +1,19 @@
-<view class="content">
-  <block wx:for="{{video}}">
-    <view class="item">
-      <view class="close" data-Id="{{item._id}}" bindtap="delete">
-        <image src="../../images/close.png"></image>
+<scroll-view scroll-y="true" style="height:{{height}}px;" bindscrolltolower="tolower">
+  <view class="content">
+    <block wx:for="{{video}}">
+      <view class="item">
+        <view class="close" data-Id="{{item._id}}" bindtap="delete">
+          <image src="../../images/close.png"></image>
+        </view>
+        <view class="img">
+          <image src="{{item.imageUrl}}">
+          </image>
+        </view>
+        <view class="title">{{item.title}}</view>
       </view>
-      <view class="img">
-        <image src="{{item.imageUrl}}">
-        </image>
-      </view>
-      <view class="title">{{item.title}}</view>
-    </view>
-  </block>
-</view>
+    </block>
+  </view>
+</scroll-view>
 <i-modal title="删除确认" visible="{{ visible5 }}" actions="{{ actions5 }}" bind:click="handleClick5">
   <view>删除后无法恢复哦</view>
 </i-modal>

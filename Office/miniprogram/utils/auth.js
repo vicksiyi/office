@@ -24,7 +24,10 @@ Oauth.prototype.loginUser = () => {
                             success(data) {
                                 wx.setStorage({
                                     key: "Token",
-                                    data: data.data.token 
+                                    data: data.data.token
+                                })
+                                wx.switchTab({
+                                    url: '../index/index',
                                 })
                             }
                         })

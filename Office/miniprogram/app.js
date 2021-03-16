@@ -15,6 +15,6 @@ App({
     }
 
     this.globalData = {}
-    this.ip = '192.168.0.112'
+    this.ip = '192.168.0.105'
   }
 })

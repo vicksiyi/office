@@ -21,16 +21,25 @@ Page({
     video: [],
     spinShow: false,
     start: 0,
-    tempOpenId: ''
+    temp_id: '',
+    height: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: async function (options) {
+    let _this = this;
     let data = await this.getVideo(this.data.start);
     this.setData({
       video: data
+    })
+    wx.getSystemInfo({
+      success: (result) => {
+        _this.setData({
+          height: result.windowHeight
+        })
+      }
     })
   },
   async handleClick5({ detail }) {
@@ -48,7 +57,7 @@ Page({
       });
       let token = await getUser.getUserToken();
       wx.request({
-        url: `http://${app.ip}:5000/send/video/delVideo/${_this.data.tempOpenId}`,
+        url: `http://${app.ip}:5000/send/video/delVideo/${_this.data.temp_id}`,
         method: 'GET',
         header: {
           'Content-Type': 'application/x-www-form-urlencoded',
@@ -66,9 +75,18 @@ Page({
           }
           if (res.data.type == 'Success') {
             action[1].loading = false;
+            let video = _this.data.video;
+            for (let i = 0; i < video.length; ++i) {
+              console.log(video[i]._id)
+              if (video[i]._id == _this.data.temp_id) {
+                video.splice(i, 1);
+                break;
+              }
+            }
             _this.setData({
               visible5: false,
-              actions5: action
+              actions5: action,
+              video: video
             });
             $Message({
               content: '删除成功！',
@@ -87,7 +105,7 @@ Page({
   delete: function (e) {
     this.setData({
       visible5: true,
-      tempOpenId: e.currentTarget.dataset.id
+      temp_id: e.currentTarget.dataset.id
     })
   },
   getVideo: async function (start) {
@@ -132,6 +150,23 @@ Page({
       wx.switchTab({
         url: '../../pages/auth/auth',
       })
+    })
+  },
+  tolower: async function () {
+    let start = this.data.start + 1;
+    let data = await this.getVideo(start);
+    let resource = this.data.video;
+    resource.push(...data)
+    if (data.length == 0) {
+      $Message({
+        content: '底线到了...',
+        type: 'warning'
+      })
+      return;
+    }
+    this.setData({
+      video: resource,
+      start: start
     })
   }
 })

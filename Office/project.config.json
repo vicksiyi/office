@@ -39,7 +39,7 @@
   },
   "appid": "wxab88a519b0bc7df4",
   "projectname": "%E8%B4%A6%E4%B8%8AOffice",
-  "libVersion": "2.14.1",
+  "libVersion": "2.16.0",
   "condition": {
     "search": {
       "list": []

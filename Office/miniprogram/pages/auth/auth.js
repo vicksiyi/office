@@ -62,9 +62,6 @@ Page({
                       type: 'success'
                     });
                     oauth.loginUser() // 获取token
-                    wx.switchTab({
-                      url: '../index/index',
-                    })
                   } else {
                     $Message({
                       content: '授权失败，稍后重试',

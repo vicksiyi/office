@@ -1,8 +1,8 @@
 {
   "pages": [
-    "pages/myvideo/myvideo",
-    "pages/auth/auth",
     "pages/index/index",
+    "pages/auth/auth",
+    "pages/myvideo/myvideo",
     "pages/upload/upload",
     "pages/complaint/complaint",
     "pages/customerService/customerService",

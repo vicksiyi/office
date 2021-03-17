@@ -15,11 +15,17 @@
   display: flex;
   flex-direction: row;
   height: 90rpx;
+  width: 500rpx;
+}
+
+.frame .btn .inp {
+  width: 300rpx;
 }
 
 .frame .btn .btn-mini {
+  width: 200rpx;
   margin-top: 16rpx;
-  font-size: 25rpx;
+  font-size: 20rpx;
 }
 
 page {

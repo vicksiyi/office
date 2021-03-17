@@ -8,15 +8,15 @@ Page({
    * 页面的初始数据
    */
   data: {
-    current: 'video',
-    load: false,
     height: 0,
+    video: [],
     data: {
-      "video": [],
+      "": [],
       "eaxm": []
     },
     start: 0,
-    spinShow: false
+    spinShow: false,
+    inpuValue: ''
   },
 
   /**
@@ -30,7 +30,7 @@ Page({
     wx.getSystemInfo({
       success: (result) => {
         _this.setData({
-          height: result.windowHeight - 42
+          height: result.windowHeight - 50
         })
       },
     })
@@ -39,26 +39,9 @@ Page({
       menus: ['shareAppMessage', 'shareTimeline']
     })
     let data = await this.getVideo(this.data.start);
-    let temp = 'data.video'
     _this.setData({
-      [temp]: data
+      video: data
     })
-  },
-  async handleChange({ detail }) {
-    let _this = this;
-    _this.setData({
-      start: 0
-    })
-    if (detail.key == 'video') {
-      let data = await this.getVideo(0);
-      let temp = 'data.video'
-      _this.setData({
-        [temp]: data
-      })
-    }
-    this.setData({
-      current: detail.key
-    });
   },
   nav: function (e) {
     wx.navigateTo({
@@ -112,8 +95,7 @@ Page({
     let _this = this;
     let start = this.data.start + 1;
     let data = await this.getVideo(start);
-    let resource = this.data.data.video;
-    let temp = 'data.video';
+    let resource = this.data.video;
     resource.push(...data)
     if (data.length == 0) {
       $Message({
@@ -123,8 +105,13 @@ Page({
       return;
     }
     this.setData({
-      [temp]: resource,
+      video: resource,
       start: start
+    })
+  },
+  inputChange: function (e) {
+    this.setData({
+      inpuValue: e.detail.detail.value
     })
   }
 })

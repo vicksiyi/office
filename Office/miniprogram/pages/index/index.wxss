@@ -1,5 +1,80 @@
-@import '../../template/home.wxss';
-
-.content{
+.content {
   overflow: scroll;
+}
+
+.search {
+  display: flex;
+  flex-direction: row;
+  background: #fff;
+}
+
+.search .inp {
+  width: 580rpx;
+  height: 50px;
+}
+
+.search .inp input {
+  border: 1rpx solid #e9eaec;
+  margin: 14rpx;
+}
+
+.search .btn {
+  width: 150rpx;
+  height: 50px;
+  background: #fff;
+}
+
+.video {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.video .item {
+  width: 340rpx;
+  height: 340rpx;
+  border-radius: 20rpx;
+  margin: 16rpx;
+  /* z-index: -1; */
+  overflow: hidden;
+}
+
+.video .item .tag {
+  width: 120rpx;
+  height: 44rpx;
+  border: 1rpx solid #fff;
+  border-radius: 50rpx;
+  background: #495060;
+  color: #fff;
+  opacity: 0.4;
+  margin: 20rpx;
+  font-size: 25rpx;
+  text-align: center;
+  line-height: 44rpx;
+}
+
+.video .item .list {
+  width: 100%;
+  height: 70rpx;
+  margin-top: 206rpx;
+  border-radius: 0 0 20rpx 20rpx;
+  background-image: linear-gradient(#f8f8f9, #495060);
+  opacity: 0.8;
+  display: flex;
+  flex-direction: row;
+  line-height: 70rpx;
+  color: #fff;
+  font-size: 25rpx;
+}
+
+.video .item .list .left {
+  width: 230rpx;
+  margin-left: 10rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.video .item .list .right {
+  width: 100rpx;
+  text-align: center;
 }

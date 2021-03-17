@@ -1,7 +1,9 @@
 {
   "pages": [
-    "pages/index/index",
+    "pages/information/information",
+    "pages/email/email",
     "pages/auth/auth",
+    "pages/index/index",
     "pages/myvideo/myvideo",
     "pages/upload/upload",
     "pages/complaint/complaint",
@@ -15,13 +17,14 @@
     "pages/me/me",
     "pages/detail/detail",
     "pages/collection/collection",
-    "pages/information/information",
     "pages/phone/phone",
-    "pages/email/email",
     "pages/video/video",
     "pages/radio/radio",
     "pages/multiSelect/multiSelect",
-    "pages/news/news"
+    "pages/news/news",
+    "pages/learn/learn",
+    "pages/newsList/newsList",
+    "pages/eaxm/eaxm"
   ],
   "window": {
     "backgroundColor": "#2d8cf0",
@@ -41,19 +44,19 @@
         "text": "视频"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/learn/learn",
         "iconPath": "./images/tabBar/learn2.png",
         "selectedIconPath": "./images/tabBar/learn1.png",
         "text": "学习"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/newsList/newsList",
         "iconPath": "./images/tabBar/news2.png",
         "selectedIconPath": "./images/tabBar/news1.png",
         "text": "新闻"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/eaxm/eaxm",
         "iconPath": "./images/tabBar/eaxm2.png",
         "selectedIconPath": "./images/tabBar/eaxm1.png",
         "text": "刷题"

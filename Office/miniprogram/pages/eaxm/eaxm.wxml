@@ -1,0 +1,6 @@
+<view class="eaxm">
+  <navigator url="../radio/radio">判断题</navigator>
+</view>
+<view class="eaxm">
+  <navigator url="../multiSelect/multiSelect">选择题</navigator>
+</view>

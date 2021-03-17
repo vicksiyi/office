@@ -1,20 +1,22 @@
-<view class="avatar"
-  style="background:url('https://thirdwx.qlogo.cn/mmopen/vi_32/wxtwclGtQM7jCCYo3tyccXd4VHAOAjbEtMITnexUj2tx05zr78dFj5xrIVB3b1utC9X6pichGHiciaUSTdhk0byrg/132');background-size:contain;">
-  <view class="font">修改</view>
+<view class="avatar" style="background:url('{{user.avatarUrl}}');background-size:contain;">
+  <view class="font" bindtap='changeImage'>修改</view>
 </view>
 
 <i-panel title="表单">
-  <i-input value="{{ value1 }}" title="昵称" placeholder="小微" />
-  <i-input value="{{ value1 }}" title="OpenId" disabled placeholder="jalksdjkasdjlasdjklasjdkla" />
-  <i-input value="{{ value2 }}" type="number" disabled title="联系电话" placeholder="13336535215" />
-  <i-input value="{{ value4 }}" title="邮箱号" disabled placeholder="zeroicegc@163.com" />
+  <i-input value="{{ value1 }}" title="昵称" placeholder="{{user.nickName}}" />
+  <i-input value="{{ value1 }}" title="OpenId" disabled placeholder="{{user.openId}}" />
+  <i-input value="{{ value2 }}" type="number" disabled title="联系电话"
+    placeholder="{{user.phone == undefind?'暂无':user.phone}}" />
+  <i-input value="{{ value4 }}" title="邮箱号" disabled placeholder="{{user.email == undefind?'暂无':user.email}}" />
 </i-panel>
 <i-modal title="选择修改信息类型" visible="{{ visible4 }}" actions="{{ actions4 }}" action-mode="{{ vertical }}"
   bind:click="handleClick"></i-modal>
 <i-modal title="修改昵称" visible="{{ visible1 }}" bind:ok="handleOk" bind:cancel="handleClose">
-  <input type="text" value="{{inputNickName}}" placeholder="昵称" bindinput="nickNameChange"/>
+  <input type="text" value="{{inputNickName}}" placeholder="昵称" bindinput="nickNameChange" />
 </i-modal>
 <view class="btn">
   <button style="width:250rpx;" bindtap="modify">修改</button>
   <button style="width:250rpx;">保存</button>
 </view>
+<i-message id="message" />
+<i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>

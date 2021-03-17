@@ -1,52 +1,24 @@
-<!-- <import src="../../template/home.wxml" /> -->
-<i-tabs current="{{ current }}" bindchange="handleChange">
-  <i-tab key="video" title="视频"></i-tab>
-  <i-tab key="news" title="新闻"></i-tab>
-  <i-tab key="eaxm" title="刷题"></i-tab>
-</i-tabs>
-<view class="content" style="height:{{height}}px;">
-  <view wx:if="{{current == 'video'}}">
-    <scroll-view scroll-y="true" style="height:{{height}}px;" bindscrolltolower="tolower">
-      <view class="video">
-        <block wx:for="{{data.video}}">
-          <view class="item" data-Id="{{item._id}}" bindtap="nav" style="background: url('{{item.imageUrl}}');background-size:contain;">
-            <view class="tag">{{item.videoClass}}</view>
-            <view class="list">
-              <view class="left"> {{item.title}}</view>
-              <view class="right">{{item.videoTime}}s</view>
-            </view>
-          </view>
-        </block>
-      </view>
-    </scroll-view>
+<view class="search">
+  <view class="inp">
+    <i-input bind:change="inputChange" value="{{ inpuValue }}" placeholder="请输入搜索内容" />
   </view>
-  <view wx:if="{{current == 'news'}}">
-    <view class="news">
-      <block wx:for="{{data.news}}">
-        <navigator url="../../pages/news/news">
-          <view class="item">
-            <view class="img">
-              <image src="{{item.url}}"></image>
-            </view>
-            <view class="right">
-              <view class="title">{{item.title}}</view>
-              <view class="msg">{{item.good}}赞~{{item.msg}}条评论~{{item.look}}展望</view>
-            </view>
+  <view class="btn"><button size="mini" style="background:#2d8cf0;color:#fff;margin-top:28rpx;">搜索</button></view>
+</view>
+<view class="content" style="height:{{height}}px;">
+  <scroll-view scroll-y="true" style="height:{{height}}px;" bindscrolltolower="tolower">
+    <view class="video">
+      <block wx:for="{{video}}">
+        <view class="item" data-Id="{{item._id}}" bindtap="nav"
+          style="background: url('{{item.imageUrl}}');background-size:contain;">
+          <view class="tag">{{item.videoClass}}</view>
+          <view class="list">
+            <view class="left"> {{item.title}}</view>
+            <view class="right">{{item.videoTime}}s</view>
           </view>
-        </navigator>
-        <view class="line"></view>
+        </view>
       </block>
     </view>
-    <i-load-more tip="这是我底线" loading="{{ false }}" />
-  </view>
-  <view wx:if="{{current == 'eaxm'}}">
-    <view class="eaxm">
-      <navigator url="../radio/radio">判断题</navigator>
-    </view>
-    <view class="eaxm">
-      <navigator url="../multiSelect/multiSelect">选择题</navigator>
-    </view>
-  </view>
+  </scroll-view>
 </view>
 <i-message id="message" />
 <i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>

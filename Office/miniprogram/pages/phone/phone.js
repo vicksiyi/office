@@ -1,4 +1,6 @@
-// pages/email/email.js
+const app = getApp()
+const getUser = require('../../utils/getUser');
+const { $Message } = require('../../dist/base/index');
 Page({
 
   /**
@@ -6,7 +8,9 @@ Page({
    */
   data: {
     disabled: false,
-    time: 60
+    time: 60,
+    value1: '',
+    value2: ''
   },
 
   /**
@@ -15,10 +19,41 @@ Page({
   onLoad: function (options) {
 
   },
-  send: function () {
+  send: async function () {
     let _this = this;
     this.setData({
       disabled: true
+    })
+    let token = await getUser.getUserToken()
+    wx.request({
+      url: `http://${app.ip}:5000/user/modify/sendPhone`,
+      data: {
+        phone: this.data.value1
+      },
+      method: 'POST',
+      header: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Authorization': token
+      },
+      success: async function (res) {
+        if (res.data == "Unauthorized") {
+          wx.removeStorage({
+            key: 'Token',
+          })
+          wx.redirectTo({
+            url: '../../pages/auth/auth',
+          })
+        }
+        if (res.data.msg == 'Success') {
+          $Message({
+            content: '发送成功',
+            type: 'success'
+          })
+        }
+      },
+      fail: function (err) {
+        reject(err);
+      }
     })
     let setTime = setInterval(() => {
       if (this.data.time == 0) {
@@ -34,7 +69,63 @@ Page({
       })
     }, 1000);
   },
-  submit: function () {
-    console.log('提交')
+  submit: async function () {
+    let token = await getUser.getUserToken()
+    wx.request({
+      url: `http://${app.ip}:5000/user/modify/oauthPhone`,
+      data: {
+        phone: this.data.value1,
+        code: this.data.value2
+      },
+      method: 'POST',
+      header: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Authorization': token
+      },
+      success: async function (res) {
+        if (res.data == "Unauthorized") {
+          wx.removeStorage({
+            key: 'Token',
+          })
+          wx.redirectTo({
+            url: '../../pages/auth/auth',
+          })
+        }
+        if (res.data.type == 'success') {
+          $Message({
+            content: '修改邮箱成功',
+            type: 'success'
+          })
+          let setOauth = setTimeout(() => {
+            wx.navigateBack({
+              delta: 1
+            })
+            clearTimeout(setOauth)
+          }, 1000)
+        } else {
+          $Message({
+            content: '验证码错误',
+            type: 'error'
+          })
+        }
+      },
+      fail: function (err) {
+        reject(err);
+      }
+    })
+  },
+  value1Change: function (e) {
+    this.setData({
+      value1: e.detail.detail.value
+    })
+  },
+  value2Change: function (e) {
+    this.setData({
+      value2: e.detail.detail.value
+    })
+  },
+  onUnload: function () {
+    clearInterval(setTime);
+    clearTimeout(setOauth);
   }
 })

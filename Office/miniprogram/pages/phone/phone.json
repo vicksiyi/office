@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "i-input": "../../dist/input/index"
+    "i-input": "../../dist/input/index",
+    "i-message": "../../dist/message/index"
   },
   "navigationBarTitleText": "手机号验证"
 }

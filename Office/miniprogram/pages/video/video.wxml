@@ -1,33 +1,43 @@
 <view class="video">
-  <video
-    src="{{video.videoUrl}}"></video>
+  <video autoplay="{{true}}" src="{{video.videoUrl}}"></video>
+</view>
+<view class="user" bindtap="navFocus">
+  <image src="{{userDetail.avatarUrl}}"></image>
 </view>
 <!-- 信息 -->
 <view class="detail-title">
-  <span>{{video.title}}</span>
-  <view class="msg">110.0万播放 ·
-    {{video.time}}</view>
+  <view class="detail">
+    <span>{{video.title}}</span>
+    <view class="msg">110.0万播放 ·
+      {{video.time}}</view>
+  </view>
+  <view class="focus">
+    <view class="btn" wx:if="{{isFocus}}" style="background:#bbbec4;">已关注</view>
+    <view class="btn" wx:else bindtap="focus">关注</view>
+  </view>
 </view>
 <!-- 点赞转发分享 -->
 <view class="click-action">
   <view class="item">
-    <image src="../../images/video/good0.png"></image>
-    6.4万
+    <image wx:if="{{isGood}}" bindtap="clearGood" src="../../images/video/good1.png"></image>
+    <image wx:else bindtap="good" src="../../images/video/good0.png"></image>
+    {{numGood}}
   </view>
   <view class="item">
-    <image src="../../images/video/collection0.png"></image>
-    6.4万
+    <image wx:if="{{isCollection}}" bindtap="clearCollection" src="../../images/video/collection1.png"></image>
+    <image wx:else bindtap="collection" src="../../images/video/collection0.png"></image>
+    {{numCollection}}
   </view>
   <view class="item">
-    <button class="sharebtn" style="height:50rpx;width:50rpx;" open-type="share"></button>
+    <button class="sharebtn" bindtap="share" style="height:50rpx;width:50rpx;" open-type="share"></button>
     <image src="../../images/video/share.png"></image>
-    6.4万
+    {{numShare}}
   </view>
   <span class="complaint" bindtap="complaint">稿件投诉</span>
 </view>
 <!-- 描述 -->
 <view class="msg">
-  {{video.msg}}
+  {{video.videoMsg}}
 </view>
 <!-- 标签 -->
 <view class="tag">
@@ -185,4 +195,5 @@
     </view>
   </view>
 </view>
+<i-message id="message" />
 <i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>

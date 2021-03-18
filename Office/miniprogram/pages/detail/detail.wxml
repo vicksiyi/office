@@ -1,11 +1,11 @@
 <view class="header">
   <view class="detail">
     <view class="img">
-      <image src="https://i1.hdslb.com/bfs/face/e78bb0e514126e06a35b16ca382b4efe0b214af9.jpg@56w_57h_1c_100q.webp">
+      <image src="{{userDetail.avatarUrl}}">
       </image>
     </view>
     <view class="title">
-      <view class="name">陈庭威</view>
+      <view class="name">{{userDetail.nickName}}</view>
       <view class="role">热血青年 | 热血小伙子</view>
     </view>
   </view>
@@ -16,81 +16,15 @@
 </view>
 <!-- 正文 -->
 <view class="content" style="height:{{contentHeight - 15}}px;">
-  <view class="item">
-    <view class="img">
-      <image src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3485581334,1966507772&fm=11&gp=0.jpg">
-      </image>
+  <block wx:for="{{video}}">
+    <view class="item" bindtap="nav" data-Id="{{item._id}}">
+      <view class="img">
+        <image src="{{item.imageUrl}}">
+        </image>
+      </view>
+      <view class="title">{{item.title}}</view>
     </view>
-    <view class="title">Office全套教程</view>
-  </view>
-  <view class="item">
-    <view class="img">
-      <image src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3485581334,1966507772&fm=11&gp=0.jpg">
-      </image>
-    </view>
-    <view class="title">Office全套教程</view>
-  </view>
-  <view class="item">
-    <view class="img">
-      <image src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3485581334,1966507772&fm=11&gp=0.jpg">
-      </image>
-    </view>
-    <view class="title">Office全套教程</view>
-  </view>
-  <view class="item">
-    <view class="img">
-      <image src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3485581334,1966507772&fm=11&gp=0.jpg">
-      </image>
-    </view>
-    <view class="title">Office全套教程</view>
-  </view>
-  <view class="item">
-    <view class="img">
-      <image src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3485581334,1966507772&fm=11&gp=0.jpg">
-      </image>
-    </view>
-    <view class="title">Office全套教程</view>
-  </view>
-  <view class="item">
-    <view class="img">
-      <image src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3485581334,1966507772&fm=11&gp=0.jpg">
-      </image>
-    </view>
-    <view class="title">Office全套教程</view>
-  </view>
-  <view class="item">
-    <view class="img">
-      <image src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3485581334,1966507772&fm=11&gp=0.jpg">
-      </image>
-    </view>
-    <view class="title">Office全套教程</view>
-  </view>
-  <view class="item">
-    <view class="img">
-      <image src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3485581334,1966507772&fm=11&gp=0.jpg">
-      </image>
-    </view>
-    <view class="title">Office全套教程</view>
-  </view>
-  <view class="item">
-    <view class="img">
-      <image src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3485581334,1966507772&fm=11&gp=0.jpg">
-      </image>
-    </view>
-    <view class="title">Office全套教程</view>
-  </view>
-  <view class="item">
-    <view class="img">
-      <image src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3485581334,1966507772&fm=11&gp=0.jpg">
-      </image>
-    </view>
-    <view class="title">Office全套教程</view>
-  </view>
-  <view class="item">
-    <view class="img">
-      <image src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3485581334,1966507772&fm=11&gp=0.jpg">
-      </image>
-    </view>
-    <view class="title">Office全套教程</view>
-  </view>
+  </block>
 </view>
+<i-message id="message" />
+<i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>

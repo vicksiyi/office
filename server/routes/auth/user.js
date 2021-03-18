@@ -38,7 +38,7 @@ router.post('/login', async (req, res) => {
         Item.openId = data.openid
         console.log(Item)
         // 更新用户信息
-        User.findOneAndUpdate({ openId: data.openid }, { $set: Item }, { new: true }).then(user => {
+        User.findOne({ openId: data.openid }).then(user => {
             if (!user) {
                 new User(Item).save().then(user => {
                     res.json({
@@ -46,7 +46,6 @@ router.post('/login', async (req, res) => {
                         openId: data.openid
                     })
                 }).catch(err => {
-                    Err.ErrorFuc(err, req.originalUrl)
                     res.json({
                         msg: "err"
                     });
@@ -58,7 +57,6 @@ router.post('/login', async (req, res) => {
                 })
             }
         }).catch(err => {
-            Err.ErrorFuc(err, req.originalUrl)
             res.json(err);
         })
     } else {

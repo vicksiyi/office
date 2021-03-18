@@ -10,13 +10,10 @@ Page({
   data: {
     height: 0,
     video: [],
-    data: {
-      "": [],
-      "eaxm": []
-    },
     start: 0,
     spinShow: false,
-    inpuValue: ''
+    inputValue: '',
+    token: ''
   },
 
   /**
@@ -38,9 +35,10 @@ Page({
       withShareTicket: true,
       menus: ['shareAppMessage', 'shareTimeline']
     })
-    let data = await this.getVideo(this.data.start);
+    let data = await this.getVideo(0);
     _this.setData({
-      video: data
+      video: data,
+      start: 0
     })
   },
   nav: function (e) {
@@ -54,6 +52,9 @@ Page({
       spinShow: true
     })
     let token = await getUser.getUserToken()
+    this.setData({
+      token: token
+    })
     return new Promise((resolve, reject) => {
       wx.request({
         url: `http://${app.ip}:5000/send/video/getVideo/${start}`,
@@ -94,7 +95,12 @@ Page({
   tolower: async function (e) {
     let _this = this;
     let start = this.data.start + 1;
-    let data = await this.getVideo(start);
+    let data = [];
+    if (this.data.inputValue) {
+      data = await this.search(start, this.data.inputValue);
+    } else {
+      data = await this.getVideo(start);
+    }
     let resource = this.data.video;
     resource.push(...data)
     if (data.length == 0) {
@@ -111,7 +117,43 @@ Page({
   },
   inputChange: function (e) {
     this.setData({
-      inpuValue: e.detail.detail.value
+      inputValue: e.detail.detail.value
+    })
+  },
+  searchTitle: async function () {
+    let result = await this.search(0, this.data.inputValue);
+    this.setData({
+      video: result,
+      start: 0
+    })
+  },
+  search: function (start, inputValue) {
+    let _this = this;
+    this.setData({
+      spinShow: true
+    })
+    return new Promise((resolve, reject) => {
+      wx.request({
+        url: `http://${app.ip}:5000/send/video/searchVideo/${start}?title=${inputValue}`,
+        method: 'GET',
+        header: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Authorization': this.data.token
+        },
+        success: async function (res) {
+          for (let i = 0; i < res.data.length; ++i) { // cloud转temp
+            res.data[i].imageUrl = await getUser.getTempUrl(res.data[i].imageUrl);
+            res.data[i].imageUrl = res.data[i].imageUrl[0].tempFileURL
+          }
+          _this.setData({
+            spinShow: false
+          })
+          resolve(res.data);
+        },
+        fail: function (err) {
+          reject(err);
+        }
+      })
     })
   }
 })

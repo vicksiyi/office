@@ -55,7 +55,7 @@ router.post('/sendEmail', passport.authenticate('jwt', { session: false }), (req
 })
 
 // $routes /user/modify/oauthEmail
-// @desc 验证邮箱验证码
+// @desc 验证邮箱验证码&修改用户邮箱
 // @access private
 router.post('/oauthEmail', passport.authenticate('jwt', { session: false }), (req, res) => {
     // Set a value with an expiration
@@ -68,6 +68,43 @@ router.post('/oauthEmail', passport.authenticate('jwt', { session: false }), (re
             })
         } else {
             userFileds.email = req.body.email;
+            User.findOneAndUpdate({ openId: req.user.openId }, { $set: userFileds }, { new: true }).then(user => {
+                res.json({
+                    type: 'success'
+                });
+            }).catch(err => {
+                res.json(err);
+            })
+        }
+    })
+})
+
+// $routes /user/modify/sendEmail
+// @desc 发送邮箱
+// @access private
+router.post('/sendPhone', passport.authenticate('jwt', { session: false }), (req, res) => {
+    let randomNum = random.randomNumOneToOne(1000, 9999);
+    redisClient.set(req.body.phone, randomNum);
+    redisClient.expire(req.body.phone, 60);
+    res.json({
+        msg: 'Success'
+    })
+})
+
+
+// $routes /user/modify/editPhone
+// @desc 修改用户手机号
+// @access private
+router.post('/oauthPhone', passport.authenticate('jwt', { session: false }), (req, res) => {
+    let userFileds = {};
+    redisClient.get(req.body.phone, function (err, result) {
+        console.log(req.body.code, result, req.body.code != result)
+        if (result == null || req.body.code != result) {
+            res.json({
+                type: 'error'
+            })
+        } else {
+            userFileds.phone = req.body.phone;
             User.findOneAndUpdate({ openId: req.user.openId }, { $set: userFileds }, { new: true }).then(user => {
                 res.json({
                     type: 'success'

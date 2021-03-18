@@ -9,6 +9,10 @@ const mini = require('./routes/api/mini');
 const user = require('./routes/auth/user');
 const video = require('./routes/send/video');
 const modify = require('./routes/user/modify');
+const focus = require('./routes/user/focus');
+const collection = require('./routes/user/collection');
+const good = require('./routes/user/good');
+const share = require('./routes/user/share');
 
 // DB config
 const db = require('./config/keys').mongoURI;
@@ -36,6 +40,10 @@ app.use('/api/mini', mini);
 app.use('/auth/user', user);
 app.use('/send/video', video);
 app.use('/user/modify', modify);
+app.use('/user/focus', focus);
+app.use('/user/collection', collection);
+app.use('/user/good', good);
+app.use('/user/share', share);
 
 app.listen(5000, () => {
     console.log('the port running');

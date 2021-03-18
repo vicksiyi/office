@@ -14,7 +14,7 @@
 }
 
 .focus .item .name {
-  width: 400rpx;
+  width: 300rpx;
   height: 100rpx;
   line-height: 100rpx;
   padding-left: 20rpx;
@@ -30,5 +30,5 @@
 .focus .item .btn {
   /* line-height: 100rpx; */
   margin-top: 20rpx;
-  margin-left: 20rpx;
+  margin-left: 50rpx;
 }

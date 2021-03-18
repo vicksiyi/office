@@ -1,21 +1,37 @@
-// pages/detail/detail.js
+const app = getApp()
+const getUser = require('../../utils/getUser');
+const { $Message } = require('../../dist/base/index');
+var navSetTime = null;
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    contentHeight: 0
+    contentHeight: 0,
+    userDetail: {},
+    spinShow: false,
+    start: 0,
+    video: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: async function (options) {
+    console.log(options)
     let _this = this;
-    wx.setNavigationBarTitle({
-      title: '关注人名称'
+    this.setData({
+      openId: options.openId
     })
+    wx.setNavigationBarTitle({
+      title: options.nickName
+    })
+    let result = await this.getVideo(this.data.start, options.openId);
+    this.setData({
+      video: result
+    })
+    this.getUserDetail(options.openId);
     var query = wx.createSelectorQuery();
     wx.getSystemInfo({
       success: (result) => {
@@ -31,53 +47,87 @@ Page({
       }
     })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  getUserDetail: async function (openId) {
+    let _this = this;
+    let token = await getUser.getUserToken()
+    wx.request({
+      url: `http://${app.ip}:5000/user/focus/userDetail`,
+      method: 'POST',
+      data: {
+        openId: openId
+      },
+      header: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Authorization': token
+      },
+      success: function (res) {
+        _this.setData({
+          userDetail: res.data
+        })
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  getVideo: async function (start, openId) {
+    let _this = this;
+    this.setData({
+      spinShow: true
+    })
+    let token = await getUser.getUserToken()
+    return new Promise((resolve, reject) => {
+      wx.request({
+        url: `http://${app.ip}:5000/send/video/getUserVideo/${start}`,
+        method: 'GET',
+        data: {
+          openId: openId
+        },
+        header: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Authorization': token
+        },
+        success: async function (res) {
+          if (res.data == "Unauthorized") {
+            wx.removeStorage({
+              key: 'Token',
+            })
+            wx.redirectTo({
+              url: '../../pages/auth/auth',
+            })
+          }
+          _this.setData({
+            spinShow: false
+          })
+          if (res.data.type == "Success") {
+            resolve(res.data.res);
+          }
+        },
+        fail: function (err) {
+          reject(err);
+        }
+      })
+    }).catch((err) => {
+      wx.switchTab({
+        url: '../../pages/auth/auth',
+      })
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  nav: function (e) {
+    wx.navigateTo({
+      url: `../../pages/video/video?_id=${e.currentTarget.dataset.id}`,
+      fail: function (err) {
+        $Message({
+          content: '循环跳转太多次',
+          type: 'warning'
+        })
+        navSetTime = setTimeout(() => {
+          clearTimeout(navSetTime);
+          wx.navigateBack({
+            delta: 10,
+          })
+        }, 1000)
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
   onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+    clearTimeout(navSetTime);
   }
 })

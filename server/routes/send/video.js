@@ -45,6 +45,28 @@ router.get('/getVideo/:start', passport.authenticate('jwt', { session: false }),
     })
 })
 
+// $routes GET /send/video/getUserVideo
+// @desc 获取视频分页获取（某人发布）
+// @access private
+router.get('/getUserVideo/:start', passport.authenticate('jwt', { session: false }), (req, res) => {
+    console.log(req.params.start, req.query.openId)
+    Video.find({
+        userOpenId: req.query.openId
+    }).sort({ time: -1 }).skip(req.params.start * 10).limit(10).then(find => {
+        if (!find) {
+            return res.json({
+                msg: 'Null'
+            });
+        }
+        res.json({
+            type: 'Success',
+            res: find
+        });
+    }).catch(err => {
+        res.json(err);
+    })
+})
+
 // $routes GET /send/video/myVideo
 // @desc 获取我的视频
 // @access private
@@ -81,7 +103,7 @@ router.get('/delVideo/:id', passport.authenticate('jwt', { session: false }), (r
 })
 
 // $routes GET /send/video/getOneVideo
-// @desc 获取当个视频
+// @desc 获取单个视频
 // @access private
 router.get('/getOneVideo/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
     console.log(req.params.id)
@@ -94,6 +116,20 @@ router.get('/getOneVideo/:id', passport.authenticate('jwt', { session: false }),
         res.json({
             type: 'error'
         })
+    })
+})
+
+
+// $routes GET /send/video/searchVideo
+// @desc 搜索视频
+// @access private
+router.get('/searchVideo/:start', passport.authenticate('jwt', { session: false }), (req, res) => {
+    console.log(req.query)
+    const keyword = new RegExp(req.query.title);
+    Video.find({ title: keyword }).sort({ time: -1 }).skip(req.params.start * 10).limit(10).then(Msg => {
+        res.json(Msg);
+    }).catch(err => {
+        res.json(err);
     })
 })
 module.exports = router;

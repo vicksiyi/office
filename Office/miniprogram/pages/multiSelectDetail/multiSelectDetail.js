@@ -6,15 +6,36 @@ Page({
    */
   data: {
     timeStamp: 0,
-    isTips: false
+    isTips: false,
+    detail: {},
+    titleResult: [],
+    spinShow: false,
+    select: ['A', 'B', 'C', 'D']
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: async function (options) {
     let _this = this;
     const db = wx.cloud.database();
+    let detail = JSON.parse(options.detail)
+    this.setData({
+      detail: detail,
+      spinShow: true
+    })
+    let titleList = detail.titleList.split(';');
+    let answerList = detail.answerList.split(';');
+    let titleResult = []
+    for (let i = 0; i < titleList.length; i++) {
+      let result = await this.getIdToTitle(titleList[i]);
+      result.result = this.data.select[result.result];
+      titleResult.push({ ...result, answer: parseInt(answerList[i]) == -1 ? -1 : this.data.select[parseInt(answerList[i])] })
+    }
+    this.setData({
+      titleResult: titleResult,
+      spinShow: false
+    })
     db.collection('close').where({
       type: 'closeMutliSelect'
     }).get({
@@ -60,6 +81,16 @@ Page({
           type: 'warning'
         });
       }
+    })
+  },
+  getIdToTitle: function (id) {
+    const db = wx.cloud.database();
+    return new Promise((resolve, reject) => {
+      db.collection('multiSelect').doc(id).get({
+        success: function (res) {
+          resolve(res.data);
+        }
+      })
     })
   }
 })

@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "i-message": "../../dist/message/index",
+    "i-spin": "../../dist/spin/index",
     "i-notice-bar": "../../dist/notice-bar/index"
   },
   "navigationBarTitleText": "多选题刷题情况"

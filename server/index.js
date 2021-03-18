@@ -13,6 +13,7 @@ const focus = require('./routes/user/focus');
 const collection = require('./routes/user/collection');
 const good = require('./routes/user/good');
 const share = require('./routes/user/share');
+const exam = require('./routes/exam/exam');
 
 // DB config
 const db = require('./config/keys').mongoURI;
@@ -44,6 +45,7 @@ app.use('/user/focus', focus);
 app.use('/user/collection', collection);
 app.use('/user/good', good);
 app.use('/user/share', share);
+app.use('/exam/exam', exam);
 
 app.listen(5000, () => {
     console.log('the port running');

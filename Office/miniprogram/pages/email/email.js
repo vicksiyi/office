@@ -9,7 +9,7 @@ Page({
   data: {
     disabled: false,
     time: 60,
-    value1: 'zeroicegc123@163.com',
+    value1: '2627504828@qq.com',
     value2: '9096'
   },
 

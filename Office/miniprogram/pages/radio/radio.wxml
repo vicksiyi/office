@@ -29,4 +29,17 @@
     </view>
   </block>
 </view>
+<!-- 奖励 -->
+<view wx:if="{{showResult}}" class="reward">
+  <view class="frame">
+    <view class="title">本次得分</view>
+    <view class="result">{{result}}</view>
+    <view class="msg" style="font-size:23rpx;">具体情况请查看刷题记录</view>
+    <view class="msg">{{numTime}}s内自动返回</view>
+    <view class="img">
+      <image src="cloud://zhihao-2gqgyn10b1df04b1.7a68-zhihao-2gqgyn10b1df04b1-1305103766/bg/reward.gif"></image>
+    </view>
+  </view>
+</view>
+<i-message id="message" />
 <i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>

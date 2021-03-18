@@ -3,7 +3,8 @@
     "i-radio-group": "../../dist/radio-group/index",
     "i-radio": "../../dist/radio/index",
     "i-button": "../../dist/button/index",
-    "i-spin": "../../dist/spin/index"
+    "i-spin": "../../dist/spin/index",
+    "i-message": "../../dist/message/index"
   },
   "navigationBarTitleText": "判断题"
 }

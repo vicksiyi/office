@@ -1,41 +1,24 @@
-<view class="answer">
-  <view class="item">
-    <view class="tag">
-      <i-tag class="i-tags" name="标签一" color="blue">
-        单选
-      </i-tag>
-    </view>
-    <view class="num">
-      99
-    </view>
-    <view class="time">
-      2020-03-09 11:11:00
-    </view>
+<scroll-view scroll-y="{{true}}" style="height:{{height}}px;" bindscrolltolower="tolower">
+  <view class="answer">
+    <block wx:for="{{record}}">
+      <view class="item" bindtap="nav" data-Index="{{index}}" data-Type="{{item.type}}">
+        <view class="tag">
+          <i-tag wx:if="{{item.type == 0}}" class="i-tags" name="标签一" color="blue">
+            单选
+          </i-tag>
+          <i-tag wx:else class="i-tags" name="标签一" color="green">
+            多选
+          </i-tag>
+        </view>
+        <view class="num">
+          {{item.result}}
+        </view>
+        <view class="time">
+          {{item.time}}
+        </view>
+      </view>
+    </block>
   </view>
-  <view class="item">
-    <view class="tag">
-      <i-tag class="i-tags" name="标签一" color="blue">
-        单选
-      </i-tag>
-    </view>
-    <view class="num">
-      99
-    </view>
-    <view class="time">
-      2020-03-09 11:11:00
-    </view>
-  </view>
-  <view class="item">
-    <view class="tag">
-      <i-tag class="i-tags" name="标签一" color="green">
-        判断
-      </i-tag>
-    </view>
-    <view class="num">
-      64
-    </view>
-    <view class="time">
-      2020-03-09 11:11:00
-    </view>
-  </view>
-</view>
+</scroll-view>
+<i-message id="message" />
+<i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>

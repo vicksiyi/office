@@ -1,6 +1,9 @@
 {
   "pages": [
     "pages/auth/auth",
+    "pages/answerLog/answerLog",
+    "pages/multiSelect/multiSelect",
+    "pages/radio/radio",
     "pages/collection/collection",
     "pages/focus/focus",
     "pages/phone/phone",
@@ -15,12 +18,9 @@
     "pages/setting/setting",
     "pages/multiSelectDetail/multiSelectDetail",
     "pages/radioDetail/radioDetail",
-    "pages/answerLog/answerLog",
     "pages/me/me",
     "pages/detail/detail",
     "pages/video/video",
-    "pages/radio/radio",
-    "pages/multiSelect/multiSelect",
     "pages/news/news",
     "pages/learn/learn",
     "pages/newsList/newsList",

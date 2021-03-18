@@ -6,15 +6,34 @@ Page({
    */
   data: {
     timeStamp: 0,
-    isTips: false
+    isTips: false,
+    detail: {},
+    titleResult: [],
+    spinShow: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: async function (options) {
     let _this = this;
     const db = wx.cloud.database();
+    let detail = JSON.parse(options.detail)
+    this.setData({
+      detail: detail,
+      spinShow: true
+    })
+    let titleList = detail.titleList.split(';');
+    let answerList = detail.answerList.split(';');
+    let titleResult = []
+    for (let i = 0; i < titleList.length; i++) {
+      let result = await this.getIdToTitle(titleList[i]);
+      titleResult.push({ ...result, answer: parseInt(answerList[i]) })
+    }
+    this.setData({
+      titleResult: titleResult,
+      spinShow: false
+    })
     db.collection('close').where({
       type: 'closeRadio'
     }).get({
@@ -60,6 +79,16 @@ Page({
           type: 'warning'
         });
       }
+    })
+  },
+  getIdToTitle: function (id) {
+    const db = wx.cloud.database();
+    return new Promise((resolve, reject) => {
+      db.collection('radio').doc(id).get({
+        success: function (res) {
+          resolve(res.data);
+        }
+      })
     })
   }
 })

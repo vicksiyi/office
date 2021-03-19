@@ -24,6 +24,23 @@ router.get('/getUser', passport.authenticate('jwt', { session: false }), (req, r
     res.json(req.user)
 })
 
+// $routes GET /user/modify/editUser
+// @desc 修改用户信息
+// @access private
+router.post('/editUser', passport.authenticate('jwt', { session: false }), (req, res) => {
+    let userFileds = {}
+    if (req.body.avatarUrl) { userFileds.avatarUrl = req.body.avatarUrl; }
+    if (req.body.nickName) { userFileds.nickName = req.body.nickName; }
+    if (req.body.msg) { userFileds.msg = req.body.msg; }
+    User.findOneAndUpdate({ openId: req.user.openId }, { $set: userFileds }, { new: true }).then(() => {
+        res.json({
+            type: 'Success'
+        })
+    }).catch((err) => {
+        res.json(err)
+    })
+})
+
 // $routes /user/modify/sendEmail
 // @desc 发送邮箱
 // @access private

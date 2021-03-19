@@ -1,9 +1,9 @@
 <view class="card">
   <view class="img">
-    <open-data type="userAvatarUrl"></open-data>
+    <image src="{{user.avatarUrl}}"></image>
   </view>
   <view class="name">
-    Hi;<open-data type="userNickName"></open-data>
+    Hi;<text>{{user.nickName}}</text>
   </view>
 </view>
 
@@ -19,3 +19,4 @@
     </view>
   </block>
 </view>
+<i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>

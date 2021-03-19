@@ -1,4 +1,5 @@
-<view class="avatar" style="background:url('{{user.avatarUrl}}');background-size:contain;">
+<view class="avatar">
+  <image src="{{user.avatarUrl}}"></image>
   <view class="font" bindtap='changeImage'>修改</view>
 </view>
 
@@ -14,9 +15,16 @@
 <i-modal title="修改昵称" visible="{{ visible1 }}" bind:ok="handleOk" bind:cancel="handleClose">
   <input type="text" value="{{inputNickName}}" placeholder="昵称" bindinput="nickNameChange" />
 </i-modal>
+<i-panel title="反馈描述">
+  <view class="text-box">
+    <textarea name="review" maxlength="{{maxNumber}}" class="textArea" value="{{user.msg}}" bindinput='inputText'
+      placeholder="请输入个人简介..."></textarea>
+    <span class="wordwrap">{{number}}/{{maxNumber}}</span>
+  </view>
+</i-panel>
 <view class="btn">
   <button style="width:250rpx;" bindtap="modify">修改</button>
-  <button style="width:250rpx;">保存</button>
+  <button style="width:250rpx;" bindtap="save">保存</button>
 </view>
 <i-message id="message" />
 <i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>

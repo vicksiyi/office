@@ -1,20 +1,26 @@
 <i-cell-group>
   <i-cell title="视频推送">
-    <i-switch value="{{switch1}}" size="large" data-Id="{{1}}" bind:change="onChange" slot="footer">
-      <view slot="open">开启</view>
-      <view slot="close">关闭</view>
+    <i-switch value="{{switch1}}" size="large" data-Id="1" bind:change="onChange" slot="footer">
+      <view slot="open">关闭</view>
+      <view slot="close">开启</view>
     </i-switch>
   </i-cell>
   <i-cell title="多选题刷题情况提示">
-    <i-switch value="{{switch2}}" size="large" data-Id="{{2}}" bind:change="onChange" slot="footer">
-      <view slot="open">开启</view>
-      <view slot="close">关闭</view>
+    <i-switch value="{{switch2}}" size="large" data-Id="2" bind:change="onChange" slot="footer">
+      <view slot="open">关闭</view>
+      <view slot="close">开启</view>
     </i-switch>
   </i-cell>
   <i-cell title="判断刷题情况提示">
-    <i-switch value="{{switch3}}" size="large" data-Id="{{3}}" bind:change="onChange" slot="footer">
-      <view slot="open">开启</view>
-      <view slot="close">关闭</view>
+    <i-switch value="{{switch3}}" size="large" data-Id="3" bind:change="onChange" slot="footer">
+      <view slot="open">关闭</view>
+      <view slot="close">开启</view>
+    </i-switch>
+  </i-cell>
+  <i-cell title="错题集提示">
+    <i-switch value="{{switch4}}" size="large" data-Id="4" bind:change="onChange" slot="footer">
+      <view slot="open">关闭</view>
+      <view slot="close">开启</view>
     </i-switch>
   </i-cell>
 </i-cell-group>

@@ -1,12 +1,12 @@
-<i-panel title="上传图片   {{num}}/9">
+<i-panel title="上传图片   {{imageNum}}/9">
   <view class="img-list">
     <block wx:for="{{image}}">
       <view class="item">
         <image src="{{item}}"></image>
       </view>
     </block>
-    <view wx:if="{{showItem}}" class="item">
-      <image src="../../images/addImage.png"></image>
+    <view wx:if="{{imageNum < 9}}" class="item">
+      <image bindtap="addImage" src="../../images/addImage.png"></image>
     </view>
   </view>
 </i-panel>
@@ -18,4 +18,5 @@
   </view>
 </i-panel>
 <!-- <button open-type='feedback' type='primary'>意见反馈</button> -->
-<button style="background:#2d8cf0;color:#fff;margin-top:20rpx;">提交反馈</button>
+<button bindtap="submit" style="background:#2d8cf0;color:#fff;margin-top:20rpx;">提交反馈</button>
+<i-message id="message" />

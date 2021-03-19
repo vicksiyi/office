@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "i-spin": "../../dist/spin/index"
+  },
   "navigationBarTitleText": "我的"
 }

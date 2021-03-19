@@ -2,6 +2,7 @@ const app = getApp()
 const getUser = require('../../utils/getUser');
 const base64 = require('../../utils/base64');
 const { $Message } = require('../../dist/base/index');
+var time = null
 Page({
 
   /**
@@ -27,7 +28,10 @@ Page({
       }
     ],
     user: {},
-    avatarUrl: ''
+    avatarUrl: '',
+    token: '',
+    maxNumber: 100,//可输入最大字数
+    number: 0,//已输入字数
   },
 
   /**
@@ -90,6 +94,9 @@ Page({
       spinShow: true
     })
     let token = await getUser.getUserToken()
+    this.setData({
+      token: token
+    })
     return new Promise((resolve, reject) => {
       wx.request({
         url: `http://${app.ip}:5000/user/modify/getUser`,
@@ -165,6 +172,72 @@ Page({
         })
         wx.hideLoading()
       }
+    })
+  },
+  save: function () {
+    let _this = this;
+    this.setData({
+      spinShow: true
+    })
+    wx.request({
+      url: `http://${app.ip}:5000/user/modify/editUser`,
+      method: 'POST',
+      data: {
+        avatarUrl: _this.data.avatarUrl,
+        nickName: _this.data.user.nickName,
+        msg: _this.data.user.msg
+      },
+      header: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Authorization': _this.data.token
+      },
+      success: async function (res) {
+        if (res.data == "Unauthorized") {
+          wx.removeStorage({
+            key: 'Token',
+          })
+          wx.redirectTo({
+            url: '../../pages/auth/auth',
+          })
+        }
+        if (res.data.type == 'Success') {
+          $Message({
+            content: '修改成功',
+            type: 'success'
+          })
+          time = setTimeout(() => {
+            wx.navigateBack({
+              delta: 1
+            })
+            _this.setData({
+              spinShow: false
+            })
+            clearTimeout(time);
+          }, 1000);
+        }
+      },
+      fail: function (err) {
+        console.log(err)
+      }
+    })
+  },
+  onUnload: function () {
+    clearTimeout(time);
+  },
+  inputText: function (e) {
+    let _this = this;
+    let value = e.detail.value;
+    let len = value.length;
+    if (len > this.data.maxNumber) {
+      _this.setData({
+        'number': this.data.maxNumber
+      })
+      return;
+    }
+    let temp = 'user.msg'
+    this.setData({
+      'number': len,
+      [temp]: value
     })
   }
 })

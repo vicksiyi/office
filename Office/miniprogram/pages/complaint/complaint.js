@@ -6,17 +6,9 @@ Page({
    */
   data: {
     select: ['违法违禁', '色情', '低俗', '赌博诈骗', '血腥暴力', '人身攻击', '与站内其他视频撞车', '不良封面/标题', '转载/自制类型错误', '引战', '不能参加充电', '青少年不良信息', '有其他问题'],
-    maxNumber: 400,//可输入最大字数
+    maxNumber: 100,//可输入最大字数
     number: 0,//已输入字数
-    image: ['https://profile.csdnimg.cn/3/F/2/3_weixin_41593408',
-      'https://profile.csdnimg.cn/5/5/5/3_weixin_46199817',
-      'https://profile.csdnimg.cn/D/B/1/3_epubit17',
-      'https://profile.csdnimg.cn/3/F/2/3_weixin_41593408',
-      'https://profile.csdnimg.cn/3/F/2/3_weixin_41593408',
-      'https://profile.csdnimg.cn/3/F/2/3_weixin_41593408',
-      'https://profile.csdnimg.cn/3/F/2/3_weixin_41593408',
-      'https://profile.csdnimg.cn/3/F/2/3_weixin_41593408',
-      'https://profile.csdnimg.cn/3/F/2/3_weixin_41593408'],
+    image: [],  
   },
 
   /**

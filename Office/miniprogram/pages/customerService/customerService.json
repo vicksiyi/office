@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "i-panel": "../../dist/panel/index"
+    "i-panel": "../../dist/panel/index",
+    "i-message": "../../dist/message/index"
   },
   "navigationBarTitleText": "反馈"
 }

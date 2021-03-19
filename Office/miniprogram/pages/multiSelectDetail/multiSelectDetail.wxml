@@ -5,7 +5,7 @@
 </view>
 <view class="detail">
   <block wx:for="{{titleResult}}">
-    <view class="item" bindtap="doubleClick">
+    <view class="item" bindtap="doubleClick" data-Id="{{item._id}}">
       <view class="item-row">
         <view class="title">题目</view>
         <view class="msg msg-title">{{item.title}}</view>

@@ -1,3 +1,5 @@
+const app = getApp()
+const getUser = require('../../utils/getUser');
 const { $Message } = require('../../dist/base/index');
 Page({
 
@@ -49,7 +51,7 @@ Page({
       }
     })
   },
-  doubleClick: function (e) {
+  doubleClick: async function (e) {
     let _this = this;
     if (this.data.timeStamp == 0) {
       _this.setData({
@@ -58,11 +60,48 @@ Page({
       return;
     }
     if (e.timeStamp - this.data.timeStamp < 300) {
-      console.log('双击')
-      $Message({
-        content: '双击',
-        type: 'success'
-      });
+      let type = 1;
+      let id = e.currentTarget.dataset.id;
+      let token = await getUser.getUserToken()
+      wx.request({
+        url: `http://${app.ip}:5000/exam/exam/addRecordClass/${id}/${type}`,
+        method: 'GET',
+        header: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Authorization': token
+        },
+        success: async function (res) {
+          if (res.data == "Unauthorized") {
+            wx.removeStorage({
+              key: 'Token',
+            })
+            wx.redirectTo({
+              url: '../../pages/auth/auth',
+            })
+          }
+          if (res.data.type == 'Success') {
+            $Message({
+              content: '添加到错题集成功',
+              type: 'success'
+            })
+          }
+          if (res.data.type == 'added') {
+            $Message({
+              content: '已存在错题集里面',
+              type: 'warning'
+            })
+          }
+          if (res.data.type == 'err') {
+            $Message({
+              content: '未知错误',
+              type: 'error'
+            })
+          }
+        },
+        fail: function (err) {
+          reject(err);
+        }
+      })
     }
     _this.setData({
       timeStamp: 0

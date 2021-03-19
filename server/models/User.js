@@ -25,7 +25,7 @@ const UserSchema = new Schema({
     },
     msg:{
         type:String,
-        require: false
+        default: '用户什么都没留下...'
     },
     time: {         // 加入时间
         type: Date,

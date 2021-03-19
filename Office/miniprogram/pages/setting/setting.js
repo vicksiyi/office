@@ -8,6 +8,7 @@ Page({
     switch1: false,
     switch2: false,
     switch3: false,
+    switch4: false,
     spinShow: true
   },
 
@@ -35,6 +36,18 @@ Page({
         if (res.data.length == 0) {
           _this.setData({
             'switch3': true
+          })
+        }
+      }
+    })
+    db.collection('close').where({
+      type: 'errorCollection'
+    }).get({
+      success: function (res) {
+        console.log(res)
+        if (res.data.length == 0) {
+          _this.setData({
+            'switch4': true
           })
         }
       }
@@ -113,6 +126,35 @@ Page({
             spinShow: false
           })
         }
+      })
+    }
+    if (id == 4 && this.data.switch4) {
+      db.collection('close').add({
+        data: {
+          type: 'errorCollection'
+        },
+        success: function (res) {
+          _this.setData({
+            switch4: false,
+            spinShow: false
+          })
+        }
+      })
+    }
+    if (id == 4 && !this.data.switch4) {
+      db.collection('close').where({
+        type: 'errorCollection'
+      }).get({
+        success: function (res) {
+          db.collection('close').doc(res.data[0]._id).remove({
+            success: function (e) {
+              _this.setData({
+                switch4: true,
+                spinShow: false
+              })
+            }
+          })
+        },
       })
     }
   }

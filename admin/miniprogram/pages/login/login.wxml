@@ -1,0 +1,9 @@
+<view class="logo">
+  <image src="../../images/logo.png"></image>
+</view>
+<i-panel>
+  <i-input value="{{ value1 }}" bind:change="value1Change" title="账号" placeholder="用户号" />
+  <i-input value="{{ value2 }}" type="password" bind:change="value2Change" title="密码" placeholder="请输入密码" />
+</i-panel>
+<i-message id="message" />
+<i-button bind:click="oauth" type="primary">登录</i-button>

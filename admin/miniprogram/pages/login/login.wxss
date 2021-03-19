@@ -1,0 +1,14 @@
+.logo {
+  width: 160rpx;
+  height: 160rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: auto;
+  margin-top: 160rpx;
+  margin-bottom: 60rpx;
+}
+
+.logo image {
+  width: 160rpx;
+  height: 160rpx;
+}

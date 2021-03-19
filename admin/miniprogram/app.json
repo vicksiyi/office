@@ -1,6 +1,9 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/login/login",
+    "pages/index/index",
+    "pages/data/data",
+    "pages/me/me"
   ],
   "window": {
     "backgroundColor": "#2d8cf0",
@@ -8,6 +11,30 @@
     "navigationBarBackgroundColor": "#2d8cf0",
     "navigationBarTitleText": "账上Office管理端",
     "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "selectedColor": "#2d8cf0",
+    "color": "#666666",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "./images/tabBar/index0.png",
+        "selectedIconPath": "./images/tabBar/index1.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/data/data",
+        "iconPath": "./images/tabBar/data0.png",
+        "selectedIconPath": "./images/tabBar/data1.png",
+        "text": "数据"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "iconPath": "./images/tabBar/me0.png",
+        "selectedIconPath": "./images/tabBar/me1.png",
+        "text": "我的"
+      }
+    ]
   },
   "sitemapLocation": "sitemap.json",
   "style": "v2"

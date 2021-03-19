@@ -5,7 +5,7 @@ const app = express();
 const passport = require('passport');
 
 //引入users
-const mini = require('./routes/api/mini');
+const admin = require('./routes/admin/service');
 
 // DB config
 const db = require('./config/keys').mongoURI;
@@ -28,7 +28,7 @@ app.use(passport.initialize());
 require('./config/adminPassport')(passport);
 
 //使用routes
-app.use('/api/mini', mini);
+app.use('/admin/service', admin);
 
 app.listen(5001, () => {
     console.log('the port running');

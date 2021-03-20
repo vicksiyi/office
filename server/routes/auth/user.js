@@ -4,7 +4,18 @@ const request = require('request');
 const jwt = require('jsonwebtoken');
 const keys = require('../../config/keys');
 const User = require('../../models/User');
-const WXBizDataCrypt = require('../../utils/WXBizDataCrypt')
+const LoginLog = require('../../models/LoginLog');
+const WXBizDataCrypt = require('../../utils/WXBizDataCrypt');
+var redis = require('redis'),
+    dbConfig = keys.redis,
+    RDS_PORT = dbConfig.port,     //端口号
+    RDS_HOST = dbConfig.host,     //服务器IP
+    RDS_PWD = dbConfig.pass,      //密码
+    RDS_OPTS = { auth_pass: RDS_PWD },
+    redisClient = redis.createClient(RDS_PORT, RDS_HOST, RDS_OPTS);
+redisClient.on('connect', function () {
+    console.log('Oauth redis connect success!');
+});
 
 // 返回body
 const oauthFunc = (code) => {
@@ -23,7 +34,10 @@ router.post('/login', async (req, res) => {
     let data = await oauthFunc(req.body.code)
     let iv = req.body.iv
     let encryptedData = req.body.encryptedData
-
+    let ip = req.headers['x-wq-realip'] ||
+        req.connection.remoteAddress ||
+        req.socket.remoteAddress ||
+        req.connection.socket.remoteAddress;
     // 响应
     if (data.openid) {
         let Item = {}
@@ -36,28 +50,70 @@ router.post('/login', async (req, res) => {
             Item.avatarUrl = dataTemp.avatarUrl;
         }
         Item.openId = data.openid
-        console.log(Item)
-        // 更新用户信息
-        User.findOne({ openId: data.openid }).then(user => {
-            if (!user) {
-                new User(Item).save().then(user => {
-                    res.json({
-                        msg: "Success",
-                        openId: data.openid
-                    })
-                }).catch(err => {
-                    res.json({
-                        msg: "err"
-                    });
-                })
-            } else {
+        redisClient.get(Item.openId, (err, result) => {
+            if (result != null) {
                 res.json({
-                    msg: 'Success',
-                    openId: data.openid
+                    type: 'close',
+                    time: result
+                })
+                new LoginLog({
+                    openId: data.openid,
+                    system: req.body.system,
+                    model: req.body.model,
+                    ip: ip,
+                    type: 0
+                }).save();
+            } else {
+                // 更新用户信息
+                User.findOne({ openId: data.openid }).then(user => {
+                    if (!user) {
+                        new User(Item).save().then(user => {
+                            res.json({
+                                msg: "Success",
+                                openId: data.openid
+                            })
+                            new LoginLog({
+                                openId: data.openid,
+                                system: req.body.system,
+                                model: req.body.model,
+                                type: 3,
+                                ip: ip
+                            }).save();
+                        }).catch(err => {
+                            res.json({
+                                msg: "err"
+                            });
+                            new LoginLog({
+                                openId: data.openid,
+                                system: req.body.system,
+                                model: req.body.model,
+                                type: 2,
+                                ip: ip
+                            }).save();
+                        })
+                    } else {
+                        res.json({
+                            msg: 'Success',
+                            openId: data.openid
+                        })
+                        new LoginLog({
+                            openId: data.openid,
+                            system: req.body.system,
+                            model: req.body.model,
+                            type: 1,
+                            ip: ip
+                        }).save();
+                    }
+                }).catch(err => {
+                    new LoginLog({
+                        openId: data.openid,
+                        system: req.body.system,
+                        model: req.body.model,
+                        type: 2
+                    }).save();
+                    res.json(err);
                 })
             }
-        }).catch(err => {
-            res.json(err);
         })
     } else {
         res.json(data)

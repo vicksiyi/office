@@ -38,3 +38,13 @@ exports.getTempUrl = function (url) {
     })
   })
 }
+
+exports.getSystemInfo = function (url) {
+  return new Promise((resolve, reject) => {
+    wx.getSystemInfo({
+      success: (result) => {
+        resolve(result);
+      },
+    })
+  })
+}

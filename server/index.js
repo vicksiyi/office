@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const app = express();
+const keys = require('./config/keys');
 const passport = require('passport');
 
 //引入users
@@ -18,7 +19,6 @@ const customer = require('./routes/customer/service');
 
 // DB config
 const db = require('./config/keys').mongoURI;
-
 // 使用body-parser
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());

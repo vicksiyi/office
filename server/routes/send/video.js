@@ -91,7 +91,7 @@ router.get('/myVideo/:start', passport.authenticate('jwt', { session: false }), 
 // @access private
 router.get('/delVideo/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
     console.log(req.params.id)
-    Video.findOneAndRemove({ _id: req.params.id }).then(profile => {
+    Video.findOneAndRemove({ _id: req.params.id, userOpenId: req.user.openId }).then(profile => {
         res.json({
             type: 'Success'
         })

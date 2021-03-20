@@ -1,4 +1,5 @@
 const app = getApp();
+const getToken = require('../../utils/getToken');
 const { $Message } = require('../../dist/base/index');
 var time = null
 Page({
@@ -14,8 +15,13 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-
+  onLoad: async function (options) {
+    let token = await getToken.getUserToken();
+    if (token != 'error') {
+      wx.switchTab({
+        url: '../index/index',
+      })
+    }
   },
   value1Change: function (e) {
     this.setData({

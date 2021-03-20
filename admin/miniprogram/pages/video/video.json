@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "i-input": "../../dist/input/index",
+    "i-spin": "../../dist/spin/index",
+    "i-message": "../../dist/message/index",
+    "i-load-more": "../../dist/load-more/index"
+  },
+  "navigationBarTitleText": "视频管理"
+}

@@ -14,9 +14,8 @@ var redis = require('redis'),
     RDS_OPTS = { auth_pass: RDS_PWD },
     redisClient = redis.createClient(RDS_PORT, RDS_HOST, RDS_OPTS);
 redisClient.on('connect', function () {
-    console.log('redis connect success!');
+    console.log('Modify redis connect success!');
 });
-
 // $routes GET /user/modify/getUser
 // @desc 获取用户信息
 // @access private

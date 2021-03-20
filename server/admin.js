@@ -3,9 +3,11 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const app = express();
 const passport = require('passport');
-
 //引入users
 const admin = require('./routes/admin/service');
+const video = require('./routes/admin/video');
+const user = require('./routes/admin/user');
+const loginLog = require('./routes/admin/loginLog');
 
 // DB config
 const db = require('./config/keys').mongoURI;
@@ -29,6 +31,9 @@ require('./config/adminPassport')(passport);
 
 //使用routes
 app.use('/admin/service', admin);
+app.use('/admin/video', video);
+app.use('/admin/user', user);
+app.use('/admin/loginLog', loginLog);
 
 app.listen(5001, () => {
     console.log('the port running');

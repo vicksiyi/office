@@ -1,2 +1,17 @@
-<!--pages/me/me.wxml-->
-<text>pages/me/me.wxml</text>
+<view class="mine">
+  <view class="contain">
+    <span>当前用户</span>
+    <view class="user">
+      <open-data type="userAvatarUrl"></open-data>
+    </view>
+    <span>admin</span>
+  </view>
+</view>
+<view class="list">
+  <view class="item">
+    <view class="img">
+      <image src="../../images/me/admin.png"></image>
+    </view>
+    <view class="title">管理员审核</view>
+  </view>
+</view>

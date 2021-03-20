@@ -1,0 +1,10 @@
+{
+  "usingComponents": {
+    "i-input": "../../dist/input/index",
+    "i-spin": "../../dist/spin/index",
+    "i-modal": "../../dist/modal/index",
+    "i-message": "../../dist/message/index",
+    "i-drawer": "../../dist/drawer/index"
+  },
+  "navigationBarTitleText": "用户管理"
+}

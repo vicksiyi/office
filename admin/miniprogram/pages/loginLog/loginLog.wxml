@@ -1,0 +1,52 @@
+<scroll-view scroll-y="{{true}}" style="height:{{height}}px;" bindscrolltolower="tolower">
+  <view class="log">
+    <block wx:for="{{log}}">
+      <view class="item">
+        <view class="header">{{item.time}}</view>
+        <view class="detail">
+          <view class="title">IP地址</view>
+          <view class="value">{{item.ip}}</view>
+        </view>
+        <view class="detail">
+          <view class="title">用户</view>
+          <view class="value">
+            <view class="img">
+              <image src="{{item.avatarUrl}}">
+              </image>
+            </view>
+            <view class="name">
+              {{item.nickName}}
+            </view>
+          </view>
+        </view>
+        <view class="detail">
+          <view class="title">系统</view>
+          <view class="value">{{item.system}}</view>
+        </view>
+        <view class="detail">
+          <view class="title">手机型号</view>
+          <view class="value">{{item.model}}</view>
+        </view>
+        <view class="detail">
+          <view class="title">登录状态</view>
+          <view class="value">
+            <i-tag wx:if="{{item.type == 0}}" class="i-tags" name="标签一" color="red">
+              封号问题
+            </i-tag>
+            <i-tag wx:if="{{item.type == 1}}" class="i-tags" name="标签一" color="green">
+              登录成功
+            </i-tag>
+            <i-tag wx:if="{{item.type == 2}}" class="i-tags" name="标签一" color="red">
+              未知错误
+            </i-tag>
+            <i-tag wx:if="{{item.type == 3}}" class="i-tags" name="标签一" color="yellow">
+              新建用户
+            </i-tag>
+          </view>
+        </view>
+      </view>
+    </block>
+  </view>
+</scroll-view>
+<i-message id="message" />
+<i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>

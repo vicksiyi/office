@@ -1,1 +1,32 @@
-管理端
+<view class="header">
+  <view class="item">
+    <span>{{userNum}}</span>
+    <view>系统总人数</view>
+  </view>
+  <view class="item">
+    <span>{{dayUserNum}}</span>
+    <view>今日使用用户</view>
+  </view>
+  <view class="item">
+    <span>{{dayLogNum}}</span>
+    <view>访问次数</view>
+  </view>
+  <view class="item">
+    <span>{{registerNum}}</span>
+    <view>今日注册用户</view>
+  </view>
+</view>
+
+<view class="card-list">
+  <block wx:for="{{cardList}}">
+    <view bindtap="nav" data-Id="{{index}}" class="item">
+      <view class="img">
+        <image src="{{item.logo}}"></image>
+      </view>
+      <view class="title">
+        {{item.title}}
+      </view>
+    </view>
+  </block>
+</view>
+<i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>

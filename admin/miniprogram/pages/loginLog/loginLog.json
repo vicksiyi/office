@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "i-spin": "../../dist/spin/index",
+    "i-message": "../../dist/message/index",
+    "i-tag": "../../dist/tag/index"
+  },
+  "navigationBarTitleText": "登录日志"
+}

@@ -9,7 +9,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    systemInfo: {}
   },
 
   /**
@@ -22,9 +22,14 @@ Page({
         url: '../index/index',
       })
     }
+    let systemInfo = await getUser.getSystemInfo()
+    this.setData({
+      systemInfo: systemInfo
+    })
   },
   getUserInfo: function (res) {
     console.log(res)
+    let _this = this;
     if (res.detail.errMsg == 'getUserInfo:fail auth deny') {
       $Message({
         content: '用户取消',
@@ -45,13 +50,17 @@ Page({
               item.iv = e.iv;
               item.encryptedData = e.encryptedData
             },
-            complete() {
+            async complete() {
               item.code = res.code
               // 获取token
               wx.request({
                 url: `http://${app.ip}:5000/auth/user/login`,
-                data: item,
                 method: 'POST',
+                data: {
+                  model: _this.data.systemInfo.model,
+                  system: _this.data.systemInfo.system,
+                  ...item
+                },
                 header: {
                   'content-type': 'application/x-www-form-urlencoded'
                 },
@@ -62,6 +71,11 @@ Page({
                       type: 'success'
                     });
                     oauth.loginUser() // 获取token
+                  } else if (data.data.type == 'close') {
+                    $Message({
+                      content: `此号已被封,${data.data.time}自动解封`,
+                      type: 'error'
+                    });
                   } else {
                     $Message({
                       content: '授权失败，稍后重试',
@@ -69,7 +83,7 @@ Page({
                     });
                   }
                 },
-                fail:function(err){
+                fail: function (err) {
                   console.log(err)
                 }
               })

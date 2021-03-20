@@ -1,0 +1,58 @@
+.log .item {
+  margin: 50rpx auto;
+  width: 700rpx;
+  box-shadow: 1rpx 1rpx 20rpx #e9eaec;
+}
+
+.log .item .header {
+  width: 700rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  box-shadow: 1rpx 1rpx 10rpx #f8f8f9;
+  background: #2d8cf0;
+  color: #fff;
+  text-align: center;
+}
+
+.log .item .detail {
+  display: flex;
+  flex-direction: row;
+  height: 70rpx;
+  line-height: 70rpx;
+}
+
+.log .item .detail .title {
+  width: 200rpx;
+  text-align: center;
+  box-shadow: 1rpx 1rpx 10rpx #fff;
+  background: #f8f8f9;
+}
+
+.log .item .detail .value {
+  width: 500rpx;
+  text-align: center;
+  box-shadow: 1rpx 1rpx 10rpx #f8f8f8;
+}
+
+.log .item .detail:nth-child(3) .value{
+  display: flex;
+  flex-direction: row;
+} 
+
+.log .item .detail:nth-child(3) .value .img{
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 5rpx 20rpx 5rpx 160rpx;
+}
+.log .item .detail:nth-child(3) .value .img image{
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.log .item .detail:nth-child(3) .value .name{
+  width: 100rpx;
+  text-align: center;
+  overflow: hidden;
+}

@@ -1,0 +1,54 @@
+<view class="search">
+  <view class="inp">
+    <i-input bind:change="inputChange" value="{{ inpuValue }}" placeholder="请输入搜索内容" />
+  </view>
+  <view class="btn"><button size="mini" style="background:#2d8cf0;color:#fff;margin-top:28rpx;"
+      bindtap="searchTitle">搜索</button></view>
+</view>
+<!-- 用户列表 -->
+<view class="user-list">
+  <view class="item" wx:for="{{user}}">
+    <view class="num">{{index + 1}}</view>
+    <view class="img">
+      <image src="{{item.avatarUrl}}"></image>
+    </view>
+    <view class="name">{{item.nickName}}</view>
+    <view class="btn">
+      <button size="mini" bindtap="toggleRight" data-Index="{{index}}"
+        style="background:#2d8cf0;color:#fff;">管理</button>
+    </view>
+  </view>
+</view>
+<i-drawer mode="right" visible="{{showRight}}" bind:close="toggleRight">
+  <view class="manage" style="height:{{height}}px;">
+    <view class="img">
+      <image src="{{userDetail.avatarUrl}}"></image>
+      <view class="modify" bindtap="changeImage">修改</view>
+    </view>
+    <view class="nickName" bindtap="modify" data-Type="nickName">
+      {{userDetail.nickName}}
+    </view>
+    <view class="email" bindtap="modify" data-Type="email">
+      {{userDetail.email ? userDetail.email:'邮箱号(暂无)'}}
+    </view>
+    <view class="phone" bindtap="modify" data-Type="phone">
+      {{userDetail.phone ? userDetail.phone:'手机号(暂无)'}}
+    </view>
+    <view class="msg" bindtap="modify" data-Type="msg">
+      {{userDetail.msg ? userDetail.msg:'个人简介(暂无)'}}
+    </view>
+    <picker wx:if="{{!isClose}}" mode="date" bindchange="bindMultiPickerChange">
+      <view class="btn"><button bindtap="close" style="background:#ed3f14;color:#fff;">封号</button></view>
+    </picker>
+    <view wx:else class="time">
+      此用户已被封号{{closeTime}}自动解封
+      <button bindtap="delClose" style="background:#ff9900;color:#fff">马上解封</button>
+    </view>
+  </view>
+</i-drawer>
+<i-modal title="修改{{modifyTypeName[modifyType]}}" visible="{{ visible1 }}" bind:ok="handleOk" bind:cancel="handleClose">
+  <input type="text" value="{{inputValue}}" placeholder="{{modifyTypeName[modifyType]}}" bindinput="inputChange" />
+</i-modal>
+
+<i-message id="message" />
+<i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>

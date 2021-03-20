@@ -93,7 +93,7 @@ Page({
         }
         if (res.data.type == 'success') {
           $Message({
-            content: '修改邮箱成功',
+            content: '修改手机号成功',
             type: 'success'
           })
           let setOauth = setTimeout(() => {

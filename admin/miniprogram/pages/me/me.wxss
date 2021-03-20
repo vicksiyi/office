@@ -1,1 +1,52 @@
 /* pages/me/me.wxss */
+.mine .contain {
+  width: 520rpx;
+  /* height: 400rpx; */
+  background: #2d8cf0;
+  margin: 20rpx auto;
+  border-radius: 20rpx;
+  text-align: center;
+  color: #fff;
+  padding: 20rpx;
+  box-shadow: 5px 5px 3px#ddd;
+}
+
+.mine .contain span {
+  font-size: 30rpx;
+  font-family: cursive;
+}
+
+.mine .contain .user {
+  width: 150rpx;
+  height: 150rpx;
+  overflow: hidden;
+  border-radius: 50%;
+  margin: 20rpx auto;
+}
+
+.list {
+  margin-top: 30rpx;
+}
+
+.list .item {
+  width: 650rpx;
+  height: 80rpx;
+  margin: 20rpx auto;
+  box-shadow: 1rpx 1rpx 10rpx #f8f8f9;
+  display: flex;
+  flex-direction: row;
+}
+
+.list .item .img image {
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 10rpx;
+  margin: 15rpx;
+}
+
+.list .item .title {
+  line-height: 80rpx;
+  color: #495060;
+  font-size: 30rpx;
+  margin-left: 30rpx;
+}

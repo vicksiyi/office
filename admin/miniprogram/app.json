@@ -1,9 +1,19 @@
 {
   "pages": [
     "pages/login/login",
+    "pages/display/display",
+    "pages/loginLog/loginLog",
+    "pages/video/video",
+    "pages/me/me",
+    "pages/user/user",
     "pages/index/index",
     "pages/data/data",
-    "pages/me/me"
+    "pages/answer/answer",
+    "pages/complain/complain",
+    "pages/news/news",
+    "pages/videoList/videoList",
+    "pages/exam/exam",
+    "pages/videoDetail/videoDetail"
   ],
   "window": {
     "backgroundColor": "#2d8cf0",

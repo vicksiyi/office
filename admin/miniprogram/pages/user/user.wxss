@@ -1,0 +1,118 @@
+.search {
+  display: flex;
+  flex-direction: row;
+  background: #fff;
+}
+
+.search .inp {
+  width: 580rpx;
+  height: 50px;
+}
+
+.search .inp input {
+  border: 1rpx solid #e9eaec;
+  margin: 14rpx;
+}
+
+.search .btn {
+  width: 150rpx;
+  height: 50px;
+  background: #fff;
+}
+
+.user-list {
+  position: relative;
+}
+
+.user-list .item {
+  width: 700rpx;
+  height: 100rpx;
+  margin: 20rpx auto;
+  box-shadow: 1rpx 1rpx 10rpx #f8f8f9;
+  display: flex;
+  flex-direction: row;
+  position: relative;
+}
+
+.user-list .item .num {
+  line-height: 100rpx;
+  color: #495060;
+}
+
+.user-list .item .img image {
+  width: 60rpx;
+  height: 60rpx;
+  margin: 20rpx;
+}
+
+.user-list .item .name {
+  width: 360rpx;
+  line-height: 100rpx;
+  font-size: 30rpx;
+  color: #495060;
+}
+
+.user-list .item .btn {
+  position: absolute;
+  right: 60rpx;
+  top: 20rpx;
+}
+
+.manage {
+  width: 400rpx;
+  background: #fff;
+}
+
+.manage .img {
+  width: 170rpx;
+  height: 170rpx;
+  border-radius: 50%;
+  margin: 30rpx auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.manage .img image {
+  width: 170rpx;
+  height: 170rpx;
+}
+
+.manage .img .modify {
+  width: 170rpx;
+  position: absolute;
+  bottom: 0;
+  background: #80848f;
+  text-align: center;
+  color: #fff;
+}
+
+.manage .nickName {
+  text-align: center;
+  color: #495060;
+  margin-bottom: 20rpx;
+}
+
+.manage .msg {
+  text-align: center;
+  color: #495060;
+  margin-bottom: 20rpx;
+}
+
+.manage .email {
+  text-align: center;
+  color: #495060;
+  margin-bottom: 20rpx;
+}
+
+.manage .phone {
+  text-align: center;
+  color: #495060;
+  margin-bottom: 20rpx;
+}
+
+.manage .time{
+  padding: 20rpx;
+  font-size: 20rpx;
+  color: #80848f;
+  text-align: center;
+}

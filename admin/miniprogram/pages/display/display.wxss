@@ -48,7 +48,7 @@ swiper {
 .img {
   width: 80rpx;
   height: 60rpx;
-  margin: 80rpx auto;
+  margin: 260rpx auto;
 }
 
 .img image {

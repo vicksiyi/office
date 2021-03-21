@@ -1,9 +1,9 @@
 <i-panel title="公告收到情况">
   <view class="notice-list">
-    <view class="item" bindtap="nav">
-          <view class="header">2020-03-21 12:12:12</view>
+    <view class="item">
+          <view class="header">{{notice.time}}</view>
           <i-alert type="success">
-            我们采用了24栅格系统，将区域进行24等分，这样可以轻松应对大部分布局问题。使用栅格系统进行网页布局，可以使页面排版美观、舒适。
+            {{notice.msg}}
           </i-alert>
         </view>
     <view class="statistical">
@@ -11,3 +11,5 @@
     </view>
   </view>
 </i-panel>
+<i-message id="message" />
+<i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>

@@ -1,6 +1,7 @@
 const app = getApp();
 const { $Message } = require('../../dist/base/index');
 const getUser = require('../../utils/getUser');
+const formatTime = require('../../utils/formatTime');
 const wxCharts = require("../../utils/wxcharts.js");
 var pieChart = null;
 var time = null;
@@ -14,33 +15,46 @@ Page({
     number: 0,//已输入字数
     height: 0,
     inputValue: '',
-    spinShow: false
+    spinShow: false,
+    notice: {},
+    noticeStaticNum: 0,
+    allNum: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: async function (options) {
     let _this = this;
     $Message({
       content: '可以上滑操作其他功能',
       type: 'warning'
     });
+    let token = await getUser.getUserToken();
+    let lastNotice = await this.getLastNotice(token);
+    lastNotice.time = formatTime.changeTime(lastNotice.time);
+    let noticeStaticNum = await this.getLastNoticeStatic(token);
+    _this.setData({
+      notice: lastNotice,
+      noticeStaticNum: noticeStaticNum.num,
+      allNum: noticeStaticNum.allNum
+    })
     wx.getSystemInfo({
       success: (result) => {
         _this.setData({
           height: result.windowHeight
         })
+        let num = noticeStaticNum.num / noticeStaticNum.allNum
         pieChart = new wxCharts({
           animation: true,
           canvasId: 'pieCanvas',
           type: 'pie',
           series: [{
             name: '已收到',
-            data: 0.6,
+            data: num,
           }, {
             name: '未收到',
-            data: 0.4
+            data: 1 - num
           }],
           width: result.windowWidth,
           height: 200,
@@ -114,7 +128,7 @@ Page({
             type: 'error'
           })
         }
-        time = setTimeout(()=>{
+        time = setTimeout(() => {
           clearTimeout(time);
           _this.setData({
             spinShow: false
@@ -122,14 +136,55 @@ Page({
           wx.navigateBack({
             delta: 1,
           })
-        },1000)
+        }, 1000)
       },
       fail: function (err) {
         reject(err);
       }
     })
   },
-  onUnload:function(){
+  getLastNotice: function (token) {
+    let _this = this;
+    return new Promise((resolve, reject) => {
+      wx.request({
+        url: `http://${app.ip}:5001/admin/notice/getLastNotice`,
+        method: 'GET',
+        header: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Authorization': token
+        },
+        success: async function (res) {
+          if (res.data.type == 'Success') {
+            resolve(res.data.data);
+          }
+        },
+        fail: function (err) {
+          reject(err);
+        }
+      })
+    })
+  },
+  getLastNoticeStatic: function (token) {
+    return new Promise((resolve, reject) => {
+      wx.request({
+        url: `http://${app.ip}:5001/admin/notice/getLastNoticeStatic`,
+        method: 'GET',
+        header: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Authorization': token
+        },
+        success: async function (res) {
+          if (res.data.type == 'Success') {
+            resolve(res.data);
+          }
+        },
+        fail: function (err) {
+          reject(err);
+        }
+      })
+    })
+  },
+  onUnload: function () {
     clearTimeout(time);
   }
 })

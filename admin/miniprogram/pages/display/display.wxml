@@ -8,22 +8,22 @@
       </view>
     </i-panel>
     <button bindtap="submit" style="background:#2d8cf0;color:#fff;margin-top:30rpx;">发布</button>
+    <view class="img">
+      <image src="../../images/slider.png"></image>
+    </view>
   </swiper-item>
   <swiper-item>
     <i-panel title="最新公告数据">
       <view class="notice-list">
         <view class="item" bindtap="nav">
-          <view class="header">2020-03-21 12:12:12</view>
+          <view class="header">{{notice.time}}</view>
           <i-alert type="success">
-            我们采用了24栅格系统，将区域进行24等分，这样可以轻松应对大部分布局问题。使用栅格系统进行网页布局，可以使页面排版美观、舒适。
+            {{notice.msg}}
           </i-alert>
         </view>
       </view>
       <view class="statistical">
         <canvas canvas-id="pieCanvas" class="canvas" style="width:100%;height:400rpx;"></canvas>
-      </view>
-      <view class="img">
-        <image src="../../images/slider.png"></image>
       </view>
     </i-panel>
   </swiper-item>

@@ -6,7 +6,7 @@ const mongoose = require('mongoose');
 const Notice = require('../../models/Notice');
 const NoticeLog = require('../../models/NoticeLog');
 
-// $routes GET /admin/notice/getLastNotice
+// $routes GET /user/notice/getLastNotice
 // @desc 获取最新公告
 // @access private
 router.get('/getLastNotice', passport.authenticate('jwt', { session: false }), (req, res) => {
@@ -30,7 +30,7 @@ router.get('/getLastNotice', passport.authenticate('jwt', { session: false }), (
     })
 })
 
-// $routes GET /admin/notice/add
+// $routes GET /user/notice/add
 // @desc 收到
 // @access private
 router.post('/add', passport.authenticate('jwt', { session: false }), (req, res) => {

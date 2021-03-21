@@ -1,8 +1,8 @@
 {
   "pages": [
     "pages/login/login",
-    "pages/display/display",
     "pages/displayList/displayList",
+    "pages/display/display",
     "pages/displayStatic/displayStatic",
     "pages/loginLog/loginLog",
     "pages/video/video",

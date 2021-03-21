@@ -1,4 +1,8 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "i-spin": "../../dist/spin/index",
+    "i-drawer": "../../dist/drawer/index",
+    "i-message": "../../dist/message/index"
+  },
   "navigationBarTitleText": "反馈管理"
 }

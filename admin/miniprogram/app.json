@@ -1,5 +1,6 @@
 {
   "pages": [
+    "pages/answer/answer",
     "pages/login/login",
     "pages/displayList/displayList",
     "pages/display/display",
@@ -10,7 +11,6 @@
     "pages/user/user",
     "pages/index/index",
     "pages/data/data",
-    "pages/answer/answer",
     "pages/complain/complain",
     "pages/news/news",
     "pages/videoList/videoList",

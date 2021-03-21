@@ -13,7 +13,7 @@
 <i-panel title="反馈描述">
   <view class="text-box">
     <textarea name="review" maxlength="{{maxNumber}}" class="textArea" value="{{reviewText}}" bindinput='inputText'
-      placeholder="请输入点评"></textarea>
+      placeholder="请输入反馈内容"></textarea>
     <span class="wordwrap">{{number}}/{{maxNumber}}</span>
   </view>
 </i-panel>

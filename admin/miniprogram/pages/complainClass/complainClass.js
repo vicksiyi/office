@@ -10,14 +10,15 @@ Page({
     visible: false,
     inputValue: '',
     complaintClass: [],
-    spinShow: false
+    spinShow: false,
+    token: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.getComplaintClass();
   },
   showModel: function () {
     this.setData({
@@ -37,7 +38,6 @@ Page({
       spinShow: true
     })
     let token = await getUser.getUserToken();
-    console.log()
     wx.request({
       url: `http://${app.ip}:5001/admin/complaint/addClass`,
       method: 'POST',
@@ -92,11 +92,100 @@ Page({
     })
   },
   handleClose: function () {
-
+    $Message({
+      content: '用户取消',
+      type: 'warning'
+    })
+    this.setData({
+      visible: false
+    })
   },
   inputChange: function (e) {
     this.setData({
       inputValue: e.detail.value
+    })
+  },
+  getComplaintClass: async function () {
+    let _this = this;
+    this.setData({
+      spinShow: true
+    })
+    let token = await getUser.getUserToken();
+    _this.setData({
+      token: token
+    })
+    wx.request({
+      url: `http://${app.ip}:5001/admin/complaint/getClass`,
+      method: 'GET',
+      header: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Authorization': token
+      },
+      success: function (res) {
+        if (res.data == "Unauthorized") {
+          wx.removeStorage({
+            key: 'Token',
+          })
+          wx.redirectTo({
+            url: '../../pages/login/login',
+          })
+        }
+        if (res.data.type == 'Success') {
+          _this.setData({
+            complaintClass: res.data.complaintClass
+          })
+        }
+        _this.setData({
+          spinShow: false
+        })
+      },
+      fail: function (err) {
+        reject(err);
+      }
+    })
+  },
+  delComplaint: function (e) {
+    let _this = this;
+    _this.setData({
+      spinShow: true
+    })
+    wx.request({
+      url: `http://${app.ip}:5001/admin/complaint/delClass`,
+      method: 'POST',
+      data: {
+        id: e.currentTarget.dataset.id
+      },
+      header: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Authorization': _this.data.token
+      },
+      success: function (res) {
+        if (res.data == "Unauthorized") {
+          wx.removeStorage({
+            key: 'Token',
+          })
+          wx.redirectTo({
+            url: '../../pages/login/login',
+          })
+        }
+        if (res.data.type == 'Success') {
+          $Message({
+            content: '删除成功',
+            type: 'success'
+          })
+          let complaintClass = _this.data.complaintClass;
+          complaintClass.splice(e.currentTarget.dataset.index, 1);
+          _this.setData({
+            complaintClass: complaintClass
+          })
+        }
+        _this.setData({
+          spinShow: false
+        })
+      },
+      fail: function (err) {
+        reject(err);
+      }
     })
   }
 })

@@ -1,8 +1,8 @@
 {
   "pages": [
-    "pages/complainClass/complainClass",
-    "pages/complain/complain",
     "pages/login/login",
+    "pages/complain/complain",
+    "pages/complainClass/complainClass",
     "pages/answer/answer",
     "pages/displayList/displayList",
     "pages/display/display",

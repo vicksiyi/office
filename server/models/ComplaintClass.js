@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// 小程序用户
+// 稿件投诉类别表
 const ComplaintClassSchema = new Schema({
     title: {
         type: 'String',

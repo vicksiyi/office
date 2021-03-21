@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "i-panel": "../../dist/panel/index",
+    "i-modal": "../../dist/modal/index",
+    "i-message": "../../dist/message/index"
+  },
+  "navigationBarTitleText": "稿件类别管理"
+}

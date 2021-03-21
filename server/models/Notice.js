@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// 小程序用户
+// 公告表
 const NoticeSchema = new Schema({
     adminId: {
         type: String,

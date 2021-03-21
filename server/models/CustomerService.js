@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// 小程序用户
+// 反馈表
 const CustomerServiceSchema = new Schema({
     openId: {
         type: String,

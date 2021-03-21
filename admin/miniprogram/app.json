@@ -1,7 +1,9 @@
 {
   "pages": [
-    "pages/answer/answer",
+    "pages/complainClass/complainClass",
+    "pages/complain/complain",
     "pages/login/login",
+    "pages/answer/answer",
     "pages/displayList/displayList",
     "pages/display/display",
     "pages/displayStatic/displayStatic",
@@ -11,7 +13,6 @@
     "pages/user/user",
     "pages/index/index",
     "pages/data/data",
-    "pages/complain/complain",
     "pages/news/news",
     "pages/videoList/videoList",
     "pages/exam/exam",

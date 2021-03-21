@@ -10,6 +10,7 @@ const user = require('./routes/admin/user');
 const loginLog = require('./routes/admin/loginLog');
 const notice = require('./routes/admin/notice');
 const answer = require('./routes/admin/answer');
+const complaint = require('./routes/admin/complaint');
 
 // DB config
 const db = require('./config/keys').mongoURI;
@@ -38,6 +39,7 @@ app.use('/admin/user', user);
 app.use('/admin/loginLog', loginLog);
 app.use('/admin/notice', notice);
 app.use('/admin/answer', answer);
+app.use('/admin/complaint', complaint);
 
 app.listen(5001, () => {
     console.log('the port running');

@@ -4,7 +4,7 @@ const passport = require('passport');
 const router = express.Router();
 const CustomerService = require('../../models/CustomerService');
 
-// $routes GET /customer/service/add
+// $routes GET /complaint/service/add
 // @desc 提交反馈
 // @access public
 router.post('/add', passport.authenticate('jwt', { session: false }), (req, res) => {

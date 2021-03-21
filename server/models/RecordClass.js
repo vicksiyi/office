@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// 小程序用户
+// 错题集
 const RecordClassSchema = new Schema({
     openId: {
         type: String,

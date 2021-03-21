@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// 小程序用户
+// 稿件投诉表
 const ComplaintSchema = new Schema({
     openId: {
         type: String,
@@ -16,7 +16,7 @@ const ComplaintSchema = new Schema({
         require: true
     },
     classId: {
-        type: ObjectId,
+        type: String,
         require: true
     },
     time: {         // 加入时间

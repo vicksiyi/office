@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// 小程序用户
+// 公告收到情况表
 const NoticeLogSchema = new Schema({
     msgId: {
         type: String,

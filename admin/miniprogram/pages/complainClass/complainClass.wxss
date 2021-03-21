@@ -1,0 +1,31 @@
+/* pages/complainClass/complainClass.wxss */
+.class-list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.class-list .item {
+  margin: 20rpx;
+  position: relative;
+}
+
+.class-list .item .title {
+  padding: 20rpx;
+  border: 1rpx solid #e9eaec;
+  color: #495060;
+  border-radius: 10rpx;
+  font-size: 30rpx;
+}
+
+.class-list .item .img {
+  width: 30rpx;
+  height: 30rpx;
+  position: absolute;
+  top: -18rpx;
+  right: -10rpx;
+}
+
+.class-list .item .img image {
+  width: 30rpx;
+  height: 30rpx;
+}

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// 小程序用户
+// 管理员表
 const AdminSchema = new Schema({
     name: {         
         type: String,

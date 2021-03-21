@@ -3,6 +3,7 @@
     "i-input": "../../dist/input/index",
     "i-spin": "../../dist/spin/index",
     "i-message": "../../dist/message/index",
+    "i-notice-bar": "../../dist/notice-bar/index",
     "i-load-more": "../../dist/load-more/index"
   }
 }

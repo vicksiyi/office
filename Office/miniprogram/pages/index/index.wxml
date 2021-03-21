@@ -1,8 +1,20 @@
+<view class="notice" wx:if="{{isShow}}">
+  <i-notice-bar icon="systemprompt" bind:close="closeIcon" loop closable>
+    <view bindtap="show">
+      {{lastNotice}}</view>
+  </i-notice-bar>
+</view>
+<view wx:if="{{show}}" class="show-notice" bindtap="show">
+  <view class="notice-item">
+    {{lastNotice}}
+  </view>
+</view>
 <view class="search">
   <view class="inp">
     <i-input bind:change="inputChange" value="{{ inpuValue }}" placeholder="请输入搜索内容" />
   </view>
-  <view class="btn"><button size="mini" style="background:#2d8cf0;color:#fff;margin-top:28rpx;" bindtap="searchTitle">搜索</button></view>
+  <view class="btn"><button size="mini" style="background:#2d8cf0;color:#fff;margin-top:28rpx;"
+      bindtap="searchTitle">搜索</button></view>
 </view>
 <view class="content" style="height:{{height}}px;">
   <scroll-view scroll-y="true" style="height:{{height}}px;" bindscrolltolower="tolower">

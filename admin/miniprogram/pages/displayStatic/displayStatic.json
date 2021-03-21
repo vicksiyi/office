@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "i-alert": "../../dist/alert/index",
+    "i-panel": "../../dist/panel/index"
+  },
+  "navigationBarTitleText": "公告情况"
+}

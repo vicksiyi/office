@@ -13,7 +13,11 @@ Page({
     start: 0,
     spinShow: false,
     inputValue: '',
-    token: ''
+    token: '',
+    show: false,
+    lastNotice: '',
+    notice: {},
+    isShow: false
   },
 
   /**
@@ -36,6 +40,8 @@ Page({
       menus: ['shareAppMessage', 'shareTimeline']
     })
     let data = await this.getVideo(0);
+    let token = await getUser.getUserToken();
+    this.getLastNotice(token);
     _this.setData({
       video: data,
       start: 0
@@ -154,6 +160,67 @@ Page({
           reject(err);
         }
       })
+    })
+  },
+  closeIcon: function () {
+    let _this = this;
+    console.log('关闭')
+    wx.request({
+      url: `http://${app.ip}:5000/user/notice/add`,
+      method: 'POST',
+      data: {
+        msgId: this.data.notice._id
+      },
+      header: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+        'Authorization': this.data.token
+      },
+      success: async function (res) {
+        if (res.data.type == 'Success') {
+          $Message({
+            content: '成功收到公告',
+            type: 'success'
+          })
+        }
+      },
+      fail: function (err) {
+        reject(err);
+      }
+    })
+  },
+  getLastNotice: function (token) {
+    let _this = this;
+    return new Promise((resolve, reject) => {
+      wx.request({
+        url: `http://${app.ip}:5000/user/notice/getLastNotice`,
+        method: 'GET',
+        header: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Authorization': token
+        },
+        success: async function (res) {
+          if (res.data.type == 'Success') {
+            _this.setData({
+              lastNotice: res.data.data.msg,
+              notice: res.data.data,
+              isShow: true
+            })
+          }
+          if (res.data.type == 'added') {
+            _this.setData({
+              isShow: false
+            })
+          }
+        },
+        fail: function (err) {
+          reject(err);
+        }
+      })
+    })
+  },
+  show: function () {
+    this.setData({
+      show: !this.data.show
     })
   }
 })

@@ -1,4 +1,9 @@
 {
-  "usingComponents": {},
-  "navigationBarTitleText": "公告管理"
+  "usingComponents": {
+    "i-panel": "../../dist/panel/index",
+    "i-alert": "../../dist/alert/index",
+    "i-spin": "../../dist/spin/index",
+    "i-message": "../../dist/message/index"
+  },
+  "navigationBarTitleText": "公告"
 }

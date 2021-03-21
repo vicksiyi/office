@@ -1,0 +1,13 @@
+<i-panel title="公告收到情况">
+  <view class="notice-list">
+    <view class="item" bindtap="nav">
+          <view class="header">2020-03-21 12:12:12</view>
+          <i-alert type="success">
+            我们采用了24栅格系统，将区域进行24等分，这样可以轻松应对大部分布局问题。使用栅格系统进行网页布局，可以使页面排版美观、舒适。
+          </i-alert>
+        </view>
+    <view class="statistical">
+      <canvas canvas-id="pieCanvas" class="canvas" style="width:100%;height:400rpx;"></canvas>
+    </view>
+  </view>
+</i-panel>

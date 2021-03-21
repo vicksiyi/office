@@ -1,0 +1,35 @@
+.notice-list {
+  overflow: scroll;
+}
+
+.notice-list .header {
+  width: 94%;
+  height: 60rpx;
+  background: #2d8cf0;
+  color: #fff;
+  line-height: 60rpx;
+  margin: auto;
+  font-size: 30rpx;
+  text-align: center;
+}
+
+.notice-list .item {
+  width: 600rpx;
+  margin: 30rpx auto;
+  box-shadow: 1rpx 1rpx 20rpx #e9eaec;
+  padding: 20rpx;
+  position: relative;
+}
+.notice-list .item .img{
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
+  position: absolute;
+  top: -15rpx;
+  right: -15rpx;
+}
+
+.notice-list .item .img image{
+  width: 50rpx;
+  height: 50rpx;
+}

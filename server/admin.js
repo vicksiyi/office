@@ -8,6 +8,7 @@ const admin = require('./routes/admin/service');
 const video = require('./routes/admin/video');
 const user = require('./routes/admin/user');
 const loginLog = require('./routes/admin/loginLog');
+const notice = require('./routes/admin/notice');
 
 // DB config
 const db = require('./config/keys').mongoURI;
@@ -34,6 +35,7 @@ app.use('/admin/service', admin);
 app.use('/admin/video', video);
 app.use('/admin/user', user);
 app.use('/admin/loginLog', loginLog);
+app.use('/admin/notice', notice);
 
 app.listen(5001, () => {
     console.log('the port running');

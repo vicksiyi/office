@@ -1,3 +1,33 @@
+.notice {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+}
+
+.show-notice {
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 9;
+}
+
+.show-notice .notice-item {
+  width: 400rpx;
+  max-height: 600rpx;
+  padding: 30rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  margin: 200rpx auto;
+  font-size: 30rpx;
+  color: #495060;
+  overflow: scroll;
+  z-index: 999;
+}
+
 .content {
   overflow: scroll;
 }

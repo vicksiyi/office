@@ -1,0 +1,17 @@
+.notice-list .header {
+  width: 94%;
+  height: 60rpx;
+  background: #2d8cf0;
+  color: #fff;
+  line-height: 60rpx;
+  margin: auto;
+  font-size: 30rpx;
+  text-align: center;
+}
+
+.notice-list .item {
+  width: 700rpx;
+  margin: 30rpx auto;
+  box-shadow: 1rpx 1rpx 10rpx #e9eaec;
+  padding: 20rpx;
+}

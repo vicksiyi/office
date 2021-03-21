@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "i-alert": "../../dist/alert/index",
+    "i-message": "../../dist/message/index"
+  },
+  "navigationBarTitleText": "公告管理"
+}

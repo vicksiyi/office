@@ -16,6 +16,7 @@ const good = require('./routes/user/good');
 const share = require('./routes/user/share');
 const exam = require('./routes/exam/exam');
 const customer = require('./routes/customer/service');
+const notice = require('./routes/user/notice');
 
 // DB config
 const db = require('./config/keys').mongoURI;
@@ -46,6 +47,7 @@ app.use('/user/focus', focus);
 app.use('/user/collection', collection);
 app.use('/user/good', good);
 app.use('/user/share', share);
+app.use('/user/notice', notice);
 app.use('/exam/exam', exam);
 app.use('/customer/service', customer);
 

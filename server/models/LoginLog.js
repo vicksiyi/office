@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// 小程序用户
+// 登录日志表
 const LoginLogSchema = new Schema({
     openId: {
         type: String,

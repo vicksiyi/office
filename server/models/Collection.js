@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// 小程序用户
+// 收藏表
 const CollectionSchema = new Schema({
     openId: {
         type: String,

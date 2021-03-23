@@ -69,7 +69,8 @@ Page({
             type: 'success'
           })
           let complaintClass = _this.data.complaintClass;
-          complaintClass.push(_this.data.inputValue);
+          console.log(_this.data.inputValue)
+          complaintClass.push(res.data.msg);
           _this.setData({
             complaintClass: complaintClass
           })

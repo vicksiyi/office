@@ -9,8 +9,8 @@ Page({
   data: {
     disabled: false,
     time: 60,
-    value1: '2627504828@qq.com',
-    value2: '9096'
+    value1: '',
+    value2: ''
   },
 
   /**

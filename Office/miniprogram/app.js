@@ -13,7 +13,6 @@ App({
         traceUser: true,
       })
     }
-
     this.globalData = {}
     this.ip = '192.168.0.101'
   }

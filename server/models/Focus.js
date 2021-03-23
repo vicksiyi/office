@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// 小程序用户
+// 关注表
 const FocusSchema = new Schema({
     openId: {
         type: String,

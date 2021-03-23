@@ -4,7 +4,7 @@
   <radio-group data-index="{{index}}" bindchange="radioChange">
     <label wx:for="{{select}}" wx:for-index="idx">
       <view class="item">
-        <radio color="#2d8cf0" value="{{idx}}" />{{item}}</view>
+        <radio color="#2d8cf0" checked="{{item.status}}" value="{{idx}}" />{{item.title}}</view>
     </label>
   </radio-group>
 </view>
@@ -15,17 +15,19 @@
     <span class="wordwrap">{{number}}/{{maxNumber}}</span>
   </view>
 </i-panel>
-<i-panel title="上传图片   {{num}}/9">
+<i-panel title="上传图片   {{image.length}}/9">
   <view class="img-list">
     <block wx:for="{{image}}">
       <view class="item">
-        <image src="{{item}}"></image>
+        <image bindtap="doubleClick" data-Index="{{index}}" src="{{item}}"></image>
       </view>
     </block>
-    <view wx:if="{{showItem}}" class="item">
-      <image src="../../images/addImage.png"></image>
+    <view wx:if="{{image.length < 9}}" class="item">
+      <image bindtap="addImage" src="../../images/addImage.png"></image>
     </view>
   </view>
 </i-panel>
 <view class="text">支持JPG/PNG等格式，最多上传9张</view>
-<button style="background:#2d8cf0;color:#fff;margin-top:20rpx;margin-bottom:20rpx;">提交</button>
+<button bindtap="submit" style="background:#2d8cf0;color:#fff;margin-top:20rpx;margin-bottom:20rpx;">提交</button>
+<i-message id="message" />
+<i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>

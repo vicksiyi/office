@@ -17,6 +17,7 @@ const share = require('./routes/user/share');
 const exam = require('./routes/exam/exam');
 const customer = require('./routes/customer/service');
 const notice = require('./routes/user/notice');
+const complaint = require('./routes/complaint/service');
 
 // DB config
 const db = require('./config/keys').mongoURI;
@@ -50,6 +51,7 @@ app.use('/user/share', share);
 app.use('/user/notice', notice);
 app.use('/exam/exam', exam);
 app.use('/customer/service', customer);
+app.use('/complaint/service', complaint);
 
 app.listen(5000, () => {
     console.log('the port running');

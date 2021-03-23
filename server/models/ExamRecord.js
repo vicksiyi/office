@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// 小程序用户
+// 考试记录表
 const ExamRecordSchema = new Schema({
     openId: {
         type: String,

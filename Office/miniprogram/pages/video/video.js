@@ -46,7 +46,7 @@ Page({
   },
   complaint: function () {
     wx.navigateTo({
-      url: '../../pages/complaint/complaint?id=1',
+      url: `../../pages/complaint/complaint?id=${this.data.video._id}`,
     })
   },
   getVideo: async function (id) {

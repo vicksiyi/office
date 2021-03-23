@@ -15,6 +15,10 @@ const ComplaintSchema = new Schema({
         type: String,
         require: true
     },
+    videoId:{
+        type: String,
+        require: true
+    },
     classId: {
         type: String,
         require: true

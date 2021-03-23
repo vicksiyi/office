@@ -20,7 +20,8 @@ router.post('/addClass', passport.authenticate('jwt', { session: false }), (req,
         } else {
             new ComplaintClass(Item).save().then(msg => {
                 res.json({
-                    type: 'Success'
+                    type: 'Success',
+                    msg: msg
                 })
             }).catch(err => {
                 res.json({
@@ -41,7 +42,6 @@ router.post('/addClass', passport.authenticate('jwt', { session: false }), (req,
 // @access private
 router.get('/getClass', passport.authenticate('jwt', { session: false }), (req, res) => {
     let Item = {};
-    Item.title = req.body.title;
     ComplaintClass.find().then(msg => {
         res.json({
             type: 'Success',

@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// 小程序用户
+// 视频表
 const VideoSchema = new Schema({
     title: {
         type: String,

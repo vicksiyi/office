@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-// 小程序用户
+// 点赞表
 const GoodSchema = new Schema({
     openId: {
         type: String,

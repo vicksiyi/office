@@ -3,6 +3,8 @@ const express = require('express');
 const passport = require('passport');
 const router = express.Router();
 const CustomerService = require('../../models/CustomerService');
+const Complaint = require('../../models/Complaint');
+const ComplaintClass = require('../../models/ComplaintClass');
 
 // $routes GET /complaint/service/add
 // @desc 提交反馈
@@ -12,7 +14,8 @@ router.post('/add', passport.authenticate('jwt', { session: false }), (req, res)
     Item.openId = req.user.openId;
     Item.imageList = req.body.imageList;
     Item.msg = req.body.msg;
-    new CustomerService(Item).save().then((service) => {
+    Item.videoId = req.body.videoId;
+    new Complaint(Item).save().then((service) => {
         res.json({
             type: 'Success'
         })
@@ -24,4 +27,20 @@ router.post('/add', passport.authenticate('jwt', { session: false }), (req, res)
     })
 })
 
+
+// $routes GET /complaint/service/getClass
+// @desc 获取稿件投诉类别
+// @access private
+router.get('/getClass', (req, res) => {
+    ComplaintClass.find().then(msg => {
+        res.json({
+            type: 'Success',
+            complaintClass: msg
+        })
+    }).catch(err => {
+        res.json({
+            type: 'err'
+        })
+    })
+})
 module.exports = router;

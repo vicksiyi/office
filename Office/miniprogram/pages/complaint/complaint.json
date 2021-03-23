@@ -1,6 +1,8 @@
 {
   "usingComponents": {
-    "i-panel": "../../dist/panel/index"
+    "i-panel": "../../dist/panel/index",
+    "i-spin": "../../dist/spin/index",
+    "i-message": "../../dist/message/index"
   },
   "navigationBarTitleText": "稿件投诉"
 }

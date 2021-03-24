@@ -1,4 +1,4 @@
-// pages/videoDetail/videoDetail.js
+// pages/multiSelect/multiSelect.js
 Page({
 
   /**

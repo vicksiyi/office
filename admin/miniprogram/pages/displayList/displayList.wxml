@@ -1,7 +1,7 @@
 <scroll-view scroll-y="true" style="height:{{height}}px;" bindscrolltolower="tolower">
   <view class="notice-list">
     <block wx:for="{{notice}}">
-      <view class="item">
+      <view class="item" >
         <view class="img" bindtap="del" data-Index="{{index}}"  data-Id="{{item._id}}">
           <image src="../../images/close.png"></image>
         </view>

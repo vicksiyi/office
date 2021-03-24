@@ -42,7 +42,7 @@ Page({
     })
     return new Promise((resolve, reject) => {
       wx.request({
-        url: `http://${app.ip}:5000/news/service/getDoneNews/${page}`,
+        url: `http://${app.ip}:5001/admin/news/getDoneNews/${page}`,
         method: 'GET',
         header: {
           'Content-Type': 'application/x-www-form-urlencoded',
@@ -54,7 +54,7 @@ Page({
               key: 'Token',
             })
             wx.redirectTo({
-              url: '../../pages/auth/auth',
+              url: '../../pages/login/login',
             })
           }
           if (res.data.type == 'Success') {
@@ -67,10 +67,6 @@ Page({
         fail: function (err) {
           reject(err);
         }
-      })
-    }).catch(err=>{
-      wx.redirectTo({
-        url: '../../pages/auth/auth',
       })
     })
   },
@@ -93,14 +89,63 @@ Page({
       start: start
     })
   },
-  nav: function (e) {
-    let detail = e.currentTarget.dataset.detail;
-    wx.setStorage({
-      data: JSON.stringify(detail),
-      key: 'tempDetail',
+  doubleClick: function (e) {
+    let _this = this;
+    if (this.data.timeStamp == 0) {
+      _this.setData({
+        timeStamp: e.timeStamp
+      })
+      return;
+    }
+    if (e.timeStamp - this.data.timeStamp < 300) {
+      let id = e.currentTarget.dataset.id;
+      let index = e.currentTarget.dataset.index;
+      wx.request({
+        url: `http://${app.ip}:5001/admin/news/delNews/${id}`,
+        method: 'GET',
+        header: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Authorization': _this.data.token
+        },
+        success: async function (res) {
+          if (res.data == "Unauthorized") {
+            wx.removeStorage({
+              key: 'Token',
+            })
+            wx.redirectTo({
+              url: '../../pages/login/login',
+            })
+          }
+          if (res.data.type == 'Success') {
+            $Message({
+              content: '成功删除',
+              type: 'success'
+            })
+            let news = _this.data.news;
+            news.splice(index, 1);
+            _this.setData({
+              news: news
+            })
+          }
+          if (res.data.type == 'deled') {
+            $Message({
+              content: '已经删除',
+              type: 'warning'
+            })
+          }
+        },
+        fail: function (err) {
+          reject(err);
+        }
+      })
+    }
+    this.setData({
+      timeStamp: 0
     })
+  },
+  nav: function () {
     wx.navigateTo({
-      url: `../../pages/news/news`,
+      url: '../../pages/newsList/newsList',
     })
   }
 })

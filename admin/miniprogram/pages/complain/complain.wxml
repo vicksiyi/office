@@ -1,0 +1,67 @@
+<scroll-view scroll-y="{{true}}" style="height:{{height}}px;" bindscrolltolower="tolower">
+  <view class="log">
+    <block wx:for="{{complaint}}">
+      <view class="item">
+        <view class="header">{{item.time}}</view>
+        <view class="detail">
+          <view class="title">问题描述</view>
+          <view class="value">
+            {{item.msg}}
+          </view>
+        </view>
+        <view class="detail">
+          <view class="title">用户</view>
+          <view class="value">
+            <view class="img">
+              <image src="{{item.user.avatarUrl}}">
+              </image>
+            </view>
+            <view class="name">
+              {{item.user.nickName}}
+            </view>
+          </view>
+        </view>
+        <view class="detail">
+          <view class="title">稿件分类</view>
+          <view class="value">
+            <i-tag class="i-tags" name="标签一" color="green" type="border">
+              {{item.class.title}}
+            </i-tag>
+          </view>
+        </view>
+        <view class="show">
+          <button size="mini" data-Index="{{index}}" data-Id="{{item._id}}" data-videoId="{{item.videoId}}" data-ImageList="{{item.imageList}}" bindtap="toggleRight"
+            style="background:#2d8cf0;color:#fff;">处理投诉</button>
+        </view>
+      </view>
+    </block>
+  </view>
+</scroll-view>
+<i-drawer mode="right" visible="{{showRight}}" bind:close="toggleRight">
+  <view class="image-list">
+    <block wx:for="{{imageList}}">
+      <view class="img">
+        <image src="{{item}}" data-Url="{{item}}" bindtap="showImage"></image>
+      </view>
+    </block>
+    <button bindtap="showVideo" style="background:#2d8cf0;color:#fff;margin-top:20rpx;">视频详情</button>
+    <button bindtap="delVideo" style="background:#ed3f14;color:#fff;margin-top:20rpx;">删除视频</button>
+    <button bindtap="doneComplaint" style="background:#ff9900;color:#fff;margin-top:20rpx;">处理完成</button>
+  </view>
+</i-drawer>
+<view wx:if="{{isShowVideo}}" class="show-video">
+  <view class="video-detail">
+    <view class="img" bindtap="closeVideo">
+      <image src="../../images/close.png"></image>
+    </view>
+    <view class="video">
+      <video src="{{videoUrl}}"></video>
+    </view>
+  </view>
+</view>
+
+<view class="class" bindtap="nav">
+  <image src="../../images/class.png"></image>
+</view>
+<i-message id="message" />
+<i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>

@@ -15,9 +15,11 @@ router.post('/add', passport.authenticate('jwt', { session: false }), (req, res)
     Item.imageList = req.body.imageList;
     Item.msg = req.body.msg;
     Item.videoId = req.body.videoId;
+    Item.classId = req.body.classId;
+    Item.isDone = false;
     new Complaint(Item).save().then((service) => {
         res.json({
-            type: 'Success'
+            type: 'Success'  
         })
     }).catch(err => {
         console.log(err)

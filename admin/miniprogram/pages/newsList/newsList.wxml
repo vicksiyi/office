@@ -1,21 +1,18 @@
 <view class="news">
   <scroll-view scroll-y="true" style="height:{{height}}px;" bindscrolltolower="tolower">
     <block wx:for="{{news}}">
-      <view class="item" bindtap="doubleClick" data-Detail="{{item}}">
+      <view class="item" bindtap="doubleClick" data-Index="{{index}}" data-Id="{{item._id}}">
         <view class="img">
-          <image src="{{item.thumbnails.image[0].url}}"></image>
+          <image src="{{item.imageUrl}}"></image>
         </view>
         <view class="right">
           <view class="title">{{item.title}}</view>
-          <view class="msg">from:{{item.source}}</view>
+          <view class="msg">from:{{item.from}}</view>
         </view>
       </view>
       <view class="line"></view>
     </block>
   </scroll-view>
-</view>
-<view class="class" bindtap="nav">
-  <image src="../../images/class.png"></image>
 </view>
 <i-message id="message" />
 <i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>

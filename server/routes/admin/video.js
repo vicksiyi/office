@@ -21,14 +21,20 @@ router.get('/getVideo/:start', passport.authenticate('jwt', { session: false }),
     })
 })
 
-// $routes GET /send/video/delVideo
+// $routes GET /admin/video/delVideo
 // @desc 删除视频
 // @access private
 router.get('/delVideo/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
     Video.findOneAndRemove({ _id: req.params.id }).then(profile => {
-        res.json({
-            type: 'Success'
-        })
+        if (profile) {
+            res.json({
+                type: 'Success'
+            })
+        } else {
+            res.json({
+                type: 'deled'
+            })
+        }
     }).catch(err => {
         res.json({
             type: 'error'
@@ -36,16 +42,22 @@ router.get('/delVideo/:id', passport.authenticate('jwt', { session: false }), (r
     })
 })
 
-// $routes GET /send/video/getOneVideo
+// $routes GET /admin/video/getOneVideo
 // @desc 获取单个视频
 // @access private
 router.get('/getOneVideo/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
     console.log(req.params.id)
     Video.findOne({ _id: req.params.id }).then(profile => {
-        res.json({
-            type: 'Success',
-            profile
-        })
+        if (profile) {
+            res.json({
+                type: 'Success',
+                profile
+            })
+        } else {
+            res.json({
+                type: 'deled'
+            })
+        }
     }).catch(err => {
         res.json({
             type: 'error'

@@ -1,22 +1,25 @@
 {
   "pages": [
+    "pages/radio/radio",
+    "pages/addRadio/addRadio",
+    "pages/multiSelect/multiSelect",
     "pages/login/login",
+    "pages/news/news",
+    "pages/newsList/newsList",
+    "pages/video/video",
     "pages/complain/complain",
+    "pages/videoList/videoList",
     "pages/complainClass/complainClass",
     "pages/answer/answer",
     "pages/displayList/displayList",
     "pages/display/display",
     "pages/displayStatic/displayStatic",
     "pages/loginLog/loginLog",
-    "pages/video/video",
     "pages/me/me",
     "pages/user/user",
     "pages/index/index",
     "pages/data/data",
-    "pages/news/news",
-    "pages/videoList/videoList",
-    "pages/exam/exam",
-    "pages/videoDetail/videoDetail"
+    "pages/exam/exam"
   ],
   "window": {
     "backgroundColor": "#2d8cf0",

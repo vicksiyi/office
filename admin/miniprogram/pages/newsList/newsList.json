@@ -2,5 +2,6 @@
   "usingComponents": {
     "i-spin": "../../dist/spin/index",
     "i-message": "../../dist/message/index"
-  }
+  },
+  "navigationBarTitleText": "已推送的新闻"
 }

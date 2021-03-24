@@ -83,4 +83,55 @@ router.post('/delClass', passport.authenticate('jwt', { session: false }), (req,
         })
     })
 })
+
+
+// $routes GET /admin/complaint/getComplaint
+// @desc 获取稿件
+// @access private
+router.get('/getComplaint/:start', passport.authenticate('jwt', { session: false }), (req, res) => {
+    Complaint.aggregate([
+        { $match: { isDone: false } },
+        {
+            $lookup: {
+                from: "users",
+                localField: "openId",
+                foreignField: "openId",
+                as: "user"
+            }
+        },
+        { $unwind: "$user" },
+        { $sort: { time: -1 } },
+        { $skip: req.params.start * 10 },
+        { $limit: 10 }
+    ]).exec(function (err, result) {
+        console.log(result);
+        for (let i = 0; i < result.length; i++) {
+            let temp = {};
+            temp.avatarUrl = result[i].user.avatarUrl;
+            temp.nickName = result[i].user.nickName;
+            result[i].user = temp;
+        }
+        res.json({
+            type: 'Success',
+            complaint: result
+        });
+    });
+})
+
+// $routes GET /admin/complaint/modifyComplaint
+// @desc 处理完成稿件
+// @access private
+router.get('/modifyComplaint/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
+    let Item = {};
+    Item.isDone = true;
+    Complaint.findOneAndUpdate({ _id: req.params.id }, { $set: Item }, { new: true }).then(result => {
+        res.json({
+            type: 'Success'
+        })
+    }).catch(err => {
+        res.json({
+            type: 'error'
+        })
+    })
+})
 module.exports = router;

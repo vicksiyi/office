@@ -1,6 +1,9 @@
 {
   "usingComponents": {
-    
+    "i-spin": "../../dist/spin/index",
+    "i-drawer": "../../dist/drawer/index",
+    "i-message": "../../dist/message/index",
+    "i-tag": "../../dist/tag/index"
   },
   "navigationBarTitleText": "稿件管理"
 }

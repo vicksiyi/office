@@ -23,6 +23,10 @@ const ComplaintSchema = new Schema({
         type: String,
         require: true
     },
+    isDone: {
+        type: Boolean,
+        require: true
+    },
     time: {         // 加入时间
         type: Date,
         default: Date.now

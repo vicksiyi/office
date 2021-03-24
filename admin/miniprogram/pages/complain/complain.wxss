@@ -1,0 +1,138 @@
+.log .item {
+  margin: 50rpx auto;
+  width: 700rpx;
+  box-shadow: 1rpx 1rpx 20rpx #e9eaec;
+}
+
+.log .item .header {
+  width: 700rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  box-shadow: 1rpx 1rpx 10rpx #f8f8f9;
+  background: #2d8cf0;
+  color: #fff;
+  text-align: center;
+}
+
+.log .item .detail {
+  display: flex;
+  flex-direction: row;
+  height: 70rpx;
+  line-height: 70rpx;
+}
+
+.log .item .detail .title {
+  width: 200rpx;
+  text-align: center;
+  box-shadow: 1rpx 1rpx 10rpx #fff;
+  background: #f8f8f9;
+}
+
+
+.log .item .detail .value {
+  width: 500rpx;
+  text-align: center;
+  box-shadow: 1rpx 1rpx 10rpx #f8f8f8;
+}
+
+.log .item .detail:nth-child(2) .value {
+  overflow: scroll;
+  line-height: 40rpx;
+  font-size: 30rpx;
+}
+
+.log .item .show {
+  width: 200rpx;
+  margin: 20rpx auto;
+}
+
+.log .item .detail:nth-child(3) .value {
+  display: flex;
+  flex-direction: row;
+}
+
+.log .item .detail:nth-child(3) .value .img {
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 5rpx 20rpx 5rpx 160rpx;
+}
+
+.log .item .detail:nth-child(3) .value .img image {
+  width: 60rpx;
+  height: 60rpx;
+}
+
+.log .item .detail:nth-child(3) .value .name {
+  width: 100rpx;
+  text-align: center;
+  overflow: hidden;
+}
+
+.image-list {
+  width: 400rpx;
+  background: #fff;
+  max-height: 1000rpx;
+  overflow: scroll;
+}
+
+.image-list .img {
+  width: 300rpx;
+  margin: 50rpx;
+}
+
+.image-list .img image {
+  width: 300rpx;
+  height: 300rpx;
+}
+
+.show-video{
+  position: fixed;
+  background-color: rgba(0, 0, 0, 0.5);
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 9;
+}
+
+.show-video .video-detail {
+  width: 600rpx;
+  height: 500rpx;
+  margin: 200rpx auto;
+  position: relative;
+}
+
+.show-video .video-detail video{
+  width: 600rpx;
+  height: 500rpx;
+}
+
+.video-detail .img{
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+  position: absolute;
+  right: -30rpx;
+  top: -60rpx;
+}
+
+.video-detail .img image{
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+}
+
+.class {
+  position: fixed;
+  bottom: 120rpx;
+  right: 70rpx;
+  border-radius: 50%;
+}
+
+.class image{
+  width: 60rpx;
+  height: 60rpx;
+  border-radius: 50%;
+}

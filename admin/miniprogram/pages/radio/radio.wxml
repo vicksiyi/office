@@ -1,0 +1,21 @@
+<scroll-view scroll-y="true" style="height:{{height}}px;" bindscrolltolower="tolower">
+  <view class="detail">
+    <block wx:for="{{recordClass}}">
+      <view class="item" bindtap="doubleClick">
+        <view class="item-row">
+          <view class="title">题目</view>
+          <view class="msg msg-title">{{item.title}}</view>
+        </view>
+        <view class="item-row">
+          <view class="title">正确答案</view>
+          <view class="msg">{{item.result}}</view>
+        </view>
+      </view>
+    </block>
+  </view>
+</scroll-view>
+<view class="add" bindtap="nav">
+  <image src="../../images/add.png"></image>
+</view>
+<i-message id="message" />
+<i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>

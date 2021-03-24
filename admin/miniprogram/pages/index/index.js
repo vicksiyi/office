@@ -100,13 +100,17 @@ Page({
               key: 'Token',
             })
             wx.redirectTo({
-              url: '../../pages/auth/auth',
+              url: '../../pages/login/login',
             })
           }
           if (res.data.type == 'Success') {
             resolve(res.data);
           }
         }
+      })
+    }).catch(err=>{
+      wx.redirectTo({
+        url: '../../pages/login/login',
       })
     })
   },

@@ -91,7 +91,8 @@ Page({
       data: {
         imageList: _this.data.image.join(';'),
         msg: _this.data.inputText,
-        videoId: _this.data.videoId
+        videoId: _this.data.videoId,
+        classId: _this.data.select[_this.data.selected]._id
       },
       header: {
         'Content-Type': 'application/x-www-form-urlencoded',

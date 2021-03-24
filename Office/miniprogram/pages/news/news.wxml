@@ -6,3 +6,5 @@
 <view class="wxParse">
     <template is="wxParse" data="{{wxParseData:article.nodes}}"/>
 </view>
+<i-message id="message" />
+<i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>

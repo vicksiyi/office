@@ -1,16 +1,18 @@
 <view class="news">
-  <block wx:for="{{news}}">
-    <navigator url="../../pages/news/news">
-      <view class="item">
+  <scroll-view scroll-y="true" style="height:{{height}}px;" bindscrolltolower="tolower">
+    <block wx:for="{{news}}">
+      <view class="item" bindtap="nav" data-Detail="{{item}}">
         <view class="img">
-          <image src="{{item.url}}"></image>
+          <image src="{{item.imageUrl}}"></image>
         </view>
         <view class="right">
           <view class="title">{{item.title}}</view>
-          <view class="msg">{{item.good}}赞~{{item.msg}}条评论~{{item.look}}展望</view>
+          <view class="msg">from:{{item.from}}</view>
         </view>
       </view>
-    </navigator>
-    <view class="line"></view>
-  </block>
+      <view class="line"></view>
+    </block>
+  </scroll-view>
 </view>
+<i-message id="message" />
+<i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>

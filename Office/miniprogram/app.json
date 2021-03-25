@@ -44,12 +44,6 @@
         "text": "视频"
       },
       {
-        "pagePath": "pages/learn/learn",
-        "iconPath": "./images/tabBar/learn2.png",
-        "selectedIconPath": "./images/tabBar/learn1.png",
-        "text": "学习"
-      },
-      {
         "pagePath": "pages/newsList/newsList",
         "iconPath": "./images/tabBar/news2.png",
         "selectedIconPath": "./images/tabBar/news1.png",

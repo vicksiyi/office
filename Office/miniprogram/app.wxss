@@ -1,4 +1,11 @@
-/**app.wxss**/
+/* 
+// {
+      //   "pagePath": "pages/learn/learn",
+      //   "iconPath": "./images/tabBar/learn2.png",
+      //   "selectedIconPath": "./images/tabBar/learn1.png",
+      //   "text": "学习"
+      // },
+       */
 .container {
   display: flex;
   flex-direction: column;

@@ -20,7 +20,10 @@ Page({
     token: '',
     numCollection: 0,
     numShare: 0,
-    numGood: 0
+    numGood: 0,
+    inputText: '',
+    comment: [],
+    status: 0
   },
 
   /**
@@ -39,9 +42,12 @@ Page({
       video: result.profile
     })
   },
-  handleChange({ detail }) {
+  async handleChange({ detail }) {
+    let comment = await this.getComment(this.data.token, this.data.video._id, 0, detail.key == 'tab1' ? 0 : 1, 0);
     this.setData({
-      current: detail.key
+      current: detail.key,
+      status: detail.key == 'tab1' ? 0 : 1,
+      comment: comment
     });
   },
   complaint: function () {
@@ -63,6 +69,10 @@ Page({
     this.getColloctionNum(id);
     this.getGoodNum(id);
     this.getShareNum(id);
+    let comment = await this.getComment(token, id, 0, 0);
+    this.setData({
+      comment: comment
+    })
     return new Promise((resolve, reject) => {
       wx.request({
         url: `http://${app.ip}:5000/send/video/getOneVideo/${id}`,
@@ -365,6 +375,88 @@ Page({
           numShare: res.data.num
         })
       }
+    })
+  },
+  send: function () {
+    let _this = this;
+    if (!_this.data.inputText) {
+      $Message({
+        content: '不可为空',
+        type: "warning"
+      })
+      return;
+    }
+    wx.getSystemInfo({
+      success: (result) => { //_this.data.inputText,_this.data.video._id,result.system
+        wx.request({
+          url: `http://${app.ip}:5000/user/comment/add`,
+          method: 'POST',
+          data: {
+            msg: _this.data.inputText,
+            videoId: _this.data.video._id,
+            system: result.system
+          },
+          header: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Authorization': _this.data.token
+          },
+          success: function (res) {
+            if (res.data == "Unauthorized") {
+              wx.removeStorage({
+                key: 'Token',
+              })
+              wx.redirectTo({
+                url: '../../pages/auth/auth',
+              })
+            }
+            if (res.data.type == 'Success') {
+              $Message({
+                content: '成功评论',
+                type: 'success'
+              })
+              _this.setData({
+                inputText: ''
+              })
+              // _this.onLoad(_this.data.video._id);
+            }
+          }
+        })
+      }
+    })
+  },
+  inputText: function (e) {
+    this.setData({
+      inputText: e.detail.value
+    })
+  },
+  getComment: function (token, id, start, status = 0, type = 0) {
+    let _this = this;
+    console.log(id)
+    return new Promise((resolve, reject) => {
+      wx.request({
+        url: `http://${app.ip}:5000/user/comment/getComment/${id}/${start}/${status}/${type}`,
+        method: 'GET',
+        header: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Authorization': token
+        },
+        success: function (res) {
+          if (res.data == "Unauthorized") {
+            wx.removeStorage({
+              key: 'Token',
+            })
+            wx.redirectTo({
+              url: '../../pages/auth/auth',
+            })
+          }
+          if (res.data.type == 'Success') {
+            for (let i = 0; i < res.data.res.length; i++) {
+              res.data.res[i].time = formatTime.changeTime(res.data.res[i].time);
+            }
+            resolve(res.data.res);
+          }
+        }
+      })
     })
   }
 })

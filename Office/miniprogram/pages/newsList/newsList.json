@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "i-spin": "../../dist/spin/index",
+    "i-load-more": "../../dist/load-more/index",
     "i-message": "../../dist/message/index"
   },
   "navigationBarTitleText": "新闻"

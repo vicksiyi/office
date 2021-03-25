@@ -14,5 +14,6 @@
     </block>
   </scroll-view>
 </view>
+<i-load-more wx:if="{{news.length == 0}}" tip="暂无数据" loading="{{ false }}" />
 <i-message id="message" />
 <i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>

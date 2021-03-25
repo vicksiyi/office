@@ -2,6 +2,7 @@
   "usingComponents": {
     "i-message": "../../dist/message/index",    
     "i-spin": "../../dist/spin/index",
+    "i-load-more": "../../dist/load-more/index",
     "i-notice-bar": "../../dist/notice-bar/index"
   },
   "navigationBarTitleText": "错题集"

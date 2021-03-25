@@ -8,12 +8,13 @@ const Comment = require('../../models/Comment');
 // $routes GET /user/comment/getComment
 // @desc 获取评论
 // @access private
-router.get('/getComment/:videoId/:start/:status', passport.authenticate('jwt', { session: false }), (req, res) => {
+router.get('/getComment/:videoId/:start/:status/:type', passport.authenticate('jwt', { session: false }), (req, res) => {
     let start = req.params.start;
-    let videoId = req.params.openId;
-    let status = req.params.status;
+    let videoId = req.params.videoId;
+    let status = parseInt(req.params.status);
+    let type = parseInt(req.params.type);
     let sort = {}
-    if (status) {
+    if (!status) {
         sort = {
             praise: -1
         }
@@ -22,6 +23,7 @@ router.get('/getComment/:videoId/:start/:status', passport.authenticate('jwt', {
             time: -1
         }
     }
+    console.log(start, videoId, status, type, sort)
     Comment.aggregate([
         {
             $lookup: {
@@ -32,22 +34,23 @@ router.get('/getComment/:videoId/:start/:status', passport.authenticate('jwt', {
             }
         },
         { $unwind: "$user" },
-        { $match: { videoId: videoId, type: 0 } },
+        { $match: { videoId: videoId, type: type } },
         { $sort: sort },
         { $skip: start * 10 },
         { $limit: 10 }
     ]).exec(function (err, result) {
-        let temp = [];
         for (let i = 0; i < result.length; i++) {
+            let temp = [];
             temp.push({
                 nickName: result[i].user.nickName,
                 avatarUrl: result[i].user.avatarUrl,
                 openId: result[i].user.openId
             })
+            result[i].user = temp;
         }
         res.json({
             type: 'Success',
-            res: temp
+            res: result
         })
     });
 })
@@ -58,9 +61,15 @@ router.get('/getComment/:videoId/:start/:status', passport.authenticate('jwt', {
 router.post('/add', passport.authenticate('jwt', { session: false }), (req, res) => {
     let Item = {};
     let type = req.body.type;
-    Item.msgId = req.body.msg;
     Item.openId = req.user.openId;
-    new NoticeLog(Item).save().then(msg => {
+    Item.msg = req.body.msg;
+    Item.videoId = req.body.videoId;
+    Item.system = req.body.system;
+    if (type) {
+        Item.parentId = req.body.parentId;
+        Item.type = 1;
+    }
+    new Comment(Item).save().then(msg => {
         res.json({
             type: 'Success'
         })
@@ -70,4 +79,16 @@ router.post('/add', passport.authenticate('jwt', { session: false }), (req, res)
         })
     })
 })
+
+// $routes GET /user/comment/addPraise
+// @desc 点赞
+// @access private
+// router.get('/addPraise/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
+//     Comment.findOneAndUpdate({ _id: req.params.id }, { $inc: { praise: 1 } }, {
+//         new: true,
+//         upsert: true
+//     }).then(msg => {
+        
+//     })
+// })
 module.exports = router;

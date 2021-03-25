@@ -1,6 +1,7 @@
 {
   "usingComponents": {
     "i-modal": "../../dist/modal/index",
+    "i-load-more": "../../dist/load-more/index",
     "i-message": "../../dist/message/index",
     "i-spin": "../../dist/spin/index"
   },

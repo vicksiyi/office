@@ -14,6 +14,7 @@
       </view>
     </block>
   </view>
+  <i-load-more wx:if="{{video.length == 0}}" tip="暂无数据" loading="{{ false }}" />
 </scroll-view>
 <i-modal title="删除确认" visible="{{ visible5 }}" actions="{{ actions5 }}" bind:click="handleClick5">
   <view>删除后无法恢复哦</view>

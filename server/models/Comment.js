@@ -15,7 +15,7 @@ const CommentSchema = new Schema({
         type: String,
         require: true
     },
-    model: {
+    system: {
         type: String,
         require: true,
         default: '未知'
@@ -32,7 +32,8 @@ const CommentSchema = new Schema({
     },
     parentId: {
         type: String,
-        require: true
+        require: true,
+        default: ''
     },
     type: {
         type: Number,

@@ -16,5 +16,6 @@
       </view>
     </block>
   </view>
+  <i-load-more wx:if="{{focus.length == 0}}" tip="暂无数据" loading="{{ false }}" />
 </scroll-view>
 <i-message id="message" />

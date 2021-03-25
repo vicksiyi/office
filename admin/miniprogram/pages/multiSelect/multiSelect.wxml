@@ -1,2 +1,37 @@
-<!--pages/multiSelect/multiSelect.wxml-->
-<text>pages/multiSelect/multiSelect.wxml</text>
+<scroll-view scroll-y="true" style="height:{{height}}px;" bindscrolltolower="tolower">
+  <view class="detail">
+    <block wx:for="{{recordClass}}">
+      <view class="item" bindtap="doubleClick">
+        <view class="item-row">
+          <view class="title">题目</view>
+          <view class="msg msg-title">{{item.title}}</view>
+        </view>
+        <view class="item-row">
+          <view class="title">A</view>
+          <view class="msg">{{item.A}}</view>
+        </view>
+        <view class="item-row">
+          <view class="title">B</view>
+          <view class="msg">{{item.B}}</view>
+        </view>
+        <view class="item-row">
+          <view class="title">C</view>
+          <view class="msg">{{item.C}}</view>
+        </view>
+        <view class="item-row">
+          <view class="title">D</view>
+          <view class="msg">{{item.D}}</view>
+        </view>
+        <view class="item-row">
+          <view class="title">正确答案</view>
+          <view class="msg">{{item.result}}</view>
+        </view>
+      </view>
+    </block>
+  </view>
+</scroll-view>
+<view class="add" bindtap="nav">
+  <image src="../../images/add.png"></image>
+</view>
+<i-message id="message" />
+<i-spin size="large" fix wx:if="{{ spinShow }}"></i-spin>

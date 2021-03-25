@@ -1,9 +1,10 @@
 {
   "pages": [
-    "pages/radio/radio",
-    "pages/addRadio/addRadio",
-    "pages/multiSelect/multiSelect",
     "pages/login/login",
+    "pages/addmultiSelect/addmultiSelect",
+    "pages/addRadio/addRadio",
+    "pages/radio/radio",
+    "pages/multiSelect/multiSelect",
     "pages/news/news",
     "pages/newsList/newsList",
     "pages/video/video",

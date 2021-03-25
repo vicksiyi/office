@@ -1,0 +1,57 @@
+<i-panel title="题目">
+  <view class="text-box">
+    <textarea name="review" maxlength="{{maxNumber}}" class="textArea" value="{{inputText}}" bindinput='inputText'
+      placeholder="请输入判断题题目..."></textarea>
+    <span class="wordwrap">{{number}}/{{maxNumber}}</span>
+  </view>
+</i-panel>
+<i-panel title="选项A">
+  <view class="text-box">
+    <textarea name="review" maxlength="{{maxNumber}}" class="textArea" value="{{inputText1}}" bindinput='inputText1'
+      placeholder="请输入选项A..."></textarea>
+    <span class="wordwrap">{{number1}}/{{maxNumber}}</span>
+  </view>
+</i-panel>
+<i-panel title="选项B">
+  <view class="text-box">
+    <textarea name="review" maxlength="{{maxNumber}}" class="textArea" value="{{inputText2}}" bindinput='inputText2'
+      placeholder="请输入选项B..."></textarea>
+    <span class="wordwrap">{{number2}}/{{maxNumber}}</span>
+  </view>
+</i-panel>
+<i-panel title="选项C">
+  <view class="text-box">
+    <textarea name="review" maxlength="{{maxNumber}}" class="textArea" value="{{inputText3}}" bindinput='inputText3'
+      placeholder="请输入选项C..."></textarea>
+    <span class="wordwrap">{{number3}}/{{maxNumber}}</span>
+  </view>
+</i-panel>
+<i-panel title="选项D">
+  <view class="text-box">
+    <textarea name="review" maxlength="{{maxNumber}}" class="textArea" value="{{inputText4}}" bindinput='inputText4'
+      placeholder="请输入选项D..."></textarea>
+    <span class="wordwrap">{{number4}}/{{maxNumber}}</span>
+  </view>
+</i-panel>
+<i-panel title="答案">
+  <view class="select">
+    <radio-group bindchange="radioChange">
+      <view class="item">
+        <radio color="#2d8cf0" value="0" />A
+      </view>
+      <view class="item">
+        <radio color="#2d8cf0" value="1" />B
+      </view>
+      <view class="item">
+        <radio color="#2d8cf0" value="2" />C
+      </view>
+      <view class="item">
+        <radio color="#2d8cf0" value="3" />D
+      </view>
+    </radio-group>
+  </view>
+</i-panel>
+<i-message id="message" />
+<view>
+  <button bindtap="add" style="background:#2d8cf0;color:#fff;">添加单选题</button>
+</view>

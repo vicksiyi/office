@@ -1,0 +1,26 @@
+.text-box {
+  margin: 20rpx 28rpx;
+  width: 694rpx;
+  background: #fff;
+  border-radius: 16rpx;
+  box-sizing: border-box;
+  padding: 20rpx;
+  position: relative;
+}
+
+.textArea {
+  width: 654rpx;
+}
+
+.wordwrap {
+  position: absolute;
+  right: 12rpx;
+  bottom: 12rpx;
+}
+.select {
+  width: 700rpx;
+  margin:20rpx auto;
+}
+.select .item {
+  margin-top: 20rpx;
+}

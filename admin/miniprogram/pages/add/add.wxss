@@ -1,0 +1,26 @@
+.upload {
+  width: 600rpx;
+  margin: 30rpx auto;
+  height: 400rpx;
+  border: 1rpx solid #e9eaec;
+}
+
+.upload .tips {
+  width: 400rpx;
+  height: 320rpx;
+  margin: auto;
+}
+
+.upload .tips image {
+  width: 400rpx;
+  height: 320rpx;
+}
+
+.upload .tips-msg {
+  text-align: center;
+  font-weight: normal;
+  font-size: 30rpx;
+  color: #bbbec4;
+  height: 80rpx;
+  line-height: 80rpx;
+}

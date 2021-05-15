@@ -1,1 +1,4 @@
-<i-divider  color="#2d8cf0" lineColor="#2d8cf0">敬请期待</i-divider>
+<!-- <i-divider  color="#2d8cf0" lineColor="#2d8cf0">敬请期待</i-divider> -->
+<view class="select">
+  <view wx:for="{{type}}" bindtap="nav" data-Type="{{index}}" data-Item="{{item}}" class="item">{{item}}</view>
+</view>

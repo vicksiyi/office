@@ -1,1 +1,16 @@
-/* pages/videoList/videoList.wxss */
+.select {
+  width: 700rpx;
+  margin: 30rpx auto;
+  text-align: center;
+}
+
+.select .item {
+  height: 300rpx;
+  line-height: 300rpx;
+  margin-top: 30rpx;
+  background: #2d8cf0;
+  font-size: 40rpx;
+  font-weight: normal;
+  color: #fff;
+  border-radius: 20rpx;
+}

@@ -1,5 +1,5 @@
 <view class="video">
-  <video autoplay="{{true}}" src="{{video.videoUrl}}"></video>
+  <video autoplay="{{true}}" picture-in-picture-mode="{{['push', 'pop']}}" bindenterpictureinpicture='bindVideoEnterPictureInPicture' bindleavepictureinpicture='bindVideoLeavePictureInPicture' src="{{video.videoUrl}}"></video>
 </view>
 <view class="user" bindtap="navFocus">
   <image src="{{userDetail.avatarUrl}}"></image>

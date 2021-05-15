@@ -1,0 +1,17 @@
+<view class="video-list">
+  <view wx:for="{{seriseVideo}}" data-Video="{{item.videoUrl}}" bindtap="show" class="item">
+    <image mode="aspectFill" src="{{item.img}}"></image>
+    <view class="title">{{index + 1}}、{{item.title}}</view>
+  </view>
+</view>
+<!-- 上传 -->
+<view class="beside" hover-class="click">
+  <image bindtap="nav" src="../../images/upload.png"></image>
+</view>
+
+<!-- show -->
+<view wx:if="{{isShow}}" bindtap="hideShow" class="bg">
+  <view class="video">
+    <video src="{{video}}" autoplay="true"></video>
+  </view>
+</view>

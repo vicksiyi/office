@@ -23,7 +23,7 @@ router.get('/getNews/:page', passport.authenticate('jwt', { session: false }), (
 })
 
 // $routes GET /admin/news/getNews
-// @desc 获取新闻
+// @desc 推送新闻
 // @access public
 router.post('/addNews', passport.authenticate('jwt', { session: false }), (req, res) => {
     let Item = {};

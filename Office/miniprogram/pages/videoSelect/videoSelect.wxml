@@ -1,0 +1,9 @@
+<view class="eaxm">
+  <navigator url="../videoList/videoList?type=word">word</navigator>
+</view>
+<view class="eaxm">
+  <navigator url="../videoList/videoList?type=ppt">ppt</navigator>
+</view>
+<view class="eaxm">
+  <navigator url="../videoList/videoList?type=excel">excel</navigator>
+</view>

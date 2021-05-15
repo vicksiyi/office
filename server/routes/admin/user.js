@@ -164,6 +164,6 @@ router.post('/delClose', passport.authenticate('jwt', { session: false }), (req,
     redisClient.del(req.body.openId);
     res.json({
         type: 'Success'
-    })
+    })  
 })
 module.exports = router;

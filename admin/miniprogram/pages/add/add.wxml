@@ -1,0 +1,21 @@
+<i-panel title="基本信息">
+  <i-input value="{{ title }}" bind:change="inputChange" title="视频名字" placeholder="名字" />
+  <view class="upload">
+    <view wx:if="{{!video}}" bindtap="upload">
+      <view class="tips">
+        <image src="../../images/video.png"></image>
+      </view>
+      <view wx:if="{{num == 0}}" class="tips-msg">
+        点击上传
+      </view>
+    </view>
+    <view wx:else>
+      <video src="{{video}}"></video>
+    </view>
+    <view wx:if="{{num != 0}}">
+      <i-progress percent="{{num}}" status="active"></i-progress>
+    </view>
+  </view>
+</i-panel>
+<i-button bind:click="submit" type="primary">上传</i-button>
+<i-message id="message" />

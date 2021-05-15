@@ -19,6 +19,8 @@
     "pages/multiSelectDetail/multiSelectDetail",
     "pages/radioDetail/radioDetail",
     "pages/me/me",
+    "pages/videoList/videoList",
+    "pages/videoSelect/videoSelect",
     "pages/detail/detail",
     "pages/video/video",
     "pages/news/news",
@@ -30,7 +32,7 @@
     "backgroundColor": "#2d8cf0",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#2d8cf0",
-    "navigationBarTitleText": "账上Office",
+    "navigationBarTitleText": "斩下Office",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {
@@ -42,6 +44,12 @@
         "iconPath": "./images/tabBar/video2.png",
         "selectedIconPath": "./images/tabBar/video1.png",
         "text": "视频"
+      },
+      {
+        "pagePath": "pages/videoSelect/videoSelect",
+        "iconPath": "./images/tabBar/list2.png",
+        "selectedIconPath": "./images/tabBar/list1.png",
+        "text": "系列"
       },
       {
         "pagePath": "pages/newsList/newsList",

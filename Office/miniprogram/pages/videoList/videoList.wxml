@@ -1,0 +1,67 @@
+<view class="video-list">
+  <view class="item" bindtap="showVideo">
+    <image src="https://i0.hdslb.com/bfs/feed-admin/007b37c1431256249e24d44b0353f8a837dc29e2.jpg@206w_116h_1c_100q.jpg">
+    </image>
+    <view class="title">Excel页面考点</view>
+  </view>
+  <view class="item">
+    <image src="https://i0.hdslb.com/bfs/feed-admin/007b37c1431256249e24d44b0353f8a837dc29e2.jpg@206w_116h_1c_100q.jpg">
+    </image>
+    <view class="title">Excel页面考点</view>
+  </view>
+  <view class="item">
+    <image src="https://i0.hdslb.com/bfs/feed-admin/007b37c1431256249e24d44b0353f8a837dc29e2.jpg@206w_116h_1c_100q.jpg">
+    </image>
+    <view class="title">Excel页面考点</view>
+  </view>
+  <view class="item">
+    <image src="https://i0.hdslb.com/bfs/feed-admin/007b37c1431256249e24d44b0353f8a837dc29e2.jpg@206w_116h_1c_100q.jpg">
+    </image>
+    <view class="title">Excel页面考点</view>
+  </view>
+  <view class="item">
+    <image src="https://i0.hdslb.com/bfs/feed-admin/007b37c1431256249e24d44b0353f8a837dc29e2.jpg@206w_116h_1c_100q.jpg">
+    </image>
+    <view class="title">Excel页面考点</view>
+  </view>
+  <view class="item">
+    <image src="https://i0.hdslb.com/bfs/feed-admin/007b37c1431256249e24d44b0353f8a837dc29e2.jpg@206w_116h_1c_100q.jpg">
+    </image>
+    <view class="title">Excel页面考点</view>
+  </view>
+  <view class="item">
+    <image src="https://i0.hdslb.com/bfs/feed-admin/007b37c1431256249e24d44b0353f8a837dc29e2.jpg@206w_116h_1c_100q.jpg">
+    </image>
+    <view class="title">Excel页面考点</view>
+  </view>
+  <view class="item">
+    <image src="https://i0.hdslb.com/bfs/feed-admin/007b37c1431256249e24d44b0353f8a837dc29e2.jpg@206w_116h_1c_100q.jpg">
+    </image>
+    <view class="title">Excel页面考点</view>
+  </view>
+  <view class="item">
+    <image src="https://i0.hdslb.com/bfs/feed-admin/007b37c1431256249e24d44b0353f8a837dc29e2.jpg@206w_116h_1c_100q.jpg">
+    </image>
+    <view class="title">Excel点</view>
+  </view>
+  <view class="item">
+    <image src="https://i0.hdslb.com/bfs/feed-admin/007b37c1431256249e24d44b0353f8a837dc29e2.jpg@206w_116h_1c_100q.jpg">
+    </image>
+    <view class="title">Excel页面考点ajksldjals</view>
+  </view>
+  <view class="item">
+    <image src="https://i0.hdslb.com/bfs/feed-admin/007b37c1431256249e24d44b0353f8a837dc29e2.jpg@206w_116h_1c_100q.jpg">
+    </image>
+    <view class="title">Excel页面考点</view>
+  </view>
+</view>
+<view class="mask" wx:if="{{isShowVideo}}">
+  <view class="video">
+    <image class="close" bindtap="showVideo" src="../../images/close.png"></image>
+    <video style="width:600rpx;height:510rpx;"
+      src="https://vd2.bdstatic.com/mda-md1602bkr6izq6xc/fhd/cae_h264_nowatermark/1617337142/mda-md1602bkr6izq6xc.mp4?v_from_s=gz_haokan_4469&auth_key=1617368280-0-0-30c1f12a90f4ad0c0c2ea77ab96d913a&bcevod_channel=searchbox_feed&pd=1&pt=3&abtest="></video>
+    <view class="title">
+      Excel页面考点
+    </view>
+  </view>
+</view>

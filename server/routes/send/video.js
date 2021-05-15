@@ -126,7 +126,14 @@ router.get('/getOneVideo/:id', passport.authenticate('jwt', { session: false }),
 router.get('/searchVideo/:start', passport.authenticate('jwt', { session: false }), (req, res) => {
     console.log(req.query)
     const keyword = new RegExp(req.query.title);
-    Video.find({ title: keyword }).sort({ time: -1 }).skip(req.params.start * 10).limit(10).then(Msg => {
+    Video.find({
+        $or:[
+            { title: keyword },
+            { videoClass: keyword },
+            { videoMsg: keyword },
+            { videoTag: keyword }
+        ]
+    }).sort({ time: -1 }).skip(req.params.start * 10).limit(10).then(Msg => {
         res.json(Msg);
     }).catch(err => {
         res.json(err);

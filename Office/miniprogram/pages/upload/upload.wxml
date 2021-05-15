@@ -1,10 +1,10 @@
 <i-panel title="视频信息">
-  <i-input title="视频名称*" bind:change="titleChange" placeholder="名称" />
-  <i-input title="视频类型*" bind:change="classChange" placeholder="类型" />
+  <i-input title="视频名称*" value="{{title}}" bind:change="titleChange" placeholder="名称" />
+  <i-input title="视频类型*" value="{{classVideo}}" bind:change="classChange" placeholder="类型" />
 </i-panel>
 <i-panel title="视频描述*">
   <view class="text-box">
-    <textarea name="review" maxlength="{{maxNumber}}" class="textArea" value="{{reviewText}}" bindinput='inputText'
+    <textarea name="review" maxlength="{{maxNumber}}" class="textArea" value="{{msg}}" bindinput='inputText'
       placeholder="请输入描述"></textarea>
     <span class="wordwrap">{{number}}/{{maxNumber}}</span>
   </view>

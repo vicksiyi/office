@@ -80,7 +80,7 @@ Page({
             let userInfo = await getUser.getUserInfo();
             userInfo = JSON.parse(userInfo);
             wx.cloud.uploadFile({
-              cloudPath: `image/${Date.parse(new Date()) + base64.encode(userInfo.nickName)}.png`, // 上传至云端的路径
+              cloudPath: `image/${userInfo.nickName}${Date.parse(new Date())}.png`, // 上传至云端的路径
               filePath: res.path, // 小程序临时文件路径
               success: res2 => {
                 // 返回文件 ID
@@ -89,7 +89,9 @@ Page({
                 })
                 wx.hideLoading()
               },
-              fail: console.error
+              fail: function(err){
+                console.log(err)
+              }
             })
             // wx.getFileSystemManager().readFile({
             //   filePath: res.path,
@@ -152,7 +154,7 @@ Page({
           return;
         }
         wx.cloud.uploadFile({
-          cloudPath: `video/${Date.parse(new Date()) + base64.encode(userInfo.nickName)}.mp4`, // 上传至云端的路径
+          cloudPath: `video/${Date.parse(new Date()) + userInfo.nickName}.mp4`, // 上传至云端的路径
           filePath: res.tempFilePath, // 小程序临时文件路径
           success: res2 => {
             // 返回文件 ID

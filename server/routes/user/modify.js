@@ -23,6 +23,13 @@ router.get('/getUser', passport.authenticate('jwt', { session: false }), (req, r
     res.json(req.user)
 })
 
+// $routes GET /user/modify/test
+// @desc 获取用户信息
+// @access private
+router.get('/test', (req, res) => {
+    res.json({ msg: '成功' })
+})
+
 // $routes GET /user/modify/editUser
 // @desc 修改用户信息
 // @access private
@@ -45,7 +52,7 @@ router.post('/editUser', passport.authenticate('jwt', { session: false }), (req,
 // @access private
 router.post('/sendEmail', passport.authenticate('jwt', { session: false }), (req, res) => {
     let randomNum = random.randomNumOneToOne(1000, 9999);
-    let textTemp = `<div style="margin: 50px auto;width: 800px;height: 500px;background-color: #ffff;-moz-box-shadow: 2px 2px 3px #dddee1;-webkit-box-shadow: 2px 2px 3px #dddee1;box-shadow: 2px 2px 3px #dddee1;border-radius: 25px;text-align: center;padding-top: 30px;"> <text style="width: 300px;height: 40px;font-size: 26px;color: #495060;">账上Office</text> <div style="width: 80%;margin: 60px auto;text-align: start;"> <div style="margin-top: 20px;margin-left: 20px;color: #1c2438;font-size: 14px;"> <text style="text-align: left;">HI,账上Office用户你好:</text> <br> 你正在进行账上Office的邮箱验证，请输入一下验证码，完成验证操作。 </div> <div style="margin-top: 20px;font-size: 40px;font-weight: bold;color: #2b85e4;text-align: center;">${randomNum}</div> <div style="margin-top: 20px;margin-left: 20px;color: #1c2438;font-size: 14px;">如果不是你的邮件请忽略，很抱歉打扰你，请原谅。</div> </div> <div> <hr style="width: 80%;margin: 0 auto;border: 0;height: 1px;background: #333;background-image: linear-gradient(to right, #ccc, #333, #ccc);"> </div> <div style="float: right;margin-top: 30px;margin-right:60px;color: #bbbec4;font-weight: bolder;">账上Office团队</div> </div>`
+    let textTemp = `<div style="margin: 50px auto;width: 800px;height: 500px;background-color: #ffff;-moz-box-shadow: 2px 2px 3px #dddee1;-webkit-box-shadow: 2px 2px 3px #dddee1;box-shadow: 2px 2px 3px #dddee1;border-radius: 25px;text-align: center;padding-top: 30px;"> <text style="width: 300px;height: 40px;font-size: 26px;color: #495060;">斩下Office</text> <div style="width: 80%;margin: 60px auto;text-align: start;"> <div style="margin-top: 20px;margin-left: 20px;color: #1c2438;font-size: 14px;"> <text style="text-align: left;">HI,斩下Office用户你好:</text> <br> 你正在进行斩下Office的邮箱验证，请输入一下验证码，完成验证操作。 </div> <div style="margin-top: 20px;font-size: 40px;font-weight: bold;color: #2b85e4;text-align: center;">${randomNum}</div> <div style="margin-top: 20px;margin-left: 20px;color: #1c2438;font-size: 14px;">如果不是你的邮件请忽略，很抱歉打扰你，请原谅。</div> </div> <div> <hr style="width: 80%;margin: 0 auto;border: 0;height: 1px;background: #333;background-image: linear-gradient(to right, #ccc, #333, #ccc);"> </div> <div style="float: right;margin-top: 30px;margin-right:60px;color: #bbbec4;font-weight: bolder;">斩下Office团队</div> </div>`
     // let server = email.server.connect(keys.email_server);
     const client = new email.SMTPClient(keys.email_server);
     // req.body.email
@@ -53,7 +60,7 @@ router.post('/sendEmail', passport.authenticate('jwt', { session: false }), (req
         text: '邮箱验证',       //邮件内容
         from: '1724264854@qq.com',        //谁发送的
         to: req.body.email,       //发送给谁的
-        subject: '账上Office',          //邮件主题
+        subject: '斩下Office',          //邮件主题
         attachment: { data: textTemp, alternative: true }
     }, function (err, message) {
         // Set a value with an expiration

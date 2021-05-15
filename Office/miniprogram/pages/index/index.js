@@ -1,6 +1,7 @@
 //index.js
 const app = getApp()
 const getUser = require('../../utils/getUser');
+const formatTime = require('../../utils/formatTime');
 const { $Message } = require('../../dist/base/index');
 Page({
 
@@ -23,7 +24,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: async function (options) {
+  onShow: async function (options) {
     let _this = this
     this.setData({
       load: true
@@ -81,7 +82,8 @@ Page({
           }
           for (let i = 0; i < res.data.length; ++i) { // cloud转temp
             res.data[i].imageUrl = await getUser.getTempUrl(res.data[i].imageUrl);
-            res.data[i].imageUrl = res.data[i].imageUrl[0].tempFileURL
+            res.data[i].imageUrl = res.data[i].imageUrl[0].tempFileURL;
+            res.data[i].videoTime = formatTime.secondsFormat(res.data[i].videoTime);
           }
           _this.setData({
             spinShow: false

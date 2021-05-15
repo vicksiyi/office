@@ -1,0 +1,10 @@
+.eaxm {
+  width: 600rpx;
+  height: 200rpx;
+  margin: 30rpx auto;
+  border-radius: 30rpx;
+  color: #fff;
+  background-image: linear-gradient(#5cadff, #2d8cf0);
+  line-height: 200rpx;
+  text-align: center;
+}

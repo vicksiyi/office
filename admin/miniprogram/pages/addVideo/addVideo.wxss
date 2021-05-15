@@ -1,0 +1,76 @@
+.beside {
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  border: 1rpx solid #bbbec4;
+  position: fixed;
+  right: 50rpx;
+  bottom: 200rpx;
+}
+
+.beside image {
+  width: 60rpx;
+  height: 60rpx;
+  margin: 10rpx;
+}
+
+.click image {
+  width: 40rpx;
+  height: 40rpx;
+  margin: 20rpx;
+}
+
+.video-list {
+  width: 700rpx;
+  margin: 20rpx auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.video-list .item {
+  width: 300rpx;
+  height: 400rpx;
+  margin-left: 30rpx;
+  margin-top: 30rpx;
+  border: 1rpx solid #dddee1;
+  position: relative;
+}
+
+.video-list .item image {
+  width: 280rpx;
+  height: 380rpx;
+  margin: 10rpx;
+}
+
+.video-list .item .title {
+  width: 280rpx;
+  height: 40rpx;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background: #5cadff;
+  color: #fff;
+  padding: 10rpx;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.bg {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: fixed;
+  margin: 0;
+  border-radius: 0;
+  background: rgba(17, 17, 17, 0.6);
+  transition: all 0.3s;
+}
+
+.bg .video {
+  width: 600rpx;
+  height: 400rpx;
+  margin: 300rpx auto;
+}

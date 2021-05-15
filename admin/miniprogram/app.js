@@ -14,6 +14,10 @@ App({
       })
     }
     this.globalData = {}
-    this.ip = '192.168.0.103'
+    this.ip = '127.0.0.1'
+    this.tempIp = '42.193.216.210'
+    this.port = '5000'
+    this.baseUrl = 'http://mathfans.love:8000/'
+    this.baseVideoUrl = 'http://mathfans.love:8000/video/'
   }
 })

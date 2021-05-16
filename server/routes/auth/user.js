@@ -38,6 +38,7 @@ router.post('/login', async (req, res) => {
         req.connection.remoteAddress ||
         req.socket.remoteAddress ||
         req.connection.socket.remoteAddress;
+    console.log(data)
     // 响应
     if (data.openid) {
         let Item = {}
@@ -124,7 +125,6 @@ router.post('/login', async (req, res) => {
 // @desc 用户授权
 // @access public
 router.post('/auth', async (req, res) => {
-    // 格式化JSON
     let data = await oauthFunc(req.body['code'])
     let iv = req.body['iv']
     let encryptedData = req.body['encryptedData']

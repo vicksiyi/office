@@ -124,4 +124,25 @@ router.get('/getSeriesVideo/:type/:page', passport.authenticate('jwt', { session
         });
     })
 })
+
+// $routes GET /admin/video/delSeriesVideo
+// @desc 删除视频
+// @access private
+router.get('/delSeriesVideo/:id', passport.authenticate('jwt', { session: false }), (req, res) => {
+    SeriesVideo.findOneAndRemove({ _id: req.params.id }).then(profile => {
+        if (profile) {
+            res.json({
+                type: 'Success'
+            })
+        } else {
+            res.json({
+                type: 'deled'
+            })
+        }
+    }).catch(err => {
+        res.json({
+            type: 'error'
+        })
+    })
+})
 module.exports = router;

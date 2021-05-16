@@ -74,3 +74,11 @@
   height: 400rpx;
   margin: 300rpx auto;
 }
+
+.video-list .item .img image {
+  width: 50rpx;
+  height: 50rpx;
+  position: absolute;
+  top: -30rpx;
+  right: -30rpx;
+}

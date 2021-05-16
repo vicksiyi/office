@@ -1,7 +1,10 @@
 <view class="video-list">
-  <view wx:for="{{seriseVideo}}" data-Video="{{item.videoUrl}}" bindtap="show" class="item">
-    <image mode="aspectFill" src="{{item.img}}"></image>
+  <view wx:for="{{seriseVideo}}" class="item">
+    <image mode="aspectFill" data-Video="{{item.videoUrl}}" bindtap="show" src="{{item.img}}"></image>
     <view class="title">{{index + 1}}、{{item.title}}</view>
+    <view class="img" data-Id="{{item._id}}" bindtap="del">
+      <image src="../../images/close.png"></image>
+    </view>
   </view>
 </view>
 <!-- 上传 -->
@@ -15,3 +18,4 @@
     <video src="{{video}}" autoplay="true"></video>
   </view>
 </view>
+<i-message id="message" />

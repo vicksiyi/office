@@ -85,5 +85,45 @@ Page({
     this.setData({
       isShow: false
     })
+  },
+  del: function (e) {
+    let _this = this;
+    let id = e.currentTarget.dataset.id;
+    wx.showLoading({
+      title: '加载数据',
+      mask: true
+    })
+    wx.request({
+      url: `http://${app.ip}:5001/admin/video/delSeriesVideo/${id}`,
+      header: {
+        'Authorization': _this.data.token
+      },
+      success: async function (res) {
+        if (res.data == "Unauthorized") {
+          wx.removeStorage({
+            key: 'Token',
+          })
+          wx.redirectTo({
+            url: '../../pages/login/login',
+          })
+        }
+        if (res.data.type != 'err') {
+          $Message({
+            content: '成功',
+            type: 'success'
+          })
+          let seriseVideo = await _this.getSeriesVideo(_this.data.token, _this.data.type, 0);
+          _this.setData({
+            seriseVideo: seriseVideo
+          })
+        }
+      },
+      fail: function (err) {
+        reject(err);
+      },
+      complete: () => {
+        wx.hideLoading()
+      }
+    })
   }
 })

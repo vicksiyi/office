@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 const passport = require('passport');
 const Video = require('../../models/Video');
+const SeriesVideo = require('../../models/SeriesVideos');
 
 // $routes POST /send/video/upload
 // @desc 发布视频
@@ -137,6 +138,23 @@ router.get('/searchVideo/:start', passport.authenticate('jwt', { session: false 
         res.json(Msg);
     }).catch(err => {
         res.json(err);
+    })
+})
+
+// $routes GET /send/video/getSeriesVideo
+// @desc 获取系列视频
+// @access private
+router.get('/getSeriesVideo/:type/:page', passport.authenticate('jwt', { session: false }), (req, res) => {
+    let type = req.params.type;
+    let page = req.params.page;
+    SeriesVideo.find({
+        type: type
+    }).skip(page * 10).limit(10).then(Msg => {
+        res.json(Msg);
+    }).catch(err => {
+        res.json({
+            type: 'err'
+        });
     })
 })
 module.exports = router;

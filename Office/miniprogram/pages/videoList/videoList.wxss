@@ -22,7 +22,9 @@
   position: absolute;
   bottom: 0;
   right: 0;
-  max-width: 250rpx;
+  /* max-width: 250rpx; */
+  text-align: center;
+  width: 300rpx;
   background: #2d8cf0;
   padding: 10rpx;
   color: #fff;

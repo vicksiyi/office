@@ -45,7 +45,7 @@
     <view class="msg" style="font-size:23rpx;">具体情况请查看刷题记录</view>
     <view class="msg">{{numTime}}s内自动返回</view>
     <view class="img">
-      <image src="cloud://zhihao-2gqgyn10b1df04b1.7a68-zhihao-2gqgyn10b1df04b1-1305103766/bg/reward.gif"></image>
+      <image src="cloud://tallygc-q6ssa.7461-tallygc-q6ssa-1301363722/images/src=http___img.soogif.com_n7XhGfoWvbw7diODuj7Ag4Oy1paBQgZN.gif&refer=http___img.soogif.gif"></image>
     </view>
   </view>
 </view>

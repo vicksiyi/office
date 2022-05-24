@@ -28,7 +28,7 @@
     "backgroundColor": "#2d8cf0",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#2d8cf0",
-    "navigationBarTitleText": "斩下Office管理端",
+    "navigationBarTitleText": "Office学习管理端",
     "navigationBarTextStyle": "white"
   },
   "tabBar": {

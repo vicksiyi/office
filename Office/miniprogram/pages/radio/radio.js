@@ -36,6 +36,7 @@ Page({
         size: 20
       })
       .end().then(res => {
+        console.log(res);
         _this.setData({
           title: res.list,
           spinShow: false

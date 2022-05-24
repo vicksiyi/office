@@ -2,8 +2,8 @@ module.exports = {
     mongoURI: "mongodb://localhost/user",
     secretAdmin: '2225e5ab3660h5201fd72aa25',
     secretUser: '2225e5ab3669d5201fd72aa25',
-    APPID: 'wxab88a519b0bc7df4',
-    SECRET: 'c0f29c5662ff48cc2629e89229c653fb',
+    APPID: 'wx65fe5b0c7c270258',
+    SECRET: 'd1b3f5c8072bc1e76066d3826c4f26b9',
     email_server: {
         user: "1724264854@qq.com",
         password: "uevzrytoonybcjhg",
